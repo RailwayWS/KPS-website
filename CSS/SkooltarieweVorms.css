@@ -1,0 +1,121 @@
+/*download buttons*/
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.download-buttons .button {
+    padding: 20px;
+}
+
+.download-buttons .button a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: #00a86b;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-buttons .button a:hover {
+    background: #01ffa2;
+}
+
+.download-buttons .button a i {
+    margin-left: 8px;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .download-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .download-buttons .button {
+        padding: 10px 20px;
+    }
+}
+
+/*Accordian*/
+.accordion {
+    width: 90%;
+    height: max-content;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.accordion-item {
+    background-color: #fff;
+    color: #111;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.accordion-item-header {
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    min-height: 3.5rem;
+    line-height: 1.25rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.accordion-item-header::after {
+    content: "\002B";
+    font-size: 2rem;
+    position: absolute;
+    right: 1rem;
+}
+
+.accordion-item-header.active::after {
+    content: "\2212";
+}
+
+.accordion-item-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  .accordion-item-body-content {
+    padding: 1rem;
+    line-height: 1.5rem;
+    border-top: 1px solid;
+    border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+  }
+  
+  @media(max-width:767px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+.unordered {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.list {
+    padding: 0.25rem 0;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.nested-list {
+    font-size: 1.2rem;
+    color: #555;
+}

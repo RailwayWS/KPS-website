@@ -1,0 +1,70 @@
+/*cards*/
+.container {
+    max-width: 1600px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 20px;
+    color: #111;
+}
+
+.container .box{
+    width: calc(33.333% - 20px);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .container .box .image {
+    margin: 10px 0;
+    height: 150px;
+    width: 150px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: #002552; 
+}
+
+.box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+
+.box .name_job{
+    margin: 10px 0 3px 0;
+    color: #00a86b;
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+ 
+@media (min-width: 1200px) {
+    .container .box {
+      width: calc(33.333% - 20px); /* 3 cards per row */
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 1045px) {
+    .container .box {
+      width: calc(50% - 10px); /* 2 cards per row */
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 710px) {
+    .container .box {
+      width: 100%; /* 1 card per row */
+      margin-bottom: 20px;
+    }
+  }

@@ -1,0 +1,119 @@
+.hero-section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 95vh;
+    padding: 0 15px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+
+  .hero-section .hero {
+    max-width: 50%;
+    color: #fff;
+  }
+
+  .hero .para {
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .hero-section .img img {
+    width: 520px;
+  }
+
+  .hero-section .buttons {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+  }
+
+  .hero-section .buttons a {
+    text-decoration: none;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 0.6rem;
+    font-weight: 600;
+    transition: 0.5s ease;
+    display: inline-block;
+  }
+
+  .buttons .join {
+    background-color: #00a86b;
+  }
+
+  .hero-section .buttons a:hover {
+    background-color: #002552;
+  }
+
+  @media screen and (max-width: 1023px) {
+    .hero-section .hero {
+      max-width: 100%;
+      text-align: center;
+    }
+    .hero-section img {
+      display: none;
+    }
+  }
+
+  /*fotos*/
+.container {
+  max-width: 1600px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 20px;
+  color: #111;
+}
+
+.container .box{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.container .box .image {
+  margin: 10px 0;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.box .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border: 15px solid #00a86b;
+}
+
+
+.box .naam{
+  margin: 10px 0 3px 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .container .box {
+      width: 100%; /* 1 card per row */
+      margin-bottom: 20px;
+  }
+  /*smaller images*/
+  .container .box .image {
+    margin: 10px 0;
+    height: 420px;
+    width: 420px;
+    display: flex;
+    justify-content: center;
+  }
+}

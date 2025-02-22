@@ -1,0 +1,139 @@
+/*accordian*/
+.accordion {
+    width: 90%;
+    height: max-content;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.accordion-item {
+    background-color: #fff;
+    color: #111;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.accordion-item-header {
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    min-height: 3.5rem;
+    line-height: 1.25rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.accordion-item-header::after {
+    content: "\002B";
+    font-size: 2rem;
+    position: absolute;
+    right: 1rem;
+}
+
+.accordion-item-header.active::after {
+    content: "\2212";
+}
+
+.accordion-item-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  .accordion-item-body-content {
+    padding: 1rem;
+    line-height: 1.5rem;
+    border-top: 1px solid;
+    border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+  }
+  
+  @media(max-width:767px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+.unordered {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.list {
+    padding: 0.25rem 0;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.nested-list {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+ /*fotos*/
+.container {
+    max-width: 1600px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 20px;
+    color: #111;
+  }
+  
+  .container .box{
+    width: calc(33.333% - 20px);/*3 cards per row*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .container .box .image {
+    margin: 10px 0;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border: 15px solid #00a86b;
+  }
+  
+  
+  .box .naam{
+    margin: 10px 0 3px 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  @media (max-width: 1600px) {
+    .container .box {
+        width: 50%; /* 2 card per row */
+        margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 1100px) {
+    .container .box {
+        width: 100%; /* 1 card per row */
+        margin-bottom: 20px;
+    }
+    /*smaller images*/
+    .container .box .image {
+      margin: 10px 0;
+      height: 400px;
+      width: 400px;
+      display: flex;
+      justify-content: center;
+    }
+  }
