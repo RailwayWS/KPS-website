@@ -1,0 +1,257 @@
+/*Alternative box model*/
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+
+/*styling*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    cursor: default;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #00a86b, #002552, #00a86b);
+    background-size: 300% 300%;
+    animation: color 12s ease-in-out infinite;
+}
+
+@keyframes color {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2vw;
+}
+
+/* Default font size for smaller screens */
+h1 {
+    font-size: 24px;
+}
+
+/* Adjust font size for medium screens */
+@media (min-width: 600px) {
+    h1 {
+        font-size: 32px;
+    }
+}
+
+/* Adjust font size for larger screens */
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 48px;
+    }
+}
+
+/* Adjust font size for extra-large screens */
+@media (min-width: 1440px) {
+    h1 {
+        font-size: 64px;
+    }
+}
+
+h2 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 1vw;
+}
+
+/*Changing font sizes*/
+p {
+    font-size: 22px;
+    line-height: 1.5;
+    margin: 0 2vw 2vw 2vw;
+    padding: 1vw;
+}
+
+@media (max-width: 1200px) {
+    h2{
+        font-size: 30px;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    h2{
+        font-size: 25px;
+    }
+    p{
+        font-size: 18px;
+    }
+}
+
+u {
+    color:#00a86b;
+    text-decoration-thickness: 5px;
+}
+
+/*nav bar*/
+nav {
+    background-color: #002552;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 60px;
+    z-index: 100;
+    padding: 0 20px;
+}
+
+.nav-bar-text {
+    font-size: 20px; 
+    font-weight: 500;
+    color: #00a86b;
+    text-transform: uppercase;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+hr {
+    position: sticky;
+    top: 60px; 
+    width: 100%;
+    margin: auto;
+    border: none;
+    border-top: 3px solid #00a86b;
+}
+
+ul {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    list-style: none;
+}
+
+li {
+    margin: 5px;
+}
+
+.links-list a {
+    font-size: 16px;
+    color: #00a86b;
+    text-decoration: none;
+    outline-color: transparent;
+    padding: 0.5em 1em;
+    transition: 0.3s;
+}
+
+.links-list a:hover {
+    background-color: #00a86b;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.links-list a:active {
+    background-color: #01ffa2;
+    color: rgb(228, 228, 228);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1100px) {
+    nav {
+        position: sticky;
+    }
+
+    .nav-bar-text {
+        font-size: 18px;
+        text-align: left;
+    }
+
+    ul {
+        flex-direction: column;
+        display: none;
+        background-color: rgba(0, 37, 82, 0.95);
+        width: 230px;
+        text-align: center;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        border-bottom-left-radius: 10px;
+    }
+
+    ul.active {
+        display: flex;
+    }
+
+    li {
+        margin: 0;
+        padding: 15px 0;
+        line-height: 1.2;
+    }
+
+    #menu-icon {
+        display: block;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+}
+
+/* Hide menu icon on larger screens */
+@media (min-width: 1101px) {
+    #menu-icon {
+        display: none;
+    }
+}
+
+/*footer*/
+footer {
+    background-color: #1a1a1a;
+    text-align: center; 
+    padding: 20px 0;
+  }
+  
+footer a {
+    text-decoration: none;
+    outline: none;
+    border: none;
+  }
+
+.Railway{
+    font-size: 15px;
+    color: #afafb6;
+}
+
+.Railway a{
+    text-decoration: underline;
+    color: inherit;
+}
+
+.Railway a:hover {
+    color: #00a86b;
+}
