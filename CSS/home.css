@@ -248,6 +248,7 @@
 .content .left-side .details .text-three {
     font-size: 14px;
     color: #afafb6;
+    text-decoration: none;
 }
 
 .contact .content .right-side {
