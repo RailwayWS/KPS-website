@@ -246,9 +246,9 @@
 .content .left-side .details .text-one,
 .content .left-side .details .text-two,
 .content .left-side .details .text-three {
+    text-decoration: none;
     font-size: 14px;
     color: #afafb6;
-    text-decoration: none;
 }
 
 .contact .content .right-side {
