@@ -6,8 +6,13 @@
     align-items: center;
     text-align: center;
     box-sizing: border-box;
-    height: 100vh;
 }
+
+@media (min-width: 1200px) {
+    .home {
+      height: 100vh;
+    }
+  }
 
 .home img {
     margin-bottom: 10px;
