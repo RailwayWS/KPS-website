@@ -2,9 +2,11 @@
 .home {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    text-align: center; 
+    text-align: center;
+    box-sizing: border-box;
+    height: 100vh;
 }
 
 .home img {
@@ -19,9 +21,9 @@
     margin-top: 5px;
 }
 
-.skoolwapen1{
+.skoolwapen1 {
     display: block;
-    max-width: 50%; 
+    max-width: 50%;
     height: auto;
     padding: 2rem;
     margin: 0 auto;
@@ -37,6 +39,7 @@
 /*slider*/
 .container {
     padding: 2rem;
+
 }
 
 .slider {
