@@ -368,10 +368,12 @@
     </footer>
 
 <script>
-    var preloader = document.getElementById("preloader")
-    window.addEventListener("load", function(){
-        preloader.style.display = "none";
-    })
+    var preloader = document.getElementById("preloader");
+    window.addEventListener("load", function() {
+        setTimeout(function() {
+            preloader.style.display = "none";
+        }, 3000); // 3000 milliseconds = 3 seconds
+    });
 </script>
 
 </body>
