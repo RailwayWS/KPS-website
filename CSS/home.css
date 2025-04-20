@@ -377,3 +377,12 @@ button:hover {
 .custom-icon:hover {
     transform: scale(1.2); /* Increase size by 20% */
 }
+
+/*preloader*/
+#preloader{
+    background: #000 url(../preloader.gif)no-repeat center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}

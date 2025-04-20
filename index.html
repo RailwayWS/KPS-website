@@ -41,6 +41,8 @@
     </head>
 
 <body>
+<!--preloader-->
+<div id="preloader"></div>
 <!--nav bar-->
 <nav>
     <a href="#" class="nav-bar-text">Lig is lewe</a>
@@ -364,6 +366,14 @@
     <footer class="Railway">
         Developed by <a href="mailto:railwaywebsolutions@gmail.com?subject=Inquiry&body=Hello Railway Web Solutions,">Railway Web Solutions</a>
     </footer>
+
+<script>
+    var preloader = document.getElementById("preloader")
+    window.addEventListener("load", function(){
+        preloader.style.display = "none";
+    })
+</script>
+
 </body>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N12CC0S74K"></script>

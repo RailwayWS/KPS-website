@@ -121,7 +121,7 @@ nav {
     justify-content: center; /* Center the ul */
     align-items: center; 
     height: 60px;
-    z-index: 100;
+    z-index: 99;
     padding: 0 20px;
     width: 100%; /* Ensure the nav takes the full width */
     position: relative; /* Ensure nav is a positioned ancestor for absolute positioning */
