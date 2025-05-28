@@ -38,12 +38,26 @@
         <!--preload the crest-->
         
         <link rel="preload" href="Images/Skoolwapen_optimized.webp" as="image">
+
+        <!--==================================FONTS==================================-->
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+
     </head>
 
 <body>
-<!--preloader-->
-<div id="preloader"></div>
-<!--nav bar-->
+<!--==================================PRELOADER==================================-->
+<div id="preloader">
+        <span class="loader"></span>
+    </div>
+    <script>
+        var preloader = document.getElementById("preloader");
+        setTimeout(function() {
+            preloader.style.display = "none";
+        }, 3000);
+    </script>
+
+
+<!--==================================nav bar==================================-->
 <nav>
     <a href="#" class="nav-bar-text">Lig is lewe</a>
     <ul id="menu" class="links-list">
@@ -115,7 +129,7 @@
     <!--Skool info-->
     <div class="inligting">
         <div class="blok1">
-            <u><h2 style="text-align: center;">Wie is ons?</h2></u>
+            <u><h2 style="text-align: center; font-family: quicksand, Arial;">Wie is ons?</h2></u>
             <p> 
                 KPS, geleë in Keetmanshoop in die suide van Namibië, het in 1996 tot stand gekom en is geregistreer by die Ministerie van Basiese Onderwys & 
                 Kultuur, Namibië, as 'n opvoedkundige instansie sonder 'n winsoogmerk. Keetmanshoop Privaatskool wil op 'n dinamiese wyse en vanuit 'n 
@@ -125,7 +139,7 @@
         </div>
 
         <div class="blok2">
-            <u><h2 style="text-align: center;">Ons wapen</h2></u>
+            <u><h2 style="text-align: center; font-family: quicksand, Arial;">Ons wapen</h2></u>
 
             <img 
                 class="skoolwapen2"
@@ -141,7 +155,7 @@
         </div>
 
         <div class="blok3">
-            <u><h2 style="text-align: center;">Ons leuse: Lig is lewe</h2></u>
+            <u><h2 style="text-align: center; font-family: quicksand, Arial;">Ons leuse: Lig is lewe</h2></u>
             <p style="text-align: center;"> 
                 Die lig simboliseer die Bybel:
                 die Bybel gee aan ons lewe.
@@ -155,7 +169,7 @@
         </div>
 
         <div class="blok4">
-            <u><h2 style="text-align: center;">Skoollied</h2></u>
+            <u><h2 style="text-align: center; font-family: quicksand, Arial;">Skoollied</h2></u>
             <p style="text-align: center;"> 
                 Lig is lewe, dis ons leuse<br/>
                 By die Keetmanshoop Privaatskool<br/>
@@ -368,14 +382,7 @@
         Developed by <a href="mailto:railwaywebsolutions@gmail.com?subject=Inquiry&body=Hello Railway Web Solutions,">Railway Web Solutions</a>
     </footer>
 
-<script>
-    var preloader = document.getElementById("preloader");
-    window.addEventListener("load", function() {
-        setTimeout(function() {
-            preloader.style.display = "none";
-        }, 2000); //delay time
-    });
-</script>
+
 
 </body>
 <!-- Google tag (gtag.js) -->

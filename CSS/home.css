@@ -1,3 +1,6 @@
+p{
+    font-family: quicksand, Arial;
+}
 
 .home {
     display: flex;
@@ -6,6 +9,7 @@
     align-items: center;
     text-align: center;
     box-sizing: border-box;
+    font-family: quicksand, Arial;
 }
 
 @media (min-width: 1200px) {
@@ -20,6 +24,7 @@
 
 .home h1 {
     margin: 5px 0px;
+    font-family: quicksand, Arial;
 }
 
 .home p {
@@ -40,6 +45,7 @@
       margin: 5px 5px;
     }
   }
+
 
 /*slider*/
 .container {
@@ -79,7 +85,7 @@
 .inligting {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;  /* Ensures blocks are spaced evenly */
+    justify-content: space-between; 
     margin: 3vw 3vw 0 3vw;
 }
 
@@ -139,7 +145,8 @@
     place-items: center;
     padding: 0 0 40px 0;
     line-height: 1.5;
-    overflow: hidden; /* Prevent overflow issues */
+    overflow: hidden; 
+    font-family: quicksand, Arial;
 }
 
 .quotes {
@@ -225,6 +232,7 @@
     background: #1a1a1a;
     padding: 30px 60px 0 40px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    font-family: quicksand, Arial;
 }
 
 .contact .content {
@@ -386,11 +394,96 @@ button:hover {
     transform: scale(1.2); /* Increase size by 20% */
 }
 
-/*preloader*/
-#preloader{
-    background: #000 url(../preloader.gif)no-repeat center;
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    z-index: 100;
+/*RAILWAY*/
+.Railway{
+    font-family: quicksand, Arial;
 }
+
+
+/*==================================PRELOADER==================================*/
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.loader {
+transform: rotateZ(45deg);
+perspective: 1000px;
+border-radius: 50%;
+width: 150px;
+height: 150px;
+color: #fff;
+}
+.loader:before,
+.loader:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1.2s spin linear infinite;
+}
+.loader:after {
+    color: #00a86b;
+    transform: rotateY(70deg);
+    animation-delay: .4s;
+}
+
+@keyframes rotate {
+0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+}
+100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+}
+}
+
+@keyframes rotateccw {
+0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+}
+}
+
+@keyframes spin {
+0%,
+100% {
+    box-shadow: .2em 0px 0 0px currentcolor;
+}
+12% {
+    box-shadow: .2em .2em 0 0 currentcolor;
+}
+25% {
+    box-shadow: 0 .2em 0 0px currentcolor;
+}
+37% {
+    box-shadow: -.2em .2em 0 0 currentcolor;
+}
+50% {
+    box-shadow: -.2em 0 0 0 currentcolor;
+}
+62% {
+    box-shadow: -.2em -.2em 0 0 currentcolor;
+}
+75% {
+    box-shadow: 0px -.2em 0 0 currentcolor;
+}
+87% {
+    box-shadow: .2em -.2em 0 0 currentcolor;
+}
+}
+   
+   

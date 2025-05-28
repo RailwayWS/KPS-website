@@ -1,8 +1,13 @@
+h1{
+    font-family: quicksand, Arial;
+}
+
 /*download buttons*/
 .download-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
+    font-family: quicksand, Arial;
 }
 
 .download-buttons .button {
@@ -53,6 +58,7 @@
     height: max-content;
     max-width: 1000px;
     margin: 2rem auto;
+    font-family: quicksand, Arial;
 }
 
 .accordion-item {

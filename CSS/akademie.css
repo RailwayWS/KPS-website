@@ -1,9 +1,14 @@
+h1{
+  font-family: quicksand, Arial;
+}
+
 /*accordian*/
 .accordion {
     width: 90%;
     height: max-content;
     max-width: 1000px;
     margin: 2rem auto;
+    font-family: quicksand, Arial;
 }
 
 .accordion-item {
@@ -73,6 +78,7 @@
 
  /*fotos*/
 .container {
+    font-family: quicksand, Arial;
     max-width: 1600px;
     display: flex;
     justify-content: space-between;

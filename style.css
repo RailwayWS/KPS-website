@@ -2,6 +2,7 @@
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    font-family: quicksand, Arial;
   }
   
   *,
@@ -18,7 +19,7 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: quicksand, Arial;
     color: white;
     cursor: default;
     width: 100%;
@@ -41,7 +42,6 @@ body {
 }
 
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.2;
     text-align: center;
     text-transform: uppercase;
@@ -75,7 +75,6 @@ h1 {
 }
 
 h2 {
-    font-family:Arial, Helvetica, sans-serif;
     font-size: 35px;
     text-transform: uppercase;
     color: #fff;
@@ -125,6 +124,7 @@ nav {
     padding: 0 20px;
     width: 100%; /* Ensure the nav takes the full width */
     position: relative; /* Ensure nav is a positioned ancestor for absolute positioning */
+    font-family: quicksand, Arial;
 }
 
 .nav-bar-text {
@@ -144,7 +144,6 @@ nav a {
 }
 
 ul {
-    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     list-style: none;
     align-items: center; /* Center the links vertically */
