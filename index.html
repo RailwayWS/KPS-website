@@ -37,7 +37,7 @@
 
         <!--preload the crest-->
         
-        <link rel="preload" href="Images/Skoolwapen_optimized.webp" as="image">
+        <link rel="preload" href="Images/Skoolwapen.webp" as="image">
 
         <!--==================================FONTS==================================-->
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
@@ -51,9 +51,16 @@
     </div>
     <script>
         var preloader = document.getElementById("preloader");
+
         setTimeout(function() {
-            preloader.style.display = "none";
+            preloader.classList.add('slide-up');
         }, 3000);
+
+        preloader.addEventListener('transitionend', function(event) {
+            if (event.propertyName === 'transform') {
+                preloader.style.display = "none";
+            }
+        });
     </script>
 
 
@@ -89,7 +96,7 @@
     <div class="home">
         <img 
         class="skoolwapen1" 
-        src="Images/Skoolwapen_optimized.webp" 
+        src="Images/Skoolwapen.webp" 
         alt="Keetmanshoop Privaatskool se wapen">
 
     
@@ -106,22 +113,22 @@
     <!--Image slider-->
     <div class="container">
         <div class="slider">
-            <img src="Images/Slider/elriperd_optimized.webp" alt="Elri en perd by atletiek">
-            <img src="Images/Slider/draak_optimized.webp" alt="Draak by atletiek">
-            <img src="Images/Slider/Grrad1_optimized.webp" alt="Graad 1 leerlinge by Keetmanshoop Privaatskool">
-            <img src="Images/Slider/Matrieks_optimized.webp" alt="Matriekleerlinge van Keetmanshoop Privaatskool">
-            <img src="Images/Slider/geitsanas_optimized.webp" alt="Geitsanas by Keetmanshoop Privaatskool">
-            <img src="Images/Slider/jukskei_optimized.webp" alt="Jukskei by Keetmanshoop Privaatskool">
-            <img src="Images/Slider/tennis_optimized.webp" alt="Tennis by Keetmanshoop Privaatskool">
-            <img src="Images/Slider/outee_optimized.webp" alt="Oudleerlinge van Keetmanshoop Privaatskool">
-            <img src="Images/Slider/konsert3_optimized.webp" alt="Konsert by Keetmanshoop Privaatskool 3">
-            <img src="Images/Slider/konsert_optimized.webp" alt="Konsert by Keetmanshoop Privaatskool 1">
-            <img src="Images/Slider/konsert2_optimized.webp" alt="Konsert by Keetmanshoop Privaatskool 2">
-            <img src="Images/Slider/blou pou_optimized.webp" alt="Blou pou van Keetmanshoop Privaatskool">
-            <img src="Images/Slider/oudste personeel_optimized.webp" alt="Oudste personeel van Keetmanshoop Privaatskool">
-            <img src="Images/Slider/oudtse matrieks_optimized.webp" alt="Oudste matrieks van Keetmanshoop Privaatskool">
-            <img src="Images/Slider/sotte_optimized.webp" alt="Oudste sotte by Keetmanshoop Privaatskool">
-            <img src="Images/Slider/trompoppies_optimized.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
+            <img src="Images/Slider/elriperd.webp" alt="Elri en perd by atletiek">
+            <img src="Images/Slider/draak.webp" alt="Draak by atletiek">
+            <img src="Images/Slider/Grrad1.webp" alt="Graad 1 leerlinge by Keetmanshoop Privaatskool">
+            <img src="Images/Slider/Matrieks.webp" alt="Matriekleerlinge van Keetmanshoop Privaatskool">
+            <img src="Images/Slider/geitsanas.webp" alt="Geitsanas by Keetmanshoop Privaatskool">
+            <img src="Images/Slider/jukskei.webp" alt="Jukskei by Keetmanshoop Privaatskool">
+            <img src="Images/Slider/tennis.webp" alt="Tennis by Keetmanshoop Privaatskool">
+            <img src="Images/Slider/outee.webp" alt="Oudleerlinge van Keetmanshoop Privaatskool">
+            <img src="Images/Slider/konsert3.webp" alt="Konsert by Keetmanshoop Privaatskool 3">
+            <img src="Images/Slider/konsert.webp" alt="Konsert by Keetmanshoop Privaatskool 1">
+            <img src="Images/Slider/konsert2.webp" alt="Konsert by Keetmanshoop Privaatskool 2">
+            <img src="Images/Slider/blou pou.webp" alt="Blou pou van Keetmanshoop Privaatskool">
+            <img src="Images/Slider/oudste personeel.webp" alt="Oudste personeel van Keetmanshoop Privaatskool">
+            <img src="Images/Slider/oudtse matrieks.webp" alt="Oudste matrieks van Keetmanshoop Privaatskool">
+            <img src="Images/Slider/sotte.webp" alt="Oudste sotte by Keetmanshoop Privaatskool">
+            <img src="Images/Slider/trompoppies.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
         </div>
     </div>
 
@@ -143,7 +150,7 @@
 
             <img 
                 class="skoolwapen2"
-                src="Images/Skoolwapen_optimized.webp" 
+                src="Images/Skoolwapen.webp" 
                 alt="Keetmanshoop Privaatskool se wapen met arend en Bybel">
             <p>
                 Die wapen van die Keetmanshoop Privaatskool is heraldies uniek in die opsig dat die tipiese Christelike onderwysstelsel wat ouers vir hul kinders 
@@ -369,10 +376,10 @@
     <footer>
         <div class="custom-social-icons">
         <a href="https://www.facebook.com/profile.php?id=100063934898322" target="_blank">
-            <img src="Images/Icons/facebook_optimized.webp" alt="Facebook-ikoon vir Keetmanshoop Privaatskool" class="custom-icon">
+            <img src="Images/Icons/facebook.webp" alt="Facebook-ikoon vir Keetmanshoop Privaatskool" class="custom-icon">
         </a>
         <a href="https://www.instagram.com/kps_privaatskool?igsh=MTFzajJxMmNrOGFrYg==" target="_blank">
-            <img src="Images/Icons/instagram_optimized.webp" alt="Instagram-ikoon vir Keetmanshoop Privaatskool" class="custom-icon">
+            <img src="Images/Icons/instagram.webp" alt="Instagram-ikoon vir Keetmanshoop Privaatskool" class="custom-icon">
         </a>
         </div>
     </footer>
