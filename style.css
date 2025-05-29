@@ -104,9 +104,34 @@ p {
 }
 
 u {
-    color:#00a86b;
-    text-decoration-thickness: 5px;
-    text-underline-offset: 8px;
+    color: #00a86b;
+    text-decoration: none; /* Remove the default underline */
+    position: relative;
+    display: inline-block; /* Ensure the width matches the text */
+}
+
+u::after {
+    content: '';
+    position: absolute;
+    bottom: 15px; /* Offset from the text */
+    left: 0;
+    width: 100%; /* Span the full width of the text */
+    height: 5px; /* Thickness of the underline */
+    background-color: #00a86b; /* Color of the underline */
+    border-radius: 5px; /* Rounded ends */
+}
+
+@media (max-width: 1200px) {
+   u::after {
+    content: '';
+    position: absolute;
+    bottom: 0px; /* Offset from the text */
+    left: 0;
+    width: 100%; /* Span the full width of the text */
+    height: 3px; /* Thickness of the underline */
+    background-color: #00a86b; /* Color of the underline */
+    border-radius: 5px; /* Rounded ends */
+}
 }
 
 /*nav bar*/

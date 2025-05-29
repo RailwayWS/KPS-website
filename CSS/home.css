@@ -100,11 +100,13 @@ p{
 
 .blok1, .blok2 {
     width: 100%;
+    text-align: center;
 }
 
 .blok3, .blok4 {
     width: 30%;
     margin: 2vw 8vw;
+    text-align: center;
 }
 
 @media (max-width: 1200px) {
@@ -118,12 +120,6 @@ p{
     }
 }
 
-.skoolwapen2{
-    float: left;
-    width: 140px;
-    margin-top: 20px;
-    margin-right: 20px;
-}
 
 @media (max-width: 1000px) {
     .skoolwapen2 {
