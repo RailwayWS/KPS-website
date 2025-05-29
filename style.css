@@ -49,10 +49,6 @@ h1 {
     margin: 2vw;
 }
 
-/* Default font size for smaller screens */
-h1 {
-    font-size: 24px;
-}
 
 /* Adjust font size for medium screens */
 @media (min-width: 600px) {
