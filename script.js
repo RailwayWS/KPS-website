@@ -24,20 +24,30 @@ contactUsButton.addEventListener("click", () => {
 });
 
 // Slider
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slider img');
-let currentIndex = 0;
+var slides = document.querySelectorAll('.mySlides');
+var currentIndex = 0;
+var totalSlides = slides.length;
+var autoSlideInterval;
 
-function autoSlide() {
-    currentIndex = (currentIndex + 1) % slides.length; // Loop back to the first slide
-    slider.scrollTo({
-        left: slides[currentIndex].offsetLeft,
-        behavior: 'smooth',
+function updateSlides() {
+    slides.forEach(function(slide) {
+        slide.style.display = 'none';
     });
+    slides[currentIndex].style.display = 'block';
 }
 
-// Auto-slide every 5 seconds
-setInterval(autoSlide, 5000);
+function plusSlides(n, isManual = false) {
+    currentIndex = (currentIndex + n + totalSlides) % totalSlides;
+    updateSlides();
+    if (isManual) {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(function() { plusSlides(1, false); }, 5000);
+    }
+}
+
+// Initial setup
+updateSlides();
+autoSlideInterval = setInterval(function() { plusSlides(1, false); }, 5000);
 
 // Akademie accordion
 const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
