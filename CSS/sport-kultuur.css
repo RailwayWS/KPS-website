@@ -17,7 +17,6 @@ h1{
 /* Flip card container */
 .flip-card {
   background-color: transparent;
-  width: calc(50% - 15px);/*2 cards per row*/
   height: 400px;
   perspective: 1000px;
   margin-bottom: 20px;
@@ -34,10 +33,10 @@ h1{
   transform-style: preserve-3d;
 }
 
-/* Flip when 'flipped' class is added 
+/* Flip when 'flipped' class is added */
 .flip-card-inner.flipped {
   transform: rotateY(180deg);
-}*/
+}
 
 /* Position front and back */
 .flip-card-front,
@@ -91,14 +90,27 @@ h1{
 
 /* Image styling for back */
 .flip-card-back img {
-  height: 150px;
-  width: 150px;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (min-width: 1101px) {
   .flip-card {
-      width: 100%; /* 1 card per row on phones */
+      width: calc(33.33% - 15px);/*3 cards per row*/
+  }
+}
+
+@media (max-width: 1100px) {
+  .flip-card {
+      width: calc(50% - 15px);/*2 cards per row*/
+  }
+}
+
+@media (max-width: 720px) {
+  .flip-card {
+    width: 100%;
   }
 }

@@ -222,13 +222,19 @@ p{
 
 .quotes .box {
     background: #1a1a1a;
-    border-radius: 3px;
+    border-radius: 10px;
     padding: 25px;
-    min-height: 300px;
+    height: 400px;
     display: flex; /* Flexbox for content alignment */
     flex-direction: column;
     justify-content: space-between; /* Space between text and image */
     box-sizing: border-box; /* Include padding in dimensions */
+}
+
+@media (min-width: 1340px) {
+  .quotes .box {
+      height: 350px;
+  }
 }
 
 .quotes .box i.quote {
