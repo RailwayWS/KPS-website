@@ -1,488 +1,475 @@
 <!DOCTYPE html>
 <html lang="af">
     <head>
-        <!-- Metadata -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Janes Mostert" />
-        <meta name="title" content="Keetmanshoop Privaatskool - Lig is Lewe" />
-        <meta name="description" content="Christelike privaatskool in Keetmanshoop, Namibië, fokus op akademie, sport en kultuur." />
-        <meta name="keywords" content="Keetmanshoop privaatskool, kps, Christelike onderwys, Namibië skool, privaatskool in karas streek, private school in karas region, best schoold in Namibia, Noordhoek schools, akademie, sport, kultuur, private school, Namibia school, kontak ons, kontak besonderhede, contact us, contact details" />
-        <meta name="robots" content="index, follow" />
-        <meta name="format-detection" content="telephone=no">
-        <link rel="icon" href="Images/Skoolwapen.webp" type="image/webp">
-        <link rel="canonical" href="https://keetmanshoopprivaatskool.com/" />
-    
-        <!-- Open Graph -->
-        <meta property="og:title" content="Keetmanshoop Privaatskool - Lig is Lewe" />
-        <meta property="og:description" content="Christelike privaatskool in Keetmanshoop, Namibië, fokus op akademie, sport en kultuur." />
-        <meta property="og:image" content="https://keetmanshoopprivaatskool.com/Images/Skoolwapen_optimized.webp" />
-        <meta property="og:url" content="https://keetmanshoopprivaatskool.com/" />
-        <meta property="og:type" content="website" />
-    
-        <!-- Twitter Cards -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Keetmanshoop Privaatskool - Lig is Lewe" />
-        <meta name="twitter:description" content="Christelike privaatskool in Keetmanshoop, Namibië, fokus op akademie, sport en kultuur." />
-        <meta name="twitter:image" content="https://keetmanshoopprivaatskool.com/Images/Skoolwapen_optimized.webp" />
-    
-        <title>KPS - Net die beste vir u kind</title>
-    
-        <!-- Linking CSS & JavaScript & Icons -->
-        <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-        <link rel="stylesheet" href="CSS/home.css">
-        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Keetmanshoop Privaatskool - Lig is Lewe"
+        />
+        <title>KPS - Lig is Lewe</title>
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+
         <script src="script.js" defer></script>
-
-        <!--preload the crest-->
-        
-        <link rel="preload" href="Images/Skoolwapen.webp" as="image">
-
-        <!--==================================FONTS==================================-->
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
-
     </head>
 
-<body>
-<!--==================================PRELOADER==================================-->
-<div id="preloader">
-        <span class="loader"></span>
-    </div>
-    <script>
-        var preloader = document.getElementById("preloader");
+    <body>
+        <nav>
+            <div class="nav-container">
+                <a href="#" class="brand-logo">
+                    <div class="logo-circle">
+                        <img
+                            src="Images/Skoolwapen.webp"
+                            alt="KPS Logo"
+                            class="nav-logo"
+                        />
+                    </div>
+                    <span>KPS.</span>
+                </a>
 
-        setTimeout(function() {
-            preloader.classList.add('slide-up');
-        }, 3000);
+                <ul id="menu" class="links-list">
+                    <li><a href="Nav/Akademie.html">Akademie</a></li>
+                    <li>
+                        <a href="Nav/Sport-kultuur.html">Sport & Kultuur</a>
+                    </li>
+                    <li><a href="Nav/Personeel.html">Personeel</a></li>
+                    <li><a href="Nav/Koshuis.html">Koshuis</a></li>
+                    <li><a href="Nav/SkooltarieweVorms.html">Vorms</a></li>
+                </ul>
 
-        preloader.addEventListener('transitionend', function(event) {
-            if (event.propertyName === 'transform') {
-                preloader.style.display = "none";
-            }
-        });
-    </script>
+                <div class="nav-actions">
+                    <a href="#contact-us" class="cta-button">Kontak Ons</a>
+                    <i id="menu-icon" class="bx bx-menu"></i>
+                </div>
+            </div>
+        </nav>
 
-
-<!--==================================nav bar==================================-->
-<nav>
-    <a href="#" class="nav-bar-text">Lig is lewe</a>
-    <ul id="menu" class="links-list">
-        <li><a href="Nav/Akademie.html">Akademie</a></li>
-        <li><a href="Nav/GraadR.html">Graad R</a></li>
-        <li><a href="Nav/Sport-kultuur.html">Sport en Kultuur</a></li>
-        <li><a href="Nav/Personeel.html">Personeel</a></li>
-        <li><a href="Nav/Koshuis.html">Koshuis</a></li>
-        <li><a href="Nav/SkooltarieweVorms.html">Skooltariewe en Vorms</a></li>
-    </ul>
-    <a href="#contact-us" class="cta">Kontak Ons</a>
-    <i id="menu-icon" class="bx bx-menu"></i> <!-- Menu icon -->
-</nav>
-
-<!-- Mobile overlay menu -->
-<div id="mobile__menu" class="overlay">
-    <a href="#" class="close">&times;</a>
-    <div class="overlay__content">
-        <a href="Nav/Akademie.html">Akademie</a>
-        <a href="Nav/GraadR.html">Graad R</a>
-        <a href="Nav/Sport-kultuur.html">Sport en Kultuur</a>
-        <a href="Nav/Personeel.html">Personeel</a>
-        <a href="Nav/Koshuis.html">Koshuis</a>
-        <a href="Nav/SkooltarieweVorms.html">Skooltariewe en Vorms</a>
-        <a href="#contact-us" class="cta">Kontak Ons</a>
-    </div>
-</div>
-    <!--home-->
-    <div class="home">
-        <img 
-        class="skoolwapen1" 
-        src="Images/Skoolwapen.webp" 
-        alt="Keetmanshoop Privaatskool se wapen">
-
-    
-        <h1>Keetmanshoop Privaatskool</h1>
-
-        <p style="text-align: center;">
-            Maar die wat op die Here wag, kry nuwe krag; <br/>
-            hulle vaar op met vleuels soos die arende;<br/>
-            hulle hardloop en word nie moeg nie, <br/>
-            hulle wandel en word nie mat nie.
-        </p>
-    </div>
-
-   <!-- Image slider -->
-<div class="slideshow-container">
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/KPS.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/elriperd.webp" alt="Elri en perd by atletiek">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/draak.webp" alt="Draak by atletiek">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/buite.webp" alt="Matriekleerlinge van Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/buite2.webp" alt="Geitsanas by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/graad1&matriek.webp" alt="Jukskei by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/graad1().webp" alt="Tennis by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/graad1.webp" alt="Oudleerlinge van Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/hokkie.webp" alt="Konsert by Keetmanshoop Privaatskool 3">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/hokkie2.webp" alt="Konsert by Keetmanshoop Privaatskool 1">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/hokkie3.webp" alt="Konsert by Keetmanshoop Privaatskool 2">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/hokkie4.webp" alt="Blou pou van Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/hokkieSeuns.webp" alt="Oudste personeel van Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/kinners.webp" alt="Oudste matrieks van Keetmanshoop Privaatskool">
-  </div>
-
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/kleuters3.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/leerlingraad.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/matrieks.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/netbal.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/netbal2.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/rally.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/Rugby.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/rugby2.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/sotte3.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/sotte4.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="Images/Carousel/valentyn.webp" alt="Trompoppies by Keetmanshoop Privaatskool">
-  </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1, true)">❮</a>
-<a class="next" onclick="plusSlides(1, true)">❯</a>
-</div>
-
-
-
-    
-    <!--Skool info-->
-    <div class="inligting">
-        <div class="blok1">
-            <u><h2 style="text-align: center; font-family: quicksand, Arial;">Wie is ons?</h2></u>
-            <p> 
-                KPS, geleë in Keetmanshoop in die suide van Namibië, het in 1996 tot stand gekom en is geregistreer by die Ministerie van Basiese Onderwys & 
-                Kultuur, Namibië, as 'n opvoedkundige instansie sonder 'n winsoogmerk. Keetmanshoop Privaatskool wil op 'n dinamiese wyse en vanuit 'n 
-                Christelike grondslag leerlinge op alle terreine so voorberei dat hulle as volwaardige landsburgers in die samelewing kan uitstaan. 
-                Om dit te kan doen, word hoë kwaliteit onderrig en opvoeding op die mees bekostigbare wyse aan leerlinge gebied. 
-            </p>
+        <div id="mobile__menu" class="overlay">
+            <a href="#" class="close">&times;</a>
+            <div class="overlay__content">
+                <a href="Nav/Akademie.html">Akademie</a>
+                <a href="Nav/Sport-kultuur.html">Sport & Kultuur</a>
+                <a href="Nav/Personeel.html">Personeel</a>
+                <a href="Nav/Koshuis.html">Koshuis</a>
+                <a href="Nav/SkooltarieweVorms.html">Vorms</a>
+                <a href="#contact-us" class="cta-button mobile-cta"
+                    >Kontak Ons</a
+                >
+            </div>
         </div>
 
-        <div class="blok2">
-            <u><h2 style="text-align: center; font-family: quicksand, Arial;">Ons wapen</h2></u>
-
-            <p>
-                Die wapen van die Keetmanshoop Privaatskool is heraldies uniek in die opsig dat die tipiese Christelike onderwysstelsel wat ouers vir hul kinders 
-                verlang, hier voorgestel en uitgebeeld word. In die boonste deel van die wapen verskyn die visarend wat die krag waarmee die wat op die Here 
-                vertrou, kan vlieg, dit wil sê: kan lewe! In die onderste deel van ons skool se wapen verskyn die geopende Boek wat die Bybel simboliseer met 
-                Jesaja 40:31 as sleutelvers. Hierdie vers lees: <b>"...maar die wat op die Here vertrou, kry nuwe krag. Hulle vlieg met arendsvlerke, hulle 
-                hardloop en word nie moeg nie, hulle loop en raak nie afgemat nie."</b>
-            </p>
-        </div>
-            <div class="blok3">
-                <u><h2 style="text-align: center; font-family: quicksand, Arial;">Ons leuse: Lig is lewe</h2></u>
-                <p style="text-align: center;"> 
-                    Die lig simboliseer die Bybel:
-                    die Bybel gee aan ons lewe.
-                    Sonder die Woord van God is daar nie lewe nie.
-                    Die drie kleure wat in die wapen gebruik word,
-                    het die volgende betekenis:<br/>
-                    Die donkerblou kleur simboliseer die hemel;
-                    Die jade kleur simboliseer vooruitgang.
-                    Die wit kleur simboliseer vrede en reinheid.
-                </p>
-            </div>
-
-            <div class="blok4">
-                <u><h2 style="text-align: center; font-family: quicksand, Arial;">Skoollied</h2></u>
-                <p style="text-align: center;"> 
-                    Lig is lewe, dis ons leuse<br/>
-                    By die Keetmanshoop Privaatskool<br/>
-                    God ons Alfa en Omega<br/>
-                    Waak oor 'n ieder en 'n elk<br/>
-                    In die Suide met sy kokerboom<br/>
-                    En sy dor-vaal vlaktes<br/>
-                    Leer ons hier van dissipline,<br/>
-                    Van 'n liefde vir volk en taal<br/>
-                    Leer ons hier van Onse Vader<br/>
-                    Van gee, van deel en werk.<br/>
-                    God ons anker in die lewe<br/>
-                    Waak oor ons dag en nag<br/>
-                    Lig is lewe, dis ons leuse<br/>
-                    By die Keetmanshoop Privaatskool.
-                </p>
-            </div>
-    </div>
-
-    <!--Quotes-->
-    <div class="grid">
-        <div class="quotes">
-            <div class="box">
-                <i class="fas fa-quote-left quote"></i>
-                <div class="text"><br/>Die skool behoort nie aan ‘n persoon of ‘n uitgesoekte
-                    groepie nie. Die skool is joune. Jy wat op hierdie
-                    spesifieke oomblik daar is. Jy gaan bepaal waarheen
-                    die skool op pad is. En niemand is so goed om dit alleen
-                    te doen nie, en net so is niemand ook te gering of
-                    onbelangrik om uitgesluit te word nie.</div>
-                <div class="contains">
-                    <div class="info">
-                        <div class="name">Mnr. Dawie O'Callaghan</div>
-                        <div class="job">Stigtershoof 1996-2001</div>
-                    </div>
-                    <div class="image">
-                        <img loading="lazy" src="Images/Quotes/dawie_optimized.webp" alt="Foto van Mnr. Dawie O'Callaghan">
+        <main>
+            <section class="hero-section">
+                <div class="hero-text">
+                    <h1>
+                        Keetmanshoop <br />
+                        Privaatskool
+                    </h1>
+                    <p class="hero-verse">
+                        Maar die wat op die Here wag, kry nuwe krag; hulle vaar
+                        op met vleuels soos die arende; hulle hardloop en word
+                        nie moeg nie, hulle wandel en word nie mat nie.
+                        <br /><strong>- Jesaja 40:31</strong>
+                    </p>
+                    <div class="hero-btns">
+                        <a href="#about" class="btn-primary"
+                            >Lees Meer <i class="bx bx-down-arrow-alt"></i
+                        ></a>
+                        <a href="#contact-us" class="btn-secondary"
+                            ><i class="bx bx-phone"></i> Kontak</a
+                        >
                     </div>
                 </div>
-            </div>
-    
-            <div class="box">
-                <i class="fas fa-quote-left quote"></i>
-                <div class="text"><br/>Ek en my gesin het die KPS-gemeenskap beleef as ’n groep gelowige mense vir wie die
-                    tydbeproefde westerse waardes soos eerlikheid, verantwoordelikheid, stiptelikheid,
-                    spaarsamigheid, netheid en harde werk belangrik is. Hierdie en vele ander dinge wat vir
-                    KPS belangrik is, sal die voortbestaan van die skool verseker.</div>
-                <div class="contains">
-                    <div class="info">
-                        <div class="name">Dr. Danie Brink</div>
-                        <div class="job">Skoolhoof 2009-2010</div>
-                    </div>
-                    <div class="image">
-                        <img loading="lazy" src="Images/Quotes/Danie_optimized.webp" alt="Foto van Dr. Danie Brink">
-                    </div>
-                </div>
-            </div>
-    
-            <div class="box">
-                <i class="fas fa-quote-left quote"></i>
-                <div class="text"><br/>KPS het ŉ kultuur wat in jou hart
-                    inkruip en maak dat jare nadat jy reeds weg is, jy steeds hoendervleis kry en jou hart wil
-                    bars van trots as jy die onmisbare navy, jade en wit strepe op ŉ sportveld sien.</div>
-                <div class="contains">
-                    <div class="info">
-                        <div class="name">Mnr. Tinus Botma</div>
-                        <div class="job">Skoolhoof 2012-2018</div>
-                    </div>
-                    <div class="image">
-                        <img loading="lazy" src="Images/Quotes/tinus_optimized.webp" alt="Foto van Mnr. Tinus Botma">
-                    </div>
-                </div>
-            </div>
 
-            <div class="box">
-                <i class="fas fa-quote-left quote"></i>
-                <div class="text"><br/>Soos die vroeë oggendson sy strale gooi oor klip en sand, het jy
-                    KPS jou kennis oorgedra aan menige kinderverstand.
-                    Leerkrag en ouers het saam soos die arend sy kleintjies dra op
-                    sy vleuels, hul vlerke al hoër gelig en wyer uitgestrek om
-                    menige familie in te sluit.</div>
-                <div class="contains">
-                    <div class="info">
-                        <div class="name">Mev. Magriet Bronkhorst</div>
-                        <div class="job">Onderwyseres 1997-2018</div>
-                    </div>
-                    <div class="image">
-                        <img loading="lazy" src="Images/Quotes/magriet_optimized.webp" alt="Foto van Mev. Magriet Bronkhorst">
+                <div class="hero-visual">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img
+                                src="Images/Carousel/KPS.webp"
+                                alt="Trompoppies"
+                            />
+                        </div>
+                        <div class="mySlides fade">
+                            <img
+                                src="Images/Carousel/elriperd.webp"
+                                alt="Elri en perd"
+                            />
+                        </div>
+                        <div class="mySlides fade">
+                            <img
+                                src="Images/Carousel/buite.webp"
+                                alt="Matriekleerlinge"
+                            />
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="Images/Carousel/Rugby.webp" alt="Rugby" />
+                        </div>
+                        <div class="mySlides fade">
+                            <img
+                                src="Images/Carousel/hokkie.webp"
+                                alt="Hokkie"
+                            />
+                        </div>
+
+                        <div class="slider-nav">
+                            <button
+                                class="prev-slide"
+                                onclick="plusSlides(-1, true)"
+                            >
+                                ❮
+                            </button>
+                            <button
+                                class="next-slide"
+                                onclick="plusSlides(1, true)"
+                            >
+                                ❯
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="box">
-                <i class="fas fa-quote-left quote"></i>
-                <div class="text"><br/>So ’n reis na gister is ’n dankbare stilstaan by mense wat saam met jou
-                    op reis was,’n onthou van reisigers wat alreeds die aardse pad verlaat
-                    het, ’n waardering van diegene wat hul water en padkos met jou gedeel
-                    het; soms ’n papwiel help regmaak het en ’n bewondering van die
-                    pioniers wat die waagmoed gehad het om die skool te begin.</div>
-                <div class="contains">
-                    <div class="info">
-                        <div class="name">Mev. Drienie Nolte</div>
-                        <div class="job">Onderwyseres 1998-</div>
-                    </div>
-                    <div class="image">
-                        <img loading="lazy" src="Images/Quotes/Drienie_optimized.webp" alt="Foto van Mev. Drienie Nolte">
-                    </div>
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>Ontdek Ons Skool</h2>
+                    <a href="#" class="view-all"
+                        >Alles <i class="bx bx-right-arrow-alt"></i
+                    ></a>
                 </div>
-            </div>
-
-            <div class="box">
-                <i class="fas fa-quote-left quote"></i>
-                <div class="text"><br/>Ons streef na
-                    Christelik morele waardes en beginsels. Die produk van ons strewe en die uitvoering
-                    daarvan is leerlinge met sterk karakters – trotse leerlinge wat goed gedissiplineer is.
-                    Met respek vir hulleself en daarom het hulle ook respek vir ander mense.</div>
-                <div class="contains">
-                    <div class="info">
-                        <div class="name">George Roux</div>
-                        <div class="job">Oudbeheerraadslid</div>
-                    </div>
-                    <div class="image">
-                        <img loading="lazy" src="Images/Quotes/George_optimized.webp" alt="Foto van George Roux">
-                    </div>
+                <div class="features-grid">
+                    <a href="Nav/Akademie.html" class="feature-card">
+                        <div class="icon-box">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Akademie</h3>
+                        <p>Uitnemende onderrig</p>
+                        <span class="arrow-icon">→</span>
+                    </a>
+                    <a href="Nav/Sport-kultuur.html" class="feature-card">
+                        <div class="icon-box">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3>Sport</h3>
+                        <p>Gesonde liggaam</p>
+                        <span class="arrow-icon">→</span>
+                    </a>
+                    <a href="Nav/Sport-kultuur.html" class="feature-card">
+                        <div class="icon-box"><i class="fas fa-music"></i></div>
+                        <h3>Kultuur</h3>
+                        <p>Skeppende kunste</p>
+                        <span class="arrow-icon">→</span>
+                    </a>
+                    <a href="Nav/Koshuis.html" class="feature-card">
+                        <div class="icon-box"><i class="fas fa-home"></i></div>
+                        <h3>Koshuis</h3>
+                        <p>Huis weg van huis</p>
+                        <span class="arrow-icon">→</span>
+                    </a>
                 </div>
-            </div>
+            </section>
 
-        </div>
-    </div>
-    
-
-    <!--contact us-->
-    <div class="contact" id="contact-us">
-        <div class="content">
-            <div class="left-side">
-                <div class="address details">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="topic">Adres</div>
-                    <div class="text-one">Posbus 1937</div>
-                    <div class="text-two">Keetmanshoop</div>
-                    <div class="text-three">Namibia</div>
+            <section class="info-section" id="about">
+                <div class="section-header center-header">
+                    <span class="sub-title">Wie is ons?</span>
+                    <h2>
+                        Leer Meer Oor
+                        <span class="highlight-underline">KPS</span>
+                    </h2>
                 </div>
 
-                <div class="phone details">
-                    <i class="fas fa-phone-alt"></i>
-                    <div class="topic">Telefoon</div>
-                    <div class="text-one">Admin: 063-224638</div>
-                    <div class="text-two">Finansies: 063-222401 </div>
-                </div>
-
-                <div class="email details">
-                    <i class="fas fa-envelope"></i>
-                    <div class="topic">E-pos</div>
-                    <div class="text-one">admin@kps.com.na</div>
-                    <div class="text-two">finansies@kps.com.na </div>
-                </div>
-            </div>
-
-            <div class="right-side">
-            
-                <div class = "contact-container">
-                    <form action="https://api.web3forms.com/submit" method="POST">
-                
-                        <!-- Replace with your Access Key -->
-                        <input type="hidden" name="access_key" value="8630063d-259a-44dd-a8c6-f716dc07c8e7">
-
-                        <div class = "Contact-container">
-                            <div class = "topic-text">Kontak ons </div>
-
-                            <!-- Form Inputs. Each input must have a name="" attribute -->
-                            <div class = "input-box">
-                                <input type="text" name="name" required placeholder="Naam en van">
+                <div class="cards-grid">
+                    <div class="content-card">
+                        <div class="card-image">
+                            <img
+                                src="Images/Carousel/buite2.webp"
+                                alt="Skoolgebou"
+                            />
+                            <span class="card-badge">Geskiedenis</span>
+                        </div>
+                        <div class="card-details">
+                            <h3>Ons Storie</h3>
+                            <p>
+                                KPS is 'n Christelike privaatskool in
+                                Keetmanshoop, gestig in 1996. Ons berei
+                                leerlinge voor om as volwaardige landsburgers
+                                uit te staan.
+                            </p>
+                            <div class="card-meta">
+                                <span
+                                    ><i class="bx bx-calendar"></i> Sedert
+                                    1996</span
+                                >
+                                <span
+                                    ><i class="bx bx-map"></i>
+                                    Keetmanshoop</span
+                                >
                             </div>
-                            
-                            <div class = "input-box">
-                                <input type="email" name="email" required placeholder="E-pos">
-                            </div>
+                        </div>
+                    </div>
 
-                            <div class="input-box message-box">
-                                <textarea name="message" required placeholder="Boodskap"></textarea>
+                    <div class="content-card">
+                        <div class="card-image">
+                            <img
+                                src="Images/Skoolwapen.webp"
+                                style="
+                                    object-fit: contain;
+                                    padding: 20px;
+                                    background: #f4f6f8;
+                                "
+                                alt="Wapen"
+                            />
+                            <span class="card-badge jade">Simboliek</span>
+                        </div>
+                        <div class="card-details">
+                            <h3>Ons Wapen</h3>
+                            <p>
+                                Die visarend simboliseer krag en lewe. Die
+                                geopende Boek simboliseer die Bybel met Jesaja
+                                40:31 as sleutelvers.
+                            </p>
+                            <div class="card-meta">
+                                <span
+                                    ><i class="bx bx-book-heart"></i> Jesaja
+                                    40:31</span
+                                >
                             </div>
-                            <!-- Honeypot Spam Protection -->
-                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                        
-                            <!-- Custom Confirmation / Success Page -->
-                            <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
-                        
-                            <button type="submit">Dien in</button>
-                        </div>    
-                    </form>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-image">
+                            <div class="placeholder-visual">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <span class="card-badge navy">Leuse</span>
+                        </div>
+                        <div class="card-details">
+                            <h3>Lig is Lewe</h3>
+                            <p>
+                                Die lig simboliseer die Bybel. Kleure:
+                                Donkerblou (Hemel), Jade (Vooruitgang), Wit
+                                (Vrede en Reinheid).
+                            </p>
+                            <div class="card-meta">
+                                <span><i class="bx bx-sun"></i> Waardes</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </section>
 
-    <!--Footer section-->
-    <footer>
-        <div class="custom-social-icons">
-        <a href="https://www.facebook.com/profile.php?id=100063934898322" target="_blank">
-            <img src="Images/Icons/facebook.webp" alt="Facebook-ikoon vir Keetmanshoop Privaatskool" class="custom-icon">
-        </a>
-        <a href="https://www.instagram.com/kps_privaatskool?igsh=MTFzajJxMmNrOGFrYg==" target="_blank">
-            <img src="Images/Icons/instagram.webp" alt="Instagram-ikoon vir Keetmanshoop Privaatskool" class="custom-icon">
-        </a>
-        </div>
-    </footer>
+            <section class="quotes-section-dark">
+                <div class="section-header center-header">
+                    <h2>Uit die Hoof se Kantoor</h2>
+                </div>
 
-    <!--Railway-->
-    <footer class="Railway">
-        Developed by <a href="https://railwaywebsolutions.com/">Railway Web Solutions</a>
-    </footer>
+                <div class="review-grid">
+                    <div class="glass-card">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="quote-text">
+                            "Die skool behoort nie aan ‘n persoon of ‘n
+                            uitgesoekte groepie nie. Die skool is joune. Jy wat
+                            op hierdie spesifieke oomblik daar is. Jy gaan
+                            bepaal waarheen die skool op pad is. En niemand is
+                            so goed om dit alleen te doen nie, en net so is
+                            niemand ook te gering of onbelangrik om uitgesluit
+                            te word nie."
+                        </p>
+                        <div class="reviewer">
+                            <img
+                                src="Images/Quotes/dawie_optimized.webp"
+                                alt="Dawie"
+                            />
+                            <div>
+                                <h4>Mnr. Dawie O'Callaghan</h4>
+                                <span>Stigtershoof 1996-2001</span>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="glass-card">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="quote-text">
+                            "Ek en my gesin het die KPS-gemeenskap beleef as ’n
+                            groep gelowige mense vir wie die tydbeproefde
+                            westerse waardes soos eerlikheid,
+                            verantwoordelikheid, stiptelikheid, spaarsamigheid,
+                            netheid en harde werk belangrik is. Hierdie en vele
+                            ander dinge wat vir KPS belangrik is, sal die
+                            voortbestaan van die skool verseker."
+                        </p>
+                        <div class="reviewer">
+                            <img
+                                src="Images/Quotes/Danie_optimized.webp"
+                                alt="Danie"
+                            />
+                            <div>
+                                <h4>Dr. Danie Brink</h4>
+                                <span>Skoolhoof 2009-2010</span>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="glass-card">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="quote-text">
+                            "KPS het ŉ kultuur wat in jou hart inkruip en maak
+                            dat jare nadat jy reeds weg is, jy steeds
+                            hoendervleis kry en jou hart wil bars van trots as
+                            jy die onmisbare navy, jade en wit strepe op ŉ
+                            sportveld sien."
+                        </p>
+                        <div class="reviewer">
+                            <img
+                                src="Images/Quotes/tinus_optimized.webp"
+                                alt="Tinus"
+                            />
+                            <div>
+                                <h4>Mnr. Tinus Botma</h4>
+                                <span>Skoolhoof 2012-2018</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-</body>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N12CC0S74K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+            <section class="contact-split-section" id="contact-us">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-text">
+                                <h3>Adres</h3>
+                                <p>Posbus 1937, Keetmanshoop</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="info-text">
+                                <h3>Skakel Ons</h3>
+                                <p>Admin: 063-224638</p>
+                                <p>Finansies: 063-222401</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-text">
+                                <h3>E-pos</h3>
+                                <p>admin@kps.com.na</p>
+                                <p>finansies@kps.com.na</p>
+                            </div>
+                        </div>
+                    </div>
 
-  gtag('config', 'G-N12CC0S74K');
-</script>
+                    <div class="contact-form-wrapper">
+                        <div class="form-header">
+                            <h2>Kontak Ons</h2>
+                        </div>
+                        <form
+                            action="https://api.web3forms.com/submit"
+                            method="POST"
+                        >
+                            <input
+                                type="hidden"
+                                name="access_key"
+                                value="8630063d-259a-44dd-a8c6-f716dc07c8e7"
+                            />
+
+                            <div class="input-row">
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Naam en Van"
+                                    required
+                                />
+                            </div>
+                            <div class="input-row">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="E-pos Adres"
+                                    required
+                                />
+                            </div>
+                            <div class="input-row">
+                                <textarea
+                                    name="message"
+                                    placeholder="U Boodskap..."
+                                    rows="5"
+                                    required
+                                ></textarea>
+                            </div>
+                            <input
+                                type="checkbox"
+                                name="botcheck"
+                                class="hidden"
+                                style="display: none"
+                            />
+
+                            <button type="submit">Stuur Boodskap</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h2>KPS</h2>
+                        <p>Lig is lewe. Christelike onderwys in Namibië.</p>
+                        <div class="socials">
+                            <a
+                                href="https://www.facebook.com/profile.php?id=100063934898322"
+                                ><i class="fab fa-facebook-f"></i
+                            ></a>
+                            <a
+                                href="https://www.instagram.com/kps_privaatskool?igsh=MTFzajJxMmNrOGFrYg=="
+                                ><i class="fab fa-instagram"></i
+                            ></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Skakels</h4>
+                        <a href="Nav/Akademie.html">Akademie</a>
+                        <a href="Nav/Sport-kultuur.html">Sport</a>
+                        <a href="Nav/Koshuis.html">Koshuis</a>
+                        <a href="Nav/SkooltarieweVorms.html">Vorms</a>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>
+                            © 2025 Keetmanshoop Privaatskool. Developed by
+                            <a href="https://railwaywebsolutions.com/"
+                                >Railway Web Solutions</a
+                            >
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </body>
 </html>
