@@ -3,29 +3,107 @@
    ========================================= */
 document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.querySelector(".nav-container");
-    const heroSection = document.querySelector(".hero-section");
+    // Support both home page and Akademie page hero sections
+    const heroSection = document.querySelector(".hero-section, .hero-modern");
 
     const sectionOptions = {
         rootMargin: "-100px 0px 0px 0px", // Trigger slightly before hero leaves
     };
 
-    const sectionObserver = new IntersectionObserver(function (
-        entries,
-        sectionObserver
-    ) {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-                // Hero is gone (we are on light background) -> Make Nav Dark
-                navbar.classList.add("dark-nav");
-            } else {
-                // Hero is visible (we are on dark background) -> Make Nav Light
-                navbar.classList.remove("dark-nav");
-            }
-        });
-    },
-    sectionOptions);
+    if (navbar && heroSection) {
+        const sectionObserver = new IntersectionObserver(function (entries) {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    // Hero is gone (we are on light background) -> Make Nav Dark
+                    navbar.classList.add("dark-nav");
+                } else {
+                    // Hero is visible (we are on dark background) -> Make Nav Light
+                    navbar.classList.remove("dark-nav");
+                }
+            });
+        }, sectionOptions);
 
-    sectionObserver.observe(heroSection);
+        sectionObserver.observe(heroSection);
+    }
+
+    /* =========================================
+       ACCORDION TOGGLE (Akademie page)
+       ========================================= */
+    const accordionItems = document.querySelectorAll(
+        ".accordion .accordion-item"
+    );
+
+    if (accordionItems.length) {
+        accordionItems.forEach((item) => {
+            const header = item.querySelector(".accordion-item-header");
+            const body = item.querySelector(".accordion-item-body");
+
+            if (!header || !body) return;
+
+            // Accessibility hints
+            header.setAttribute("role", "button");
+            header.setAttribute("tabindex", "0");
+            header.setAttribute("aria-expanded", "false");
+            body.setAttribute("aria-hidden", "true");
+
+            const collapse = () => {
+                header.classList.remove("active");
+                body.style.maxHeight = null;
+                header.setAttribute("aria-expanded", "false");
+                body.setAttribute("aria-hidden", "true");
+            };
+
+            const expand = () => {
+                header.classList.add("active");
+                body.style.maxHeight = body.scrollHeight + "px";
+                header.setAttribute("aria-expanded", "true");
+                body.setAttribute("aria-hidden", "false");
+            };
+
+            const toggle = () => {
+                const isOpen = header.classList.contains("active");
+
+                // Close other items for single-open behavior
+                accordionItems.forEach((other) => {
+                    if (other === item) return;
+                    const oHeader = other.querySelector(
+                        ".accordion-item-header"
+                    );
+                    const oBody = other.querySelector(".accordion-item-body");
+                    if (!oHeader || !oBody) return;
+                    oHeader.classList.remove("active");
+                    oHeader.setAttribute("aria-expanded", "false");
+                    oBody.style.maxHeight = null;
+                    oBody.setAttribute("aria-hidden", "true");
+                });
+
+                if (isOpen) {
+                    collapse();
+                } else {
+                    expand();
+                }
+            };
+
+            header.addEventListener("click", toggle);
+            header.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    toggle();
+                }
+            });
+        });
+
+        // Keep heights in sync when viewport changes
+        window.addEventListener("resize", () => {
+            accordionItems.forEach((item) => {
+                const header = item.querySelector(".accordion-item-header");
+                const body = item.querySelector(".accordion-item-body");
+                if (header && body && header.classList.contains("active")) {
+                    body.style.maxHeight = body.scrollHeight + "px";
+                }
+            });
+        });
+    }
 });
 
 /* =========================================

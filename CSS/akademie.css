@@ -1,146 +1,485 @@
-h1{
-  font-family: quicksand, Arial;
+/* =========================================
+   GLOBAL & VARIABLES
+   ========================================= */
+:root {
+    /* Adjust these to match your exact theme codes */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --white: #ffffff;
+    --text-muted: #cbd5e1;
 }
 
-/*accordian*/
+body {
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+    font-family: "Quicksand", Arial, sans-serif;
+    margin: 0;
+}
+
+h1.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin: 80px 0 40px 0;
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+h2.section-subtitle {
+    text-align: center;
+    font-size: 2rem;
+    margin: 60px 0 30px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* =========================================
+   MODERN HERO SECTION
+   ========================================= */
+.hero-modern {
+    position: relative;
+    /* Create a spotlight effect using your Navy colors */
+    background: radial-gradient(circle at 70% 50%, #1e293b, var(--secondary));
+    min-height: 90vh; /* Takes up most of the screen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Match index hero curve and spacing */
+    clip-path: polygon(
+        100% 0%,
+        0% 0%,
+        0% 92.59%,
+        2% 91.36%,
+        4% 90.1%,
+        6% 88.85%,
+        8% 87.61%,
+        10% 86.42%,
+        12% 85.27%,
+        14% 84.21%,
+        16% 83.23%,
+        18% 82.36%,
+        20% 81.61%,
+        22% 81%,
+        24% 80.52%,
+        26% 80.2%,
+        28% 80.03%,
+        30% 80.01%,
+        32% 80.16%,
+        34% 80.46%,
+        36% 80.91%,
+        38% 81.5%,
+        40% 82.23%,
+        42% 83.08%,
+        44% 84.04%,
+        46% 85.09%,
+        48% 86.22%,
+        50% 87.41%,
+        52% 88.64%,
+        54% 89.9%,
+        56% 91.15%,
+        58% 92.39%,
+        60% 93.58%,
+        62% 94.73%,
+        64% 95.79%,
+        66% 96.77%,
+        68% 97.64%,
+        70% 98.39%,
+        72% 99%,
+        74% 99.48%,
+        76% 99.8%,
+        78% 99.97%,
+        80% 99.99%,
+        82% 99.84%,
+        84% 99.54%,
+        86% 99.09%,
+        88% 98.5%,
+        90% 97.77%,
+        92% 96.92%,
+        94% 95.96%,
+        96% 94.91%,
+        98% 93.78%,
+        100% 92.59%
+    );
+    padding: 140px 20px 120px;
+}
+
+/* Subtle texture overlay to match index hero */
+.hero-modern::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px
+    );
+    background-size: 30px 30px;
+    z-index: 0;
+    pointer-events: none;
+}
+.hero-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    z-index: 2; /* Ensures content sits above the wave */
+    padding-bottom: 60px; /* Space for the wave */
+}
+
+/* --- Left Side: Text Glass Card --- */
+
+.glass-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(0, 166, 147, 0.2); /* Low opacity Jade */
+    color: var(--primary);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 166, 147, 0.3);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+    background: linear-gradient(to right, #fff, #cbd5e1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Modern Button */
+.btn-glow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--primary);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+    transform: translateY(-5px);
+    background: #fff;
+    color: var(--primary);
+    box-shadow: 0 15px 30px rgba(0, 168, 107, 0.4);
+}
+
+/* --- Right Side: Visuals --- */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The glow behind the crest */
+.glow-effect {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--primary);
+    opacity: 0.2;
+    filter: blur(80px);
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulseGlow 4s infinite alternate;
+}
+
+.floating-crest {
+    max-width: 80%;
+    height: auto;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+    animation: float 6s ease-in-out infinite;
+}
+
+/* --- Animations --- */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulseGlow {
+    from {
+        opacity: 0.15;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 900px) {
+    .hero-modern {
+        clip-path: ellipse(180% 100% at 50% 0%);
+        padding: 120px 20px 100px;
+    }
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 40px;
+    }
+
+    .hero-content {
+        padding: 30px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-visual {
+        order: -1; /* Puts image on top on mobile */
+        margin-bottom: 20px;
+    }
+
+    .floating-crest {
+        max-width: 200px;
+    }
+}
+
+/* =========================================
+   MODERN GLASS ACCORDION
+   ========================================= */
 .accordion {
-    width: 90%;
-    height: max-content;
-    max-width: 1000px;
-    margin: 2rem auto;
-    font-family: quicksand, Arial;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between items */
 }
 
 .accordion-item {
-    background-color: #fff;
-    color: #111;
-    margin: 1rem 0;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    background: var(--glass-bg);
+    border: 1px solid #1e293b5e;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    will-change: transform, box-shadow, border-color, background;
+}
+
+.accordion-item:hover,
+.accordion-item:focus-within {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 28px -8px rgba(97, 97, 97, 0.25),
+        0 8px 16px -8px rgba(30, 41, 59, 0.25);
 }
 
 .accordion-item-header {
-    padding: 0.5rem 3rem 0.5rem 1rem;
-    min-height: 3.5rem;
-    line-height: 1.25rem;
-    font-size: 1.3rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    position: relative;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-dark);
+    transition: color 0.3s;
 }
 
+.accordion-item-header.active {
+    color: var(--primary); /* Highlights text when open */
+    background: rgba(0, 166, 147, 0.1); /* Subtle green tint bg */
+}
+
+/* Custom animated Plus/Minus */
 .accordion-item-header::after {
-    content: "\002B";
-    font-size: 2rem;
-    position: absolute;
-    right: 1rem;
+    content: "+";
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
 }
 
 .accordion-item-header.active::after {
-    content: "\2212";
+    content: "-";
+    transform: rotate(180deg);
+    color: var(--primary);
 }
 
 .accordion-item-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
-  .accordion-item-body-content {
-    padding: 1rem;
-    line-height: 1.5rem;
-    border-top: 1px solid;
-    border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
-  }
-  
-  @media(max-width:767px) {
-    html {
-      font-size: 14px;
-    }
-  }
-
-.unordered {
-    padding-left: 1.5rem;
-    margin: 1rem 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing */
 }
 
-.list {
-    padding: 0.25rem 0;
-    font-size: 1.3rem;
-    color: #333;
+.accordion-item-body-content {
+    padding: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-gray);
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
-.nested-list {
-    font-size: 1.2rem;
-    color: #555;
+/* List Styling inside Accordion */
+.subject-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
 }
 
- /*fotos*/
-.container {
-    font-family: quicksand, Arial;
-    max-width: 1600px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.subject-list li {
+    padding-left: 20px;
+    position: relative;
+}
+
+.accordion-item.two-column .subject-list.single-col {
+    grid-template-columns: 1fr;
+}
+
+/* Custom bullet point */
+.subject-list li::before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Group Headers inside Accordion */
+.group-container h3 {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* Jade headings for the Graad 10 - 12 section */
+.accordion-item.two-column .group-container h3 {
+    color: var(--primary);
+}
+
+/* Paragraph styling for ISC section */
+.text-content p {
+    margin-bottom: 15px;
+}
+.text-content b {
+    color: var(--text-dark);
+}
+
+/* =========================================
+   MODERN IMAGE GRID (HOVER REVEAL)
+   ========================================= */
+.gallery-container {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    color: #111;
-  }
-  
-  .container .box{
-    width: calc(33.333% - 20px);/*3 cards per row*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 30px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .container .box .image {
-    margin: 10px 0;
-    height: 500px;
-    width: 500px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .box .image img{
-    height: 100%;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 80px;
+}
+
+.gallery-card {
+    position: relative;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
-  }
-  
-  
-  .box .naam{
-    margin: 10px 0 3px 0;
-    color: #fff;
-    font-size: 20px;
+    transition: transform 0.5s ease;
+}
+
+/* The Glass Overlay - Hidden by default */
+.gallery-overlay {
+    position: absolute;
+    bottom: -100px; /* Hidden below card */
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.85); /* Dark semi-transparent */
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+.overlay-text {
+    color: var(--white);
+    font-size: 1.2rem;
     font-weight: 600;
-  }
-  
-  @media (max-width: 1600px) {
-    .container .box {
-        width: 50%; /* 2 card per row */
-        margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* Hover Effects */
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1); /* Subtle zoom */
+}
+
+.gallery-card:hover .gallery-overlay {
+    bottom: 0; /* Slide up */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .accordion-item-header {
+        font-size: 1rem;
     }
-  }
-  
-  @media (max-width: 1100px) {
-    .container .box {
-        width: 100%; /* 1 card per row */
-        margin-bottom: 20px;
+    .gallery-container {
+        grid-template-columns: 1fr; /* Stack images on mobile */
     }
-    /*smaller images*/
-    .container .box .image {
-      margin: 10px 0;
-      height: 350px;
-      width: 350px;
-      display: flex;
-      justify-content: center;
+    .gallery-card {
+        height: 250px;
     }
-  }
+}
