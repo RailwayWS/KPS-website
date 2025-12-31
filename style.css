@@ -807,20 +807,169 @@ button:hover {
 }
 
 /* =========================================
-   FOOTER
+   FOOTER (Updated)
    ========================================= */
 footer {
-    background: var(--secondary);
+    position: relative;
     width: 100%;
-    padding: 40px 20px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--white);
+    /* Remove background and clip-path from the parent container */
+    background: transparent;
+    clip-path: none;
+
+    padding: 100px 20px 20px; /* Increased top padding to account for the waves */
+    min-height: 80vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow: hidden;
 }
+
+/* 1. THE NAVY WAVE (Top Visible Layer) */
+/* We move the original gradient and clip-path here */
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* Fills the whole footer area */
+    background: radial-gradient(circle at 70% 50%, #1e293b, var(--secondary));
+    z-index: 1; /* Sits on top of the Jade wave */
+
+    /* YOUR ORIGINAL NAVY PATH */
+    clip-path: polygon(
+        100% 100%,
+        0% 100%,
+        0% 46.29%,
+        2% 45.68%,
+        4% 45.05%,
+        6% 44.43%,
+        8% 43.81%,
+        10% 43.21%,
+        12% 42.64%,
+        14% 42.1%,
+        16% 41.62%,
+        18% 41.18%,
+        20% 40.81%,
+        22% 40.5%,
+        24% 40.26%,
+        26% 40.1%,
+        28% 40.01%,
+        30% 40.01%,
+        32% 40.08%,
+        34% 40.23%,
+        36% 40.45%,
+        38% 40.75%,
+        40% 41.11%,
+        42% 41.54%,
+        44% 42.02%,
+        46% 42.55%,
+        48% 43.11%,
+        50% 43.71%,
+        52% 44.32%,
+        54% 44.95%,
+        56% 45.57%,
+        58% 46.19%,
+        60% 46.79%,
+        62% 47.36%,
+        64% 47.9%,
+        66% 48.38%,
+        68% 48.82%,
+        70% 49.19%,
+        72% 49.5%,
+        74% 49.74%,
+        76% 49.9%,
+        78% 49.99%,
+        80% 49.99%,
+        82% 49.92%,
+        84% 49.77%,
+        86% 49.55%,
+        88% 49.25%,
+        90% 48.89%,
+        92% 48.46%,
+        94% 47.98%,
+        96% 47.45%,
+        98% 46.89%,
+        100% 46.29%
+    );
+}
+
+/* 2. THE JADE WAVE (Bottom Layer - Peeking out) */
+/* We move the new path here */
+footer::after {
+    content: "";
+    position: absolute;
+    inset: 0; /* Fills the whole footer area */
+    background: radial-gradient(circle at 70% 50%, #00a86b, var(--primary));
+    z-index: 0; /* Sits behind the Navy wave */
+
+    /* YOUR NEW JADE PATH */
+    clip-path: polygon(
+        100% 100%,
+        0% 100%,
+        0% 27.29%,
+        2% 27.04%,
+        4% 26.88%,
+        6% 26.8%,
+        8% 26.8%,
+        10% 26.88%,
+        12% 27.05%,
+        14% 27.3%,
+        16% 27.63%,
+        18% 28.03%,
+        20% 28.49%,
+        22% 29.01%,
+        24% 29.58%,
+        26% 30.19%,
+        28% 30.83%,
+        30% 31.49%,
+        32% 32.16%,
+        34% 32.83%,
+        36% 33.49%,
+        38% 34.13%,
+        40% 34.74%,
+        42% 35.31%,
+        44% 35.82%,
+        46% 36.28%,
+        48% 36.68%,
+        50% 37%,
+        52% 37.24%,
+        54% 37.41%,
+        56% 37.49%,
+        58% 37.49%,
+        60% 37.4%,
+        62% 37.23%,
+        64% 36.98%,
+        66% 36.66%,
+        68% 36.26%,
+        70% 35.8%,
+        72% 35.28%,
+        74% 34.71%,
+        76% 34.1%,
+        78% 33.46%,
+        80% 32.8%,
+        82% 32.12%,
+        84% 31.45%,
+        86% 30.79%,
+        88% 30.15%,
+        90% 29.55%,
+        92% 28.98%,
+        94% 28.46%,
+        96% 28%,
+        98% 27.61%,
+        100% 27.29%
+    );
+}
+
+/* 3. FOOTER CONTENT (Text) */
+/* We must ensure this sits on top of the background layers */
 .footer-content {
+    position: relative;
+    z-index: 2; /* Highest priority */
+
+    /* (Keep your existing grid styles below) */
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-    max-width: 1300px;
+    column-gap: 180px;
+    row-gap: 10px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
