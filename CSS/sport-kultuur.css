@@ -1,123 +1,388 @@
-h1{
-  font-family: quicksand, Arial;
+body {
+    background-color: var(--bg-body);
+    font-family: "Quicksand", sans-serif;
+    color: var(--text-dark);
+    margin: 0;
 }
 
-/* Container for the cards */
-.container {
-  max-width: 1600px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  padding: 20px;
-  color: #111;
-  font-family: quicksand, Arial;
+/* =========================================
+   HEADER
+   ========================================= */
+.page-header {
+    text-align: center;
+    padding: 60px 20px 40px;
 }
 
-/* Flip card container */
-.flip-card {
-  background-color: transparent;
-  height: 400px;
-  perspective: 1000px;
-  margin-bottom: 20px;
-  cursor: pointer; /* Indicates clickable */
+.page-header h1 {
+    color: var(--secondary);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-/* Inner container for front and back */
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+.subtitle {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Flip when 'flipped' class is added */
-.flip-card-inner.flipped {
-  transform: rotateY(180deg);
+/* =========================================
+   GRID LAYOUT
+   ========================================= */
+.grid-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    /* This creates a responsive grid automatically */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
 }
 
-/* Position front and back */
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column; /* Stack image and text vertically */
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
+/* =========================================
+   MODERN CARD
+   ========================================= */
+.modern-card {
+    position: relative;
+    background-color: var(--white);
+    height: 380px; /* Fixed height for uniformity */
+    border-radius: var(--radius-lg);
+    overflow: hidden; /* Essential for the reveal effect */
+    box-shadow: var(--shadow-card);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
 }
 
-/* Style the front side */
-.flip-card-front {
-  background-color: #fff;
+/* Hover Lift */
+.modern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
 }
 
-/* Style the back side */
-.flip-card-back {
-  background-color: #fff;
-  transform: rotateY(180deg);
+/* --- Front Content (Icon + Title) --- */
+.card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(0, 37, 82, 0.1);
 }
 
-.card-back-text{
-  font-family: quicksand;
-  font-size: 1rem;
-  line-height: 1.5;
-  padding: 1vw;
+.modern-card:hover .card-content {
+    box-shadow: inset 0 0 0 1px rgba(0, 37, 82, 0.18);
 }
 
-/* Image styling for front */
-.flip-card-front .image {
-  height: 250px;
-  width: 250px;
-  padding: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Decorative Circle behind Icon */
+.icon-circle {
+    width: 140px;
+    height: 140px;
+    background-color: var(--primary-light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    transition: transform 0.4s ease;
 }
 
-.flip-card-front .image img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+.modern-card:hover .icon-circle {
+    transform: scale(1.1); /* Subtle pulse on hover */
 }
 
-/* Text styling for front */
-.flip-card-front .name_job {
-  margin-top: 10px;
-  color: #00a86b;
-  font-size: 30px;
-  font-weight: 600;
+.card-content img {
+    width: 70px; /* Adjusted icon size */
+    height: 70px;
+    object-fit: contain;
 }
 
-/* Image styling for back */
-.flip-card-back img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 10px;
+.card-content h3 {
+    font-size: 1.6rem;
+    color: var(--secondary);
+    margin: 0;
+    font-weight: 700;
 }
 
-/* Responsive design */
-@media (min-width: 1101px) {
-  .flip-card {
-      width: calc(33.33% - 15px);/*3 cards per row*/
-  }
-}
-
-@media (max-width: 1100px) {
-  .flip-card {
-      width: calc(50% - 15px);/*2 cards per row*/
-  }
-}
-
-@media (max-width: 720px) {
-  .flip-card {
+/* =========================================
+   THE REVEAL (Back Content)
+   ========================================= */
+.card-reveal {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-  }
+    height: 100%;
+
+    /* Initially hidden via transform (pushed down) */
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Text sits at bottom */
+}
+
+/* Trigger the reveal on card hover */
+.modern-card:hover .card-reveal {
+    transform: translateY(0);
+}
+
+/* --- Image Reveal Style --- */
+.image-reveal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Gradient Overlay to make text readable on top of images if needed */
+.image-reveal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 37, 82, 0.8), transparent);
+}
+
+.reveal-badge {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* --- Text Reveal Style (Redenaars) --- */
+.text-reveal {
+    background-color: var(--secondary); /* Solid Navy Background */
+    color: var(--white);
+    padding: 30px;
+    box-sizing: border-box;
+    justify-content: flex-start; /* Align text to top */
+    text-align: left;
+}
+
+.text-reveal h4 {
+    color: var(--primary); /* Jade Highlight */
+    font-size: 1.5rem;
+    margin: 10px 0 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.scroll-text {
+    overflow-y: auto; /* Adds scrollbar if text is too long */
+    padding-right: 5px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+/* Custom Scrollbar for Redenaars */
+.scroll-text::-webkit-scrollbar {
+    width: 4px;
+}
+.scroll-text::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+.scroll-text::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    /* On mobile, we might want to just show the content or make the reveal easier */
+    .modern-card {
+        height: 350px;
+    }
+}
+
+/* =========================================
+   MODAL POPUP STYLES
+   ========================================= */
+
+/* The Dark Background Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 37, 82, 0.75); /* Navy transparent */
+    backdrop-filter: blur(8px); /* The modern glass blur */
+    z-index: 1000;
+
+    /* Flexbox to center the modal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    /* Animation States */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* The Modal Box itself */
+.modal-content {
+    background: var(--white);
+    width: 100%;
+    max-width: 900px;
+    height: 500px; /* Fixed height for clean layout */
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: var(--secondary);
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background-color: transparent;
+    box-shadow: none;
+    transform: rotate(90deg);
+}
+
+/* Modal Body Grid */
+.modal-body {
+    display: flex;
+    height: 100%;
+}
+
+/* Left Side: Image */
+.modal-image-wrapper {
+    flex: 1.5; /* Takes up 50% */
+    position: relative;
+    overflow: hidden;
+    background-color: var(--secondary);
+}
+
+#modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.modal-overlay.active .modal-image-wrapper:hover #modal-img {
+    transform: scale(1.12);
+    transition-duration: 0.4s;
+}
+
+/* Right Side: Text */
+.modal-text-content {
+    flex: 1; /* Takes up 50% */
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+#modal-title {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin: 0 0 15px 0;
+    line-height: 1.1;
+}
+
+.divider-line {
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+    margin-bottom: 25px;
+}
+
+#modal-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.modal-badge {
+    margin-top: auto;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-gray);
+    font-weight: 700;
+    opacity: 0.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .modal-content {
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+        flex-direction: column;
+    }
+
+    .modal-body {
+        flex-direction: column;
+    }
+
+    .modal-image-wrapper {
+        height: 250px;
+        flex: none;
+    }
+
+    .modal-text-content {
+        padding: 30px;
+        flex: none;
+    }
+
+    #modal-title {
+        font-size: 2rem;
+    }
 }
