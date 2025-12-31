@@ -1,5 +1,5 @@
-h1{
-  font-family: quicksand, Arial;
+h1 {
+    font-family: quicksand, Arial;
 }
 
 .hero-section {
@@ -11,31 +11,31 @@ h1{
     max-width: 1800px;
     margin: 0 auto;
     font-family: quicksand, Arial;
-  }
+}
 
-  .hero-section .hero {
+.hero-section .hero {
     max-width: 50%;
     color: #fff;
-  }
+}
 
-  .hero .para {
+.hero .para {
     font-size: 1.2rem;
     color: #fff;
     line-height: 1.5;
     text-align: center;
-  }
+}
 
-  .hero-section .img img {
+.hero-section .img img {
     width: 520px;
-  }
+}
 
-  .hero-section .buttons {
+.hero-section .buttons {
     display: flex;
     justify-content: center;
     margin: 40px 0;
-  }
+}
 
-  .hero-section .buttons a {
+.hero-section .buttons a {
     text-decoration: none;
     color: #fff;
     padding: 12px 24px;
@@ -43,84 +43,245 @@ h1{
     font-weight: 600;
     transition: 0.5s ease;
     display: inline-block;
-  }
-
-  .buttons .join {
-    background-color: #00a86b;
-  }
-
-  .hero-section .buttons a:hover {
-    background-color: #002552;
-  }
-
-  @media screen and (max-width: 1023px) {
-    .hero-section .hero {
-      max-width: 100%;
-      text-align: center;
-    }
-    .hero-section img {
-      display: none;
-    }
-  }
-
-  /*fotos*/
-.container {
-  max-width: 1600px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  padding: 20px;
-  color: #111;
-  font-family: quicksand, Arial;
 }
 
-.container .box{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 30px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+.buttons .join {
+    background-color: #00a86b;
+}
+
+.hero-section .buttons a:hover {
+    background-color: #002552;
+}
+
+@media screen and (max-width: 1023px) {
+    .hero-section .hero {
+        max-width: 100%;
+        text-align: center;
+    }
+    .hero-section img {
+        display: none;
+    }
+}
+
+/*fotos*/
+.container {
+    max-width: 1600px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 20px;
+    color: #111;
+    font-family: quicksand, Arial;
+}
+
+.container .box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .container .box .image {
-  margin: 10px 0;
-  height: 500px;
-  width: 500px;
-  display: flex;
-  justify-content: center;
+    margin: 10px 0;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
 }
 
-.box .image img{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+.box .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25),
+        0 6px 20px 0 rgba(0, 0, 0, 0.25);
 }
 
-
-.box .naam{
-  margin: 10px 0 3px 0;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 600;
+.box .naam {
+    margin: 10px 0 3px 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 @media (max-width: 1100px) {
-  .container .box {
-      width: 100%; /* 1 card per row */
-      margin-bottom: 20px;
-  }
-  /*smaller images*/
-  .container .box .image {
-    margin: 10px 0;
-    height: 350px;
-    width: 350px;
+    .container .box {
+        width: 100%; /* 1 card per row */
+        margin-bottom: 20px;
+    }
+    /*smaller images*/
+    .container .box .image {
+        margin: 10px 0;
+        height: 350px;
+        width: 350px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   MODERN TEXT BLOCK
+   ========================================= */
+.info-block {
+    max-width: 1100px;
+    margin: 60px auto 80px; /* Spacing around the block */
+    padding: 0 20px;
+}
+
+.modern-text-card {
+    background: var(--white);
+    border-radius: 24px; /* Matches your --radius-lg */
+    padding: 50px;
+
+    /* Modern shadow for depth */
+    box-shadow: 0 15px 40px -10px rgba(0, 37, 82, 0.08);
+
+    /* Flexbox to align icon and text side-by-side on desktop */
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+/* The Left-hand Icon Box */
+.card-icon {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 168, 107, 0.1); /* Very light Jade */
+    border-radius: 50%;
     display: flex;
     justify-content: center;
-  }
+    align-items: center;
+    color: var(--primary); /* Jade */
+    font-size: 2rem;
+}
+
+/* The Text Styling */
+.text-content p {
+    font-size: 1.05rem;
+    line-height: 1.9; /* More breathing room for lines */
+    color: #4b5563; /* Softer gray than pure black */
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Highlight the last sentence slightly as a "punchline" */
+.text-content p::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin-top: 25px;
+    border-radius: 2px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .modern-text-card {
+        flex-direction: column;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .text-content p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+
+/* =========================================
+   MODERN INFO GRID
+   ========================================= */
+.info-grid-section {
+    max-width: 1200px;
+    margin: 60px auto 100px;
+    padding: 0 20px;
+
+    /* The Grid Layout */
+    display: grid;
+    /* Auto-fit creates columns that are at least 300px wide */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.modern-text-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 40px 30px;
+
+    /* Shadow and Border */
+    box-shadow: 0 10px 30px -10px rgba(0, 37, 82, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+
+    display: flex;
+    flex-direction: column; /* Stack icon above text */
+    align-items: flex-start;
+    gap: 25px;
+
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensures all cards are same height */
+}
+
+/* Hover Effect: Lift up slightly */
+.modern-text-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px rgba(0, 37, 82, 0.15);
+}
+
+/* Icon Box */
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 168, 107, 0.1); /* Light Jade bg */
+    border-radius: 16px; /* Soft square shape */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary);
+    font-size: 1.8rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.modern-text-card:hover .card-icon {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Text Styling */
+.text-content h3 {
+    font-size: 1.4rem;
+    color: var(--secondary); /* Navy */
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.text-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4b5563; /* Soft Gray */
+    margin: 0;
+}
+
+.text-content strong {
+    color: var(--primary);
+    font-weight: 700;
 }

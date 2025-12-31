@@ -104,6 +104,57 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+    /* =========================================
+       IMAGE MODAL (Akademie / GraadR galleries)
+       Reuses existing akademie.css modal styles
+       ========================================= */
+    const modal = document.getElementById("image-modal");
+    const fullImg = document.getElementById("modal-full-img");
+    const caption = document.getElementById("modal-caption");
+    const closeBtn = document.querySelector(".modal-close-btn");
+    const galleryCards = document.querySelectorAll(".gallery-card");
+
+    if (modal && fullImg && caption && closeBtn && galleryCards.length) {
+        const openModal = (card) => {
+            const imgEl = card.querySelector("img");
+            const textEl = card.querySelector(".overlay-text");
+            if (!imgEl) return;
+
+            fullImg.src = imgEl.currentSrc || imgEl.src;
+            caption.textContent = textEl ? textEl.textContent : imgEl.alt || "";
+
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+        };
+
+        const closeModal = () => {
+            modal.classList.remove("active");
+            document.body.style.overflow = "";
+            fullImg.src = "";
+            caption.textContent = "";
+        };
+
+        galleryCards.forEach((card) => {
+            card.addEventListener("click", () => openModal(card));
+        });
+
+        closeBtn.addEventListener("click", closeModal);
+
+        // Close when clicking outside the image (on the overlay)
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modal.classList.contains("active")) {
+                closeModal();
+            }
+        });
+    }
 });
 
 /* =========================================

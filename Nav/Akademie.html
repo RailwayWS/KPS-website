@@ -404,6 +404,68 @@
                 </div>
             </div>
         </footer>
+        <div id="image-modal" class="modal-overlay">
+            <button class="modal-close-btn"><i class="bx bx-x"></i></button>
+            <div class="modal-content-wrapper">
+                <img id="modal-full-img" src="" alt="Full Screen View" />
+                <div id="modal-caption"></div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const modal = document.getElementById("image-modal");
+                const fullImg = document.getElementById("modal-full-img");
+                const caption = document.getElementById("modal-caption");
+                const closeBtn = document.querySelector(".modal-close-btn");
+                const galleryCards = document.querySelectorAll(".gallery-card");
+
+                // 1. Open Modal on Card Click
+                galleryCards.forEach((card) => {
+                    card.addEventListener("click", () => {
+                        const imgSource = card.querySelector("img").src;
+                        // Get the text from the overlay-text div
+                        const textSource =
+                            card.querySelector(".overlay-text").textContent;
+
+                        fullImg.src = imgSource;
+                        caption.textContent = textSource;
+
+                        modal.classList.add("active");
+                        // Prevent scrolling on the body while modal is open
+                        document.body.style.overflow = "hidden";
+                    });
+                });
+
+                // 2. Close Modal Function
+                const closeModal = () => {
+                    modal.classList.remove("active");
+                    document.body.style.overflow = ""; // Restore scrolling
+                };
+
+                // 3. Event Listeners for Closing
+                closeBtn.addEventListener("click", closeModal);
+
+                // Close when clicking outside the image (on the overlay)
+                modal.addEventListener("click", (e) => {
+                    if (
+                        e.target === modal ||
+                        e.target.classList.contains("modal-content-wrapper")
+                    ) {
+                        closeModal();
+                    }
+                });
+
+                // Close on Escape key
+                document.addEventListener("keydown", (e) => {
+                    if (
+                        e.key === "Escape" &&
+                        modal.classList.contains("active")
+                    ) {
+                        closeModal();
+                    }
+                });
+            });
+        </script>
     </body>
     <!-- Google tag (gtag.js) -->
     <script
