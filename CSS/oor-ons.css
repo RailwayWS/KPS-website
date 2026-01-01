@@ -1,0 +1,39 @@
+.content-section {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.split-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 24px;
+}
+
+@media (max-width: 900px) {
+    .split-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.panel {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 22px;
+    backdrop-filter: blur(10px);
+}
+
+.panel h2 {
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.panel p,
+.panel li {
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.7;
+}
+
+.panel ul {
+    padding-left: 18px;
+}

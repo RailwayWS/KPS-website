@@ -1,0 +1,229 @@
+/* =========================================
+   TIMELINE SECTION
+   ========================================= */
+
+.timeline-section {
+    padding: 60px 20px;
+    background-color: var(--bg-body);
+    overflow-x: hidden; /* Prevents scrollbar issues with animations */
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* THE CENTRAL LINE */
+.timeline-container::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    background-color: #e0e0e0; /* Light grey line */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 2px;
+    z-index: 0;
+}
+
+/* TIMELINE ITEM WRAPPER */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+}
+
+/* Left vs Right positioning */
+.timeline-item.left {
+    left: 0;
+    text-align: right; /* Text aligns towards center */
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+/* THE YELLOW DOTS (MARKERS) */
+.timeline-dot {
+    height: 24px;
+    width: 24px;
+    background-color: var(--primary);
+    border: 4px solid var(--white);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: -12px;
+    z-index: 10;
+    box-shadow: 0 0 0 3px rgba(51, 254, 0, 0.3); /* Soft glow */
+}
+
+.timeline-item.right .timeline-dot {
+    left: -12px;
+}
+
+/* THE DATE (Floating next to dot) */
+.timeline-date {
+    position: absolute;
+    top: 18px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--primary); /* Jade color for the year */
+    z-index: 10;
+}
+
+.timeline-item.left .timeline-date {
+    right: -90px; /* Position year on the right side of the line */
+    text-align: left;
+}
+
+.timeline-item.right .timeline-date {
+    left: -90px; /* Position year on the left side of the line */
+    text-align: right;
+}
+
+/* THE CONTENT CARD (Navy Bubbles) */
+.timeline-content {
+    padding: 25px 30px;
+    background-color: var(--secondary); /* Navy */
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    position: relative;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* The Speech Bubble Triangle */
+.timeline-content::after {
+    content: " ";
+    position: absolute;
+    top: 24px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    z-index: 1;
+}
+
+/* Triangle for Left Items */
+.timeline-item.left .timeline-content::after {
+    right: -10px;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent var(--secondary);
+}
+
+/* Triangle for Right Items */
+.timeline-item.right .timeline-content::after {
+    left: -10px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--secondary) transparent transparent;
+}
+
+/* Typography inside card */
+.timeline-content h3 {
+    margin-top: 0;
+    color: var(--primary); /* Primary heading */
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    /* Move line to the left */
+    .timeline-container::after {
+        left: 31px;
+    }
+
+    /* Make items full width */
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Reset positioning for Right items to behave like Left items */
+    .timeline-item.right {
+        left: 0;
+    }
+
+    /* Align all text left */
+    .timeline-item.left,
+    .timeline-item.right {
+        text-align: left;
+    }
+
+    /* Move dots to the left line */
+    .timeline-dot,
+    .timeline-item.right .timeline-dot {
+        left: 19px; /* Centers on the line at 31px */
+        right: auto;
+    }
+
+    /* Move Date above the card or next to dot */
+    .timeline-date {
+        position: relative;
+        top: -5px;
+        left: 0 !important;
+        right: auto !important;
+        margin-bottom: 5px;
+        display: block;
+        text-align: left !important;
+    }
+
+    /* Adjust Triangles to always point left */
+    .timeline-item.left .timeline-content::after,
+    .timeline-item.right .timeline-content::after {
+        right: auto;
+        left: -10px;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--secondary) transparent transparent;
+    }
+}
+
+/* UPDATED: The Content Card Wrapper */
+.timeline-content {
+    background-color: var(--secondary); /* Navy */
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    position: relative;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease;
+
+    /* NEW: This ensures the image corners are clipped to the border radius */
+    overflow: hidden;
+
+    /* NEW: Remove padding here so image touches edges */
+    padding: 0;
+}
+
+/* NEW: The Image Style */
+.timeline-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures image covers area without stretching */
+    display: block;
+    border-bottom: 4px solid var(--primary); /* Optional: A yellow line separating img and text */
+}
+
+/* NEW: The Text Wrapper */
+.timeline-body {
+    padding: 25px 30px; /* The padding moves here */
+}
