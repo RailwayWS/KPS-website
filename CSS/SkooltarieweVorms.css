@@ -485,3 +485,139 @@ button {
 .btn-prev:hover {
     background: rgba(0, 0, 0, 0.1);
 }
+
+/* =========================================
+   DRESS CODE SECTION
+   ========================================= */
+.dress-code-section {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+/* TOGGLE SWITCH STYLES */
+.season-toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.toggle-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #888; /* Grey for inactive */
+    transition: 0.3s;
+}
+.toggle-label.active {
+    color: #002552; /* Navy for active */
+}
+
+.toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00a86b; /* Jade (Summer default) */
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #002552; /* Navy (Winter active) */
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* CARD GRID */
+.uniform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.uniform-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: 0.3s;
+}
+
+.uniform-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.uniform-icon {
+    font-size: 3rem;
+    color: #00a86b; /* Jade */
+    margin-bottom: 15px;
+}
+
+.uniform-card h3 {
+    color: #002552; /* Navy */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.uniform-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    display: inline-block;
+}
+
+.uniform-list li {
+    padding: 8px 0;
+    color: #555;
+}
+
+/* IMAGE CONTAINER */
+.uniform-image-container {
+    height: 300px; /* Adjust height based on your images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.uniform-img-preview {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}

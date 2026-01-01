@@ -450,6 +450,66 @@
             </div>
         </div>
 
+        <section class="dress-code-section">
+            <div class="section-header center-header">
+                <span class="sub-title">Voorkoms</span>
+                <h2>Skooluniform</h2>
+            </div>
+
+            <div class="season-toggle-container">
+                <span id="summer-label" class="toggle-label active">Somer</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="season-toggle" />
+                    <label for="season-toggle" class="slider"></label>
+                </div>
+                <span id="winter-label" class="toggle-label">Winter</span>
+            </div>
+
+            <div class="uniform-grid" id="uniform-display">
+                <div class="uniform-card">
+                    <div class="uniform-icon">
+                        <i class="bx bx-male"></i>
+                    </div>
+                    <h3>Seuns</h3>
+                    <ul class="uniform-list" id="boys-list">
+                        <li>KPS Grys Kortbroek</li>
+                        <li>KPS Gholfhemp</li>
+                        <li>KPS Kouse</li>
+                        <li>Swart Skoolskoene</li>
+                    </ul>
+                    <div class="uniform-image-container">
+                        <img
+                            src="../Images/kleredrag/seunsSomer.png"
+                            alt="Seuns Uniform"
+                            id="boys-img"
+                            class="uniform-img-preview"
+                        />
+                    </div>
+                </div>
+
+                <div class="uniform-card">
+                    <div class="uniform-icon">
+                        <i class="bx bx-female"></i>
+                    </div>
+                    <h3>Dogters</h3>
+                    <ul class="uniform-list" id="girls-list">
+                        <li>KPS Romp</li>
+                        <li>KPS Gholfhemp</li>
+                        <li>Wit Kouse</li>
+                        <li>Swart Skoolskoene</li>
+                    </ul>
+                    <div class="uniform-image-container">
+                        <img
+                            src="../Images/kleredrag/meisieSomer.png"
+                            alt="Dogters Uniform"
+                            id="girls-img"
+                            class="uniform-img-preview"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <footer>
             <div class="footer-content">
                 <div class="footer-brand">
@@ -490,6 +550,99 @@
                 </div>
             </div>
         </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const seasonToggle = document.getElementById("season-toggle");
+                const summerLabel = document.getElementById("summer-label");
+                const winterLabel = document.getElementById("winter-label");
+
+                // Images
+                const boysImg = document.getElementById("boys-img");
+                const girlsImg = document.getElementById("girls-img");
+
+                // Data Object (Update paths if filenames change)
+                const uniformData = {
+                    summer: {
+                        boysText: [
+                            "Grys Kortbroek",
+                            "Blou Skoolhemp",
+                            "Grys Sokkies",
+                            "Swart Skoolskoene",
+                        ],
+                        boysImage: "../Images/kleredrag/seunsSomer.png",
+                        girlsText: [
+                            "Blou Skoolromp",
+                            "Blou Skoolhemp",
+                            "Wit Sokkies",
+                            "Swart Skoolskoene",
+                        ],
+                        girlsImage: "../Images/kleredrag/meisieSomer.png",
+                    },
+                    winter: {
+                        boysText: [
+                            "Grys Langbroek",
+                            "Blou Skoolhemp",
+                            "Blazer & Das",
+                            "Grys Sokkies",
+                            "Swart Skoolskoene",
+                        ],
+                        boysImage: "../Images/kleredrag/seunsWinter.png",
+                        girlsText: [
+                            "Blou Skoolromp",
+                            "Blou Skoolhemp",
+                            "Blazer & Das",
+                            "Grys Sokkies",
+                            "Swart Skoolskoene",
+                        ],
+                        girlsImage: "../Images/kleredrag/meisieWinter.png",
+                    },
+                };
+
+                // Ensure the initial (summer) UI is always sourced from the data object.
+                // This keeps the HTML in sync if the uniformData values change later.
+                updateUniforms(uniformData.summer);
+
+                seasonToggle.addEventListener("change", function () {
+                    const isWinter = this.checked;
+
+                    if (isWinter) {
+                        winterLabel.classList.add("active");
+                        summerLabel.classList.remove("active");
+                        updateUniforms(uniformData.winter);
+                    } else {
+                        summerLabel.classList.add("active");
+                        winterLabel.classList.remove("active");
+                        updateUniforms(uniformData.summer);
+                    }
+                });
+
+                function updateUniforms(data) {
+                    // Fade out effect
+                    const cards = document.querySelectorAll(".uniform-card");
+                    cards.forEach((c) => (c.style.opacity = "0.5"));
+
+                    setTimeout(() => {
+                        // Update Lists
+                        document.getElementById("boys-list").innerHTML =
+                            data.boysText
+                                .map((item) => `<li>${item}</li>`)
+                                .join("");
+                        document.getElementById("girls-list").innerHTML =
+                            data.girlsText
+                                .map((item) => `<li>${item}</li>`)
+                                .join("");
+
+                        // Update Images
+                        boysImg.src = data.boysImage;
+                        girlsImg.src = data.girlsImage;
+
+                        // Fade in effect
+                        cards.forEach((c) => (c.style.opacity = "1"));
+                    }, 200);
+                }
+            });
+        </script>
         <script>
             // Elements
             const slidePage = document.querySelector(".slide-page");
