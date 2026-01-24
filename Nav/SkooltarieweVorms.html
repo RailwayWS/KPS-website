@@ -99,9 +99,16 @@
                         <div class="check"><i class="bx bx-check"></i></div>
                         <p>Medies</p>
                     </div>
+
+                    <!-- NEW: Step 4 -->
+                    <div class="step">
+                        <div class="bullet"><span>4</span></div>
+                        <div class="check"><i class="bx bx-check"></i></div>
+                        <p>Voorwaardes</p>
+                    </div>
                 </div>
 
-                <form id="applicationForm" action="#" method="POST">
+                <form id="applicationForm" novalidate>
                     <div class="form-page slide-page">
                         <h3 class="step-title">Besonderhede van Leerder</h3>
 
@@ -141,7 +148,11 @@
                         <div class="input-group">
                             <div class="field">
                                 <label>Graad vir Inskrywing</label>
-                                <select required>
+                                <select
+                                    id="grade-select"
+                                    onchange="toggleSubjectChoices()"
+                                    required
+                                >
                                     <option value="" selected disabled>
                                         Kies...
                                     </option>
@@ -160,6 +171,7 @@
                                     <option>Graad 12</option>
                                 </select>
                             </div>
+
                             <div class="field">
                                 <label>Huistaal</label>
                                 <select required>
@@ -170,6 +182,97 @@
                                     <option>English</option>
                                     <option>Ander</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div
+                                id="subject-choices-container"
+                                style="display: none"
+                            >
+                                <h4
+                                    style="
+                                        color: var(--secondary);
+                                        margin-bottom: 15px;
+                                    "
+                                >
+                                    Vakkeuse (Graad 10 - 12)
+                                </h4>
+                                <p
+                                    style="
+                                        font-size: 0.9rem;
+                                        color: #666;
+                                        margin-bottom: 15px;
+                                    "
+                                >
+                                    Kies asseblief een vak uit elke groep.
+                                </p>
+
+                                <div class="input-group">
+                                    <div class="field">
+                                        <label>Groep 1</label>
+                                        <select
+                                            name="subject_group_1"
+                                            class="subject-select"
+                                        >
+                                            <option value="" selected disabled>
+                                                Kies...
+                                            </option>
+                                            <option>Computer Studies</option>
+                                            <option>Fisiese Wetenskappe</option>
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <label>Groep 2</label>
+                                        <select
+                                            name="subject_group_2"
+                                            class="subject-select"
+                                        >
+                                            <option value="" selected disabled>
+                                                Kies...
+                                            </option>
+                                            <option>Lewenswetenskappe</option>
+                                            <option>
+                                                Ingenieursgrafika en Tegnologie
+                                            </option>
+                                            <option>Verbruikerstudies</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="field">
+                                        <label>Groep 3</label>
+                                        <select
+                                            name="subject_group_3"
+                                            class="subject-select"
+                                        >
+                                            <option value="" selected disabled>
+                                                Kies...
+                                            </option>
+                                            <option>Rekeningkunde</option>
+                                            <option>Geografie</option>
+                                            <option>Toerisme</option>
+                                            <option>
+                                                Landbou Bestuurspraktyk
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <label>Groep 4</label>
+                                        <select
+                                            name="subject_group_4"
+                                            class="subject-select"
+                                        >
+                                            <option value="" selected disabled>
+                                                Kies...
+                                            </option>
+                                            <option>Wiskunde</option>
+                                            <option>
+                                                Kwantitatiewe Beredenering
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -184,6 +287,131 @@
                             </div>
                         </div>
 
+                        <!-- NEW: Buitemuurse / Godsdienstige aktiwiteite (Afrikaans) -->
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+
+                        <h4
+                            style="color: var(--secondary); margin-bottom: 15px"
+                        >
+                            Buitemuurse aktiwiteite (indien van toepassing)
+                        </h4>
+
+                        <div class="field">
+                            <label>Prestasie 1</label>
+                            <input
+                                type="text"
+                                name="extracurricular_achievement_1"
+                            />
+                        </div>
+
+                        <div class="field">
+                            <label>Prestasie 2</label>
+                            <input
+                                type="text"
+                                name="extracurricular_achievement_2"
+                            />
+                        </div>
+
+                        <div class="field">
+                            <label>Prestasie 3</label>
+                            <input
+                                type="text"
+                                name="extracurricular_achievement_3"
+                            />
+                        </div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+
+                        <h4
+                            style="color: var(--secondary); margin-bottom: 15px"
+                        >
+                            Buitemuurse / godsdienstige aktiwiteite
+                        </h4>
+
+                        <div class="radio-group">
+                            <label>
+                                Het u enige besware tot u kind se deelname aan
+                                enige buitemuurse aktiwiteite?
+                            </label>
+                            <div class="radio-options" style="flex-wrap: wrap">
+                                <label class="radio-container">
+                                    Ja
+                                    <input
+                                        type="radio"
+                                        name="qualms_extracurricular"
+                                        value="yes"
+                                        required
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container">
+                                    Nee
+                                    <input
+                                        type="radio"
+                                        name="qualms_extracurricular"
+                                        value="no"
+                                        required
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Indien JA, verskaf redes</label>
+                            <input
+                                type="text"
+                                name="qualms_extracurricular_reason"
+                            />
+                        </div>
+
+                        <div class="radio-group">
+                            <label>
+                                Het u enige besware dat u kind deelneem aan
+                                godsdienstige aktiwiteite?
+                            </label>
+                            <div class="radio-options" style="flex-wrap: wrap">
+                                <label class="radio-container">
+                                    Ja
+                                    <input
+                                        type="radio"
+                                        name="qualms_religious"
+                                        value="yes"
+                                        required
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container">
+                                    Nee
+                                    <input
+                                        type="radio"
+                                        name="qualms_religious"
+                                        value="no"
+                                        required
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Indien JA, verskaf redes</label>
+                            <input type="text" name="qualms_religious_reason" />
+                        </div>
+
+                        <!-- Existing "Kerkverband" field comes next -->
                         <div class="input-group">
                             <div class="field">
                                 <label>Kerkverband</label>
@@ -253,7 +481,9 @@
                     </div>
 
                     <div class="form-page">
-                        <h3 class="step-title">Ouer 1 / Voog Inligting</h3>
+                        <h3 class="step-title">
+                            Ouer 1 / Voog Inligting <br />(Betalende Ouer/Voog)
+                        </h3>
 
                         <div class="input-group">
                             <div class="field">
@@ -281,27 +511,6 @@
                             </div>
                         </div>
 
-                        <div class="field">
-                            <label for="certified-id-upload"
-                                >Gewaarmerkte ID (pdf, png, jpeg)</label
-                            >
-                            <div class="file-upload">
-                                <input
-                                    id="certified-id-upload"
-                                    name="certified_id"
-                                    class="file-upload__input"
-                                    type="file"
-                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
-                                    required
-                                />
-                                <div class="file-upload__meta">
-                                    <span class="file-upload__title"
-                                        >Kies lêer</span
-                                    >
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="radio-group">
                             <label>Huwelikstatus:</label>
                             <div class="radio-options" style="flex-wrap: wrap">
@@ -309,8 +518,9 @@
                                     >Getroud
                                     <input
                                         type="radio"
-                                        name="marital_status"
+                                        name="marital_status_parent1"
                                         value="married"
+                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -318,8 +528,9 @@
                                     >Ongetroud
                                     <input
                                         type="radio"
-                                        name="marital_status"
+                                        name="marital_status_parent1"
                                         value="single"
+                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -327,8 +538,9 @@
                                     >Geskei
                                     <input
                                         type="radio"
-                                        name="marital_status"
+                                        name="marital_status_parent1"
                                         value="divorced"
+                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -336,8 +548,9 @@
                                     >Wewenaar/Weduwee
                                     <input
                                         type="radio"
-                                        name="marital_status"
+                                        name="marital_status_parent1"
                                         value="widowed"
+                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -346,8 +559,11 @@
 
                         <div class="field">
                             <label>Indien getroud:</label>
-                            <select>
-                                <option value="">N.V.T</option>
+                            <select required>
+                                <option value="" selected disabled>
+                                    Kies...
+                                </option>
+                                <option>N.V.T</option>
                                 <option>
                                     Binne gemeenskap van goedere (COP)
                                 </option>
@@ -361,7 +577,10 @@
 
                         <div class="field">
                             <label>Verwantskap met Leerder:</label>
-                            <select>
+                            <select required>
+                                <option value="" selected disabled>
+                                    Kies...
+                                </option>
                                 <option>Wettige Ouer</option>
                                 <option>Voog</option>
                                 <option>Grootouer</option>
@@ -381,11 +600,13 @@
                                 <input type="email" required />
                             </div>
                         </div>
+
                         <div class="field">
                             <label>Woonadres</label>
-                            <input type="text" />
+                            <input type="text" required />
                         </div>
 
+                        <!-- Werksinligting & Inkomste (Ouer 1) -->
                         <div
                             class="divider"
                             style="
@@ -402,33 +623,33 @@
                         <div class="input-group">
                             <div class="field">
                                 <label>Betrekking</label>
-                                <input type="text" />
+                                <input type="text" required />
                             </div>
                             <div class="field">
                                 <label>Bruto Inkomste</label>
-                                <input type="text" placeholder="N$" />
+                                <input type="text" placeholder="N$" required />
                             </div>
                         </div>
 
                         <div class="input-group">
                             <div class="field">
                                 <label>Naam van Werkgewer</label>
-                                <input type="text" />
+                                <input type="text" required />
                             </div>
                             <div class="field">
                                 <label>E-pos van Werkgewer</label>
-                                <input type="text" />
+                                <input type="text" required />
                             </div>
                         </div>
 
                         <div class="input-group">
                             <div class="field">
                                 <label>Werkgewer Tel.</label>
-                                <input type="tel" />
+                                <input type="tel" required />
                             </div>
                             <div class="field">
                                 <label>Werkgewer Adres</label>
-                                <input type="text" />
+                                <input type="text" required />
                             </div>
                         </div>
 
@@ -460,27 +681,6 @@
                             </div>
                         </div>
 
-                        <div class="field">
-                            <label for="certified-id-upload"
-                                >Gewaarmerkte ID (pdf, png, jpeg)</label
-                            >
-                            <div class="file-upload">
-                                <input
-                                    id="certified-id-upload"
-                                    name="certified_id"
-                                    class="file-upload__input"
-                                    type="file"
-                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
-                                    required
-                                />
-                                <div class="file-upload__meta">
-                                    <span class="file-upload__title"
-                                        >Kies lêer</span
-                                    >
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="radio-group">
                             <label>Huwelikstatus:</label>
                             <div class="radio-options" style="flex-wrap: wrap">
@@ -488,8 +688,9 @@
                                     >Getroud
                                     <input
                                         type="radio"
-                                        name="marital_status"
+                                        name="marital_status_parent2"
                                         value="married"
+                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -497,8 +698,9 @@
                                     >Ongetroud
                                     <input
                                         type="radio"
-                                        name="marital_status"
+                                        name="marital_status_parent2"
                                         value="single"
+                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -506,8 +708,9 @@
                                     >Geskei
                                     <input
                                         type="radio"
-                                        name="marital_status"
+                                        name="marital_status_parent2"
                                         value="divorced"
+                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -515,8 +718,9 @@
                                     >Wewenaar/Weduwee
                                     <input
                                         type="radio"
-                                        name="marital_status"
+                                        name="marital_status_parent2"
                                         value="widowed"
+                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -525,8 +729,11 @@
 
                         <div class="field">
                             <label>Indien getroud:</label>
-                            <select>
-                                <option value="">N.V.T</option>
+                            <select required>
+                                <option value="" selected disabled>
+                                    Kies...
+                                </option>
+                                <option>N.V.T</option>
                                 <option>Binne gemeenskap van goedere</option>
                                 <option>Buite gemeenskap</option>
                                 <option>Ander</option>
@@ -535,7 +742,10 @@
 
                         <div class="field">
                             <label>Verwantskap met Leerder:</label>
-                            <select>
+                            <select required>
+                                <option value="" selected disabled>
+                                    Kies...
+                                </option>
                                 <option>Wettige Ouer</option>
                                 <option>Voog</option>
                                 <option>Grootouer</option>
@@ -555,11 +765,13 @@
                                 <input type="email" required />
                             </div>
                         </div>
+
                         <div class="field">
                             <label>Woonadres</label>
-                            <input type="text" />
+                            <input type="text" required />
                         </div>
 
+                        <!-- Werksinligting & Inkomste (Ouer 2) -->
                         <div
                             class="divider"
                             style="
@@ -632,200 +844,6 @@
                             <div class="field">
                                 <label>ID Nommer</label>
                                 <input type="text" />
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="certified-id-upload"
-                                >Gewaarmerkte ID (pdf, png, jpeg)</label
-                            >
-                            <div class="file-upload">
-                                <input
-                                    id="certified-id-upload"
-                                    name="certified_id"
-                                    class="file-upload__input"
-                                    type="file"
-                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
-                                />
-                                <div class="file-upload__meta">
-                                    <span class="file-upload__title"
-                                        >Kies lêer</span
-                                    >
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="radio-group">
-                            <label>Huwelikstatus:</label>
-                            <div class="radio-options" style="flex-wrap: wrap">
-                                <label class="radio-container"
-                                    >Getroud
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="married"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container"
-                                    >Ongetroud
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="single"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container"
-                                    >Geskei
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="divorced"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container"
-                                    >Wewenaar/Weduwee
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="widowed"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label>Indien getroud:</label>
-                            <select>
-                                <option value="">N.V.T</option>
-                                <option>Binne gemeenskap van goedere</option>
-                                <option>Buite gemeenskap</option>
-                                <option>Ander</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Verwantskap met Leerder:</label>
-                            <select>
-                                <option>Wettige Ouer</option>
-                                <option>Voog</option>
-                                <option>Grootouer</option>
-                                <option>Stiefouer</option>
-                                <option>Borg</option>
-                                <option>Ander</option>
-                            </select>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Selfoon Nommer</label>
-                                <input type="tel" required />
-                            </div>
-                            <div class="field">
-                                <label>E-pos</label>
-                                <input type="email" required />
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Woonadres</label>
-                            <input type="text" />
-                        </div>
-
-                        <div
-                            class="divider"
-                            style="
-                                margin: 20px 0;
-                                border-bottom: 2px dashed #eee;
-                            "
-                        ></div>
-                        <h4
-                            style="color: var(--secondary); margin-bottom: 15px"
-                        >
-                            Werksinligting & Inkomste
-                        </h4>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Betrekking</label>
-                                <input type="text" />
-                            </div>
-                            <div class="field">
-                                <label>Bruto Inkomste</label>
-                                <input type="text" placeholder="N$" />
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Naam van Werkgewer</label>
-                                <input type="text" />
-                            </div>
-                            <div class="field">
-                                <label>E-pos van Werkgewer</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Werkgewer Tel.</label>
-                                <input type="tel" />
-                            </div>
-                            <div class="field">
-                                <label>Werkgewer Adres</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <h3 class="step-title">
-                            Ouer 3 / Voog Inligting (Optioneel)
-                        </h3>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Titel</label>
-                                <input
-                                    type="text"
-                                    placeholder="Mnr/Mev/Dr..."
-                                />
-                            </div>
-                            <div class="field">
-                                <label>Volle Name</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Van</label>
-                                <input type="text" />
-                            </div>
-                            <div class="field">
-                                <label>ID Nommer</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="certified-id-upload"
-                                >Gewaarmerkte ID (pdf, png, jpeg)</label
-                            >
-                            <div class="file-upload">
-                                <input
-                                    id="certified-id-upload"
-                                    name="certified_id"
-                                    class="file-upload__input"
-                                    type="file"
-                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
-                                />
-                                <div class="file-upload__meta">
-                                    <span class="file-upload__title"
-                                        >Kies lêer</span
-                                    >
-                                </div>
                             </div>
                         </div>
 
@@ -903,359 +921,13 @@
                                 <input type="email" />
                             </div>
                         </div>
+
                         <div class="field">
                             <label>Woonadres</label>
                             <input type="text" />
                         </div>
 
-                        <div
-                            class="divider"
-                            style="
-                                margin: 20px 0;
-                                border-bottom: 2px dashed #eee;
-                            "
-                        ></div>
-                        <h4
-                            style="color: var(--secondary); margin-bottom: 15px"
-                        >
-                            Werksinligting & Inkomste
-                        </h4>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Betrekking</label>
-                                <input type="text" />
-                            </div>
-                            <div class="field">
-                                <label>Bruto Inkomste</label>
-                                <input type="text" placeholder="N$" />
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Naam van Werkgewer</label>
-                                <input type="text" />
-                            </div>
-                            <div class="field">
-                                <label>E-pos van Werkgewer</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Werkgewer Tel.</label>
-                                <input type="tel" />
-                            </div>
-                            <div class="field">
-                                <label>Werkgewer Adres</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <h3 class="step-title">
-                            Ouer 3 / Voog Inligting (Optioneel)
-                        </h3>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Titel</label>
-                                <input
-                                    type="text"
-                                    placeholder="Mnr/Mev/Dr..."
-                                />
-                            </div>
-                            <div class="field">
-                                <label>Volle Name</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Van</label>
-                                <input type="text" />
-                            </div>
-                            <div class="field">
-                                <label>ID Nommer</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="certified-id-upload"
-                                >Gewaarmerkte ID (pdf, png, jpeg)</label
-                            >
-                            <div class="file-upload">
-                                <input
-                                    id="certified-id-upload"
-                                    name="certified_id"
-                                    class="file-upload__input"
-                                    type="file"
-                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
-                                />
-                                <div class="file-upload__meta">
-                                    <span class="file-upload__title"
-                                        >Kies lêer</span
-                                    >
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="radio-group">
-                            <label>Huwelikstatus:</label>
-                            <div class="radio-options" style="flex-wrap: wrap">
-                                <label class="radio-container"
-                                    >Getroud
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="married"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container"
-                                    >Ongetroud
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="single"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container"
-                                    >Geskei
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="divorced"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container"
-                                    >Wewenaar/Weduwee
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="widowed"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label>Indien getroud:</label>
-                            <select>
-                                <option value="">N.V.T</option>
-                                <option>Binne gemeenskap van goedere</option>
-                                <option>Buite gemeenskap</option>
-                                <option>Ander</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Verwantskap met Leerder:</label>
-                            <select>
-                                <option>Wettige Ouer</option>
-                                <option>Voog</option>
-                                <option>Grootouer</option>
-                                <option>Stiefouer</option>
-                                <option>Borg</option>
-                                <option>Ander</option>
-                            </select>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Selfoon Nommer</label>
-                                <input type="tel" />
-                            </div>
-                            <div class="field">
-                                <label>E-pos</label>
-                                <input type="email" />
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Woonadres</label>
-                            <input type="text" />
-                        </div>
-
-                        <div
-                            class="divider"
-                            style="
-                                margin: 20px 0;
-                                border-bottom: 2px dashed #eee;
-                            "
-                        ></div>
-                        <h4
-                            style="color: var(--secondary); margin-bottom: 15px"
-                        >
-                            Werksinligting & Inkomste
-                        </h4>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Betrekking</label>
-                                <input type="text" />
-                            </div>
-                            <div class="field">
-                                <label>Bruto Inkomste</label>
-                                <input type="text" placeholder="N$" />
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Naam van Werkgewer</label>
-                                <input type="text" />
-                            </div>
-                            <div class="field">
-                                <label>E-pos van Werkgewer</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Werkgewer Tel.</label>
-                                <input type="tel" />
-                            </div>
-                            <div class="field">
-                                <label>Werkgewer Adres</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <h3 class="step-title">
-                            Ouer 3 / Voog Inligting (Optioneel)
-                        </h3>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Titel</label>
-                                <input
-                                    type="text"
-                                    placeholder="Mnr/Mev/Dr..."
-                                />
-                            </div>
-                            <div class="field">
-                                <label>Volle Name</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Van</label>
-                                <input type="text" />
-                            </div>
-                            <div class="field">
-                                <label>ID Nommer</label>
-                                <input type="text" />
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="certified-id-upload"
-                                >Gewaarmerkte ID (pdf, png, jpeg)</label
-                            >
-                            <div class="file-upload">
-                                <input
-                                    id="certified-id-upload"
-                                    name="certified_id"
-                                    class="file-upload__input"
-                                    type="file"
-                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
-                                />
-                                <div class="file-upload__meta">
-                                    <span class="file-upload__title"
-                                        >Kies lêer</span
-                                    >
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="radio-group">
-                            <label>Huwelikstatus:</label>
-                            <div class="radio-options" style="flex-wrap: wrap">
-                                <label class="radio-container"
-                                    >Getroud
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="married"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container"
-                                    >Ongetroud
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="single"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container"
-                                    >Geskei
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="divorced"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container"
-                                    >Wewenaar/Weduwee
-                                    <input
-                                        type="radio"
-                                        name="marital_status"
-                                        value="widowed"
-                                    />
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label>Indien getroud:</label>
-                            <select>
-                                <option value="">N.V.T</option>
-                                <option>Binne gemeenskap van goedere</option>
-                                <option>Buite gemeenskap</option>
-                                <option>Ander</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Verwantskap met Leerder:</label>
-                            <select>
-                                <option>Wettige Ouer</option>
-                                <option>Voog</option>
-                                <option>Grootouer</option>
-                                <option>Stiefouer</option>
-                                <option>Borg</option>
-                                <option>Ander</option>
-                            </select>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Selfoon Nommer</label>
-                                <input type="tel" />
-                            </div>
-                            <div class="field">
-                                <label>E-pos</label>
-                                <input type="email" />
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Woonadres</label>
-                            <input type="text" />
-                        </div>
-
+                        <!-- Werksinligting & Inkomste (Ouer 3) -->
                         <div
                             class="divider"
                             style="
@@ -1323,6 +995,7 @@
                                         name="student_lives_with[]"
                                         value="ouer1"
                                         class="lives-with-option"
+                                        required
                                     />
                                     <span>Ouer 1</span>
                                 </label>
@@ -1378,7 +1051,7 @@
                                     <input
                                         type="radio"
                                         name="correspondence_to"
-                                        value="Ouer3"
+                                        value="other"
                                     />
                                     <span>Ouer 3</span>
                                 </label>
@@ -1413,7 +1086,7 @@
                                     <input
                                         type="radio"
                                         name="accounts_to"
-                                        value="ouer3"
+                                        value="other"
                                     />
                                     <span>Ouer 3</span>
                                 </label>
@@ -1434,18 +1107,18 @@
                         <h3 class="step-title">Medies & Noodgeval</h3>
 
                         <div class="field">
-                            <label>Gesondheidstoestand</label>
-                            <input type="text" />
+                            <label>Gesondheidstoestand van leerder</label>
+                            <input type="text" required />
                         </div>
 
                         <div class="input-group">
                             <div class="field">
                                 <label>Mediese Fonds Naam</label>
-                                <input type="text" />
+                                <input type="text" required />
                             </div>
                             <div class="field">
                                 <label>Mediese Fonds Nr.</label>
-                                <input type="text" />
+                                <input type="text" required />
                             </div>
                         </div>
 
@@ -1458,6 +1131,7 @@
                                         type="radio"
                                         name="medical_type"
                                         value="full"
+                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -1467,6 +1141,7 @@
                                         type="radio"
                                         name="medical_type"
                                         value="hospital"
+                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -1492,17 +1167,309 @@
                                 <input type="text" required />
                             </div>
                             <div class="field">
-                                <label>Verwantskap </label>
+                                <label>Verwantskap</label>
                                 <input
                                     type="text"
                                     placeholder="Bv. Ouma, Oom"
+                                    required
                                 />
                             </div>
                         </div>
 
                         <div class="field">
                             <label>Sel Nr.</label>
-                            <input type="tel" />
+                            <input type="tel" required />
+                        </div>
+
+                        <div class="field-btns">
+                            <button type="button" class="btn-prev">
+                                Terug
+                            </button>
+                            <button type="button" class="btn-next">
+                                Volgende
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- NEW: Page 4 (Terms & Conditions) -->
+                    <div class="form-page">
+                        <h3 class="step-title">
+                            Onderneming deur Ouers/Voogde
+                        </h3>
+
+                        <p id="terms-text">
+                            1. Ons doen hiermee aansoek om die kind wie se naam
+                            op hierdie vorm verskyn as ‘n leerder te
+                            Keetmanshoop Privaatskool te hê en bevestig dat
+                            hy/sy aan die basiese kriteria voldoen.
+                            <br /><br />
+                            2. Ek/Ons sertifiseer hiermee dat ek/ons wetlike
+                            toesig en/of voogdyskap het ten opsigte van die
+                            bogenoemde leerder.
+                            <br /><br />
+                            3. Ek/Ons onderneem om te hou by die skoolreëls en
+                            gedragskode en die verskeie veranderinge in die
+                            reëls en gedragskode wat van tyd tot tyd gemaak
+                            word.
+                            <br /><br />
+                            4. Ek/Ons verstaan en bevestig dat die Skoolhoof of
+                            enige ander persoon wat behoorlik gemagtig is, in
+                            loco parentis sal optree in enige saak en ter enige
+                            tyd wat ek/ons my/ons kind in die sorg van die skool
+                            toevertrou het.
+                            <br /><br />
+                            5. Ek/Ons verstaan dat desnieteenstaande elke
+                            redelike poging aangewend sal word om verliese of
+                            skade aan ‘n leerder se kleredrag en toerusting te
+                            voorkom, die skool nie daarvoor verantwoordelik
+                            gehou sal word nie.
+                            <br /><br />
+                            6. Ek/Ons onderneem om die skool te vergoed vir
+                            enige skade aan skooleiendom wat deur my/ons kind
+                            veroorsaak is.
+                            <br /><br />
+                            7. Ek/Ons onderneem gesamentlik en elkeen
+                            afsonderlik om skoolfonds te betaal en ek/ons
+                            verstaan die volgende:
+                            <br /><br />
+                            (a) Die jaarlikse skoolfonds sal ŉ verpligte bedrag
+                            wees soos wat dit aanvaar en goedgekeur is deur die
+                            meerderheid van ouers op die jaarlikse
+                            Begrotingsvergadering vir die betrokke jaar.
+                            <br /><br />
+                            (b) In terme van die Statuut van die skool soos
+                            goedgekeur deur die Ministerie van Onderwys van
+                            Namibia is die partye van hierdie vorm
+                            verantwoordelik om verpligte skoolfonds te betaal.
+                            As die skoolgeld nie teen die 25ste van die betrokke
+                            maand betaal is nie sal u kind op die eerste
+                            skooldag daarna 'n brief ontvang waarin hy/sy
+                            verwittig word dat die skoolgeld agterstallig is en
+                            dat hy/sy nie verder kan skoolgaan totdat die
+                            rekening betaal is nie. Die rekening sal ook
+                            oorhandig word aan die skool se prokureurs vir
+                            invordering van die skulde. As die ouer dus nie die
+                            skoolgeld kan bybring nie is die onus op die ouer om
+                            voor die 25ste van die betrokke maand met die skool
+                            skriftelik in kennis te stel van sy/haar onvermoë en
+                            'n skriftelike ooreenkoms te bereik oor die betaling
+                            van die skoolfooie. Die skool sal nie die ouers
+                            kontak vir reëlings nie.
+                            <br /><br />
+                            (c) Indien die skool enige kostes moet aangaan vir
+                            die invordering van skuld verskuldig in terme van
+                            hierdie dokument, onderneem die partye wat hierdie
+                            aansoekvorm onderteken om op aanvraag alle regs- en
+                            ander kostes deur die skool aangegaan om
+                            agterstallige skoolfonds in te vorder te betaal op
+                            ‘n prokureur-eie-kliënt skaal, tesame met
+                            invorderingskommissie teen ‘n koers van 10% (plus
+                            BTW) vir elke betaling deur sodanige partye gemaak,
+                            asook enige seëlregte wat betaalbaar mag wees.
+                            <br /><br />
+                            (d) Indien enige betaling verskuldig in terme van
+                            hierdie dokument nie betyds betaal word nie mag die
+                            skool die balans van die agterstallige skuld, rente
+                            en kostes wat verskuldig is in terme hiervan as
+                            onmiddellik betaalbaar beskou en mag ‘n dagvaarding
+                            uitgereik word in enige bevoegde Hof sonder enige
+                            verdere kennisgewing aan u.
+                            <br /><br />
+                            (e) Enige kapitale bedrae uitstaande in terme
+                            hiervan sal rente dra teen ‘n koers van 20% per jaar
+                            gereken vanaf datum van die betrokke faktuur.
+                            <br /><br />
+                            (f) Beide ouers, of enige persone wat hierdie
+                            aansoek onderteken, sal gesamentlik en afsonderlik
+                            aanspreeklik gehou word vir die betaling van
+                            skoolfonds.
+                            <br /><br />
+                            (g) Skoolfonds is vooruitbetaalbaar, tensy
+                            skriftelike reëlings deur ouer getref is en so deur
+                            die beheerliggaam van die skool aanvaar is.
+                            <br /><br />
+                            (h) Ouers wat nie in staat is om skoolgelde te
+                            betaal nie, mag aansoek doen om vrystelling van
+                            skoolgelde of gedeeltelike vrystelling. Die skool
+                            behou egter die reg voor om, in die ongebonde en
+                            absolute diskresie van die Skool se Beheerliggaam,
+                            sodanige aansoek goed te keur of af te keur.
+                            <br /><br />
+                            (i) Die partye wat hierdie ooreenkoms onderteken
+                            doen hiermee uitdruklik afstand van die voordele van
+                            non causa debiti, errore calculi, die hersiening van
+                            rekeninge en geen waarde ontvang nie.
+                            <br /><br />
+                            (j) Ons stem hiermee toe tot die jurisdiksie van die
+                            Landdroshof in terme van Artikel 45 van die
+                            “Magistrate’s Court Act 32 of 1944” vir die
+                            invordering van enige bedrag verskuldig in terme
+                            hiervan.
+                            <br /><br />
+                            (k) Enige kapitale skuld sal onmiddellik betaalbaar
+                            en opeisbaar raak indien ek/ons insolvent verklaar
+                            word of ‘n daad van insolvensie pleeg.
+                            <br /><br />
+                            (l) Alle betalings deur die skool, of deur die skool
+                            se prokureurs, ontvang, sal eers toegeken word tot
+                            kostes, BTW, invorderingskommissie en rente,
+                            waarnaas dit toegeken sal word as ‘n kapitale
+                            betaling, ongeag enige toekenning gemaak of
+                            oënskynlik deur die skool gemaak.
+                            <br /><br />
+                            (m) Enige sertifikaat of uiteensetting wat uitgereik
+                            word onder die handtekening van die Skool se
+                            gemagtigde verteenwoordiger / agent sal aanvaar word
+                            as ‘n prima facie bewys van ons verskuldigheid en
+                            sal dien as voldoende bewys vir die Skool om
+                            summiere vonnis of ‘n voorlopige vonnis teen ons te
+                            verkry in ‘n bevoegde Hof vir die bedrag uiteengesit
+                            in die sertifikaat. Ons aanvaar hiermee die onus om
+                            te bewys dat sodanige bedrag nie korrek is nie.
+                            <br /><br />
+                            (n) Ons sal geensins geregtig wees om vir watter
+                            rede ookal enige gelde betaalbaar in terme hiervan
+                            te weerhou of betaling daarvan uit te stel nie.
+                            <br /><br />
+                            (o) Ons gee hiermee toestemming dat alle fakture,
+                            rekeninge en kennisgewings elektronies aan ons
+                            versend kan word na die onderstaande genomineerde
+                            adres. Indien ons nie ‘n e-pos adres het nie, sal
+                            ons die skool skriftelik daarvan in kennis stel
+                            sodat harde-kopieë van gemelde dokumente aan ons
+                            versend kan word.
+                            <br /><br />
+                            (p) Ek/Ons onderneem om een maand se skriftelike
+                            kennis te gee van enige voorneme om my/ons kind uit
+                            die skool te verwyder en om enige handboeke/boeke
+                            en/of toerusting wat aan die skool behoort en wat
+                            my/ons kind gehad het, aan die skool terug te
+                            besorg. Indien sodanige boeke en toerusting nie
+                            terugbesorg word nie aanvaar ons aanspreeklikheid
+                            vir betaling van die vervangingskoste van sodanige
+                            boeke en toerusting op aanvraag.
+                            <br /><br />
+                            (q) Indien ek/ons gedurende November van ‘n betrokke
+                            jaar skriftelik kennis gee van ‘n voorneme om my/ons
+                            kind uit die skool te verwyder, of ter enige tyd
+                            kennis gee dat my/ons kind na die voltooiing van
+                            sy/haar jaareindeksamens die skool sal verlaat,
+                            aanvaar ek/ons aanspreeklikheid vir die volle
+                            skoolgelde betaalbaar tot die einde van die betrokke
+                            skooljaar.
+                            <br /><br />
+                            (r) Ek/Ons stem daarmee saam dat my/ons kind
+                            toegelaat word om groep Edumetriese en Psigometriese
+                            toetse te ondergaan wat deur die Direkteur van
+                            Onderwys goedgekeur is.
+                            <br /><br />
+                            (s) Ek/Ons stem saam dat indien my/ons kind oor die
+                            verpligte skoolgaande ouderdom (15 jaar) is, hy/sy
+                            die skool gereeld sal bywoon en slegs afwesig sal
+                            wees om mediese redes.
+                            <br /><br />
+                            (t) Ek/Ons verstaan dat die skool die reg behou om
+                            alle inligting wat deur hierdie aansoek voorsien is,
+                            te verifieer. In die geval van oneerlike
+                            dokumentasie wat ingedien is, behou die skool hom
+                            die reg voor om ‘n kriminele klag van bedrog teen
+                            enige van die partye in hierdie aansoek, te lê.
+                            <br /><br />
+                            (u) Ek/Ons aanvaar verantwoordelikheid vir die
+                            immunisering van my/ons kind teen enige aansteeklike
+                            siektes en normale infeksies en sal bewys daarvan
+                            lewer indien dit versoek word.
+                            <br /><br />
+                            (v) Ek/Ons aanvaar verantwoordelikheid van die
+                            leerder se vervoer na en van die skool.
+                            <br /><br />
+                            (w) Ek/Ons onderneem om die skoolhoof betyds in
+                            kennis te stel van my/ons kind/kinders se
+                            afwesigheid van skool. Ouer/Voogde verklaar dat
+                            hulle bereid is om ‘n doktersertifikaat in te handig
+                            indien en soos versoek.
+                            <br /><br />
+                            (x) Ek/Ons onderneem om die skool se beleid en
+                            toelatingsbeleid soos deur die Beheerliggaam
+                            gedefinieer en geïmplementeer, te ondersteun.
+                            <br /><br />
+                            (y) Ek/Ons verstaan dat rook en die gebruik/misbruik
+                            van enige dwelm of alkoholiese drank ŉ oortreding is
+                            van die kritiese skoolreëls en sal onder geen
+                            omstandighede geduld word nie.
+                            <br /><br />
+                            (z) Ek/Ons (beide ouers) onderneem om by die
+                            bepalings van die skool se Grondwet, reëls en kodes
+                            te hou en ek/ons sal in die geval van 'n oortreding
+                            van ‘n reël, berus by die strafmaatreëls soos
+                            besluit deur die tugkomitee.
+                            <br /><br />
+                            (aa) Die ondertekenaar hiervan kies hiermee
+                            domicilium citandi et executandi soos hieronder
+                            aangetoon. In die geval van ŉ adresverandering, sal
+                            ek/ons die skool skriftelik daarvan in kennis stel.
+                            <br /><br />
+                            8. Hierdie verbintenis in sy geheel is van krag
+                            vanaf die dag wat dit onderteken is deur die
+                            ouer/voog/leerling tot op die dag wat die kind die
+                            skool verlaat. Let egter daarop dat indien ŉ
+                            leerling heraansoek doen aan die einde van ŉ jaar /
+                            beplan om terug te keer na KPS, hierdie ooreenkoms
+                            bindend is oor die Desember vakansie. Leerlinge val
+                            dus tydens vakansietye ook onder hierdie kontrak en
+                            die skool se reëls en regulasies.
+                            <br /><br />
+                            9. Die ouer/voog verklaar dat hy/sy die wettige
+                            ouer/voog van die kind is en geregtig is om hierdie
+                            dokument te teken en is hiertoe gebind as ouer/voog
+                            en in sy/haar persoonlike hoedanigheid.
+                            <br /><br />
+                            10. ADRES: Die ondertekenaar hiervan kies hiermee
+                            die volgende domicilium citandi et executandi
+                            (fisiese adres) en e-pos adres vir diening en
+                            lewering van alle kennisgewings en fakture hierin:
+                        </p>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+
+                        <div class="field">
+                            <label
+                                >Domicilium citandi et executandi (Fisiese
+                                adres)</label
+                            >
+                            <input
+                                type="text"
+                                name="domicilium_address_1"
+                                required
+                            />
+                        </div>
+
+                        <div class="field">
+                            <label>E-pos adres</label>
+                            <input
+                                type="email"
+                                name="domicilium_email_1"
+                                required
+                            />
+                        </div>
+
+                        <div class="field">
+                            <label
+                                >Domicilium citandi et executandi (Fisiese
+                                adres) Ouer 2 (indien nodig)</label
+                            >
+                            <input type="text" name="domicilium_address_2" />
+                        </div>
+
+                        <div class="field">
+                            <label>E-pos adres Ouer 2 (indien nodig)</label>
+                            <input type="email" name="domicilium_email_2" />
                         </div>
 
                         <div class="field-btns">
@@ -1686,7 +1653,295 @@
             </div>
         </section>
 
+        <div id="validation-modal" class="modal-overlay">
+            <div class="modal-box">
+                <div class="modal-icon">
+                    <i class="bx bx-error-circle"></i>
+                </div>
+                <div class="modal-content">
+                    <h3>Oeps</h3>
+                    <p>
+                        Maak asseblief seker dat alle verpligte velde ingevul is
+                        voordat u voortgaan.
+                    </p>
+                </div>
+                <button
+                    type="button"
+                    class="modal-btn"
+                    onclick="closeValidationModal()"
+                >
+                    Ek verstaan
+                </button>
+            </div>
+        </div>
+
         <app-footer base="../"></app-footer>
+
+        <script>
+            /* =========================================
+       1. GLOBAL FUNCTIONS & VALIDATION
+       ========================================= */
+
+            // Generate fields for children in KPS
+            function generateKPSSiblingFields(number) {
+                const container = document.getElementById(
+                    "kps-siblings-wrapper",
+                );
+                container.innerHTML = "";
+                if (number > 10) number = 10;
+                for (let i = 1; i <= number; i++) {
+                    const html = `
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee;">
+                    <h5 style="color: var(--primary); margin-bottom: 10px;">KPS Kind ${i}</h5>
+                    <div class="input-group">
+                        <div class="field"><label>Naam & Van</label><input type="text" name="kps_child_${i}_name" required /></div>
+                        <div class="field"><label>Graad</label><input type="text" name="kps_child_${i}_grade" required /></div>
+                    </div>
+                    <div class="input-group">
+                        <div class="field"><label>Verwantskap</label>
+                            <select name="kps_child_${i}_relation"><option value="">Kies...</option><option>Eie Kind</option><option>Stiefkind</option><option>Voog</option></select>
+                        </div>
+                    </div>
+                </div>`;
+                    container.insertAdjacentHTML("beforeend", html);
+                }
+            }
+
+            // Generate fields for children in Other Schools
+            function generateOtherSchoolFields(number) {
+                const container = document.getElementById(
+                    "other-schools-wrapper",
+                );
+                container.innerHTML = "";
+                if (number > 10) number = 10;
+                for (let i = 1; i <= number; i++) {
+                    const html = `
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee;">
+                    <h5 style="color: var(--primary); margin-bottom: 10px;">Ander Skool Kind ${i}</h5>
+                    <div class="input-group">
+                        <div class="field"><label>Naam & Van</label><input type="text" name="other_child_${i}_name" required /></div>
+                        <div class="field"><label>Naam van Skool</label><input type="text" name="other_child_${i}_school" required /></div>
+                    </div>
+                </div>`;
+                    container.insertAdjacentHTML("beforeend", html);
+                }
+            }
+
+            // --- MODAL LOGIC ---
+            function showValidationModal() {
+                const modal = document.getElementById("validation-modal");
+                if (modal) {
+                    modal.classList.add("show");
+                    // Optional: Log to console to verify it triggered
+                    console.log("Modal Triggered");
+                } else {
+                    alert("Please fill in all required fields (Red borders).");
+                }
+            }
+
+            function closeValidationModal() {
+                const modal = document.getElementById("validation-modal");
+                if (modal) modal.classList.remove("show");
+            }
+
+            /* =========================================
+       2. DOM EVENTS
+       ========================================= */
+            document.addEventListener("DOMContentLoaded", () => {
+                // Modal Close on Background Click
+                const validationModal =
+                    document.getElementById("validation-modal");
+                if (validationModal) {
+                    validationModal.addEventListener("click", (e) => {
+                        if (e.target === validationModal)
+                            closeValidationModal();
+                    });
+                }
+
+                const nextBtns = document.querySelectorAll(".btn-next");
+                const prevBtns = document.querySelectorAll(".btn-prev");
+                const progressSteps = document.querySelectorAll(".step");
+                const formPages = document.querySelectorAll(".form-page");
+                let currentStep = 0;
+
+                // --- NEXT BUTTON CLICK ---
+                nextBtns.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        const currentPage = formPages[currentStep];
+
+                        // Remove all existing error classes first
+                        currentPage
+                            .querySelectorAll(".input-error")
+                            .forEach((el) =>
+                                el.classList.remove("input-error"),
+                            );
+
+                        let allValid = true;
+                        let firstInvalid = null;
+
+                        // 1. VALIDATE TEXT, SELECT, DATE
+                        const inputs = currentPage.querySelectorAll(
+                            "input[required], select[required]",
+                        );
+
+                        inputs.forEach((input) => {
+                            const isRadio = input.type === "radio";
+                            const isCheckbox = input.type === "checkbox";
+                            const isFile = input.type === "file";
+
+                            // Skip Radios/Checkboxes here (handled separately below)
+                            if (isRadio || isCheckbox) return;
+
+                            if (!input.value || input.value.trim() === "") {
+                                allValid = false;
+
+                                // If it is a File Input, highlight the PARENT wrapper (.file-upload)
+                                if (isFile) {
+                                    input.parentElement.classList.add(
+                                        "input-error",
+                                    );
+                                    if (!firstInvalid)
+                                        firstInvalid = input.parentElement;
+                                } else {
+                                    // Standard Input
+                                    input.classList.add("input-error");
+                                    if (!firstInvalid) firstInvalid = input;
+                                }
+                            }
+                        });
+
+                        // 2. VALIDATE RADIO GROUPS
+                        // Find all unique names of required radios on this page
+                        const radioInputs = Array.from(
+                            currentPage.querySelectorAll(
+                                "input[type='radio'][required]",
+                            ),
+                        );
+                        const radioNames = [
+                            ...new Set(radioInputs.map((input) => input.name)),
+                        ];
+
+                        radioNames.forEach((name) => {
+                            const checked = currentPage.querySelector(
+                                `input[name="${name}"]:checked`,
+                            );
+                            if (!checked) {
+                                allValid = false;
+                                // Find the container to turn red (mark-group or radio-options)
+                                const group = currentPage
+                                    .querySelector(`input[name="${name}"]`)
+                                    .closest(".mark-group, .radio-options");
+                                if (group) {
+                                    group.classList.add("input-error");
+                                    if (!firstInvalid) firstInvalid = group;
+                                }
+                            }
+                        });
+
+                        // 3. VALIDATE "LEERDER WOON BY" CHECKBOX (Specific Logic)
+                        const livesWithOptions =
+                            currentPage.querySelectorAll(".lives-with-option");
+                        if (livesWithOptions.length > 0) {
+                            const checkedCount = Array.from(
+                                livesWithOptions,
+                            ).filter((cb) => cb.checked).length;
+                            const container =
+                                livesWithOptions[0].closest(".mark-group");
+                            const hint =
+                                document.getElementById("lives-with-hint");
+
+                            // Must pick 1 or 2
+                            if (checkedCount < 1 || checkedCount > 2) {
+                                allValid = false;
+                                if (container)
+                                    container.classList.add("input-error");
+                                if (hint) hint.style.color = "#ff4757";
+                                if (!firstInvalid) firstInvalid = container;
+                            } else {
+                                if (hint) hint.style.color = "var(--text-gray)";
+                            }
+                        }
+
+                        // --- RESULT ---
+                        if (!allValid) {
+                            showValidationModal();
+                            if (firstInvalid) {
+                                firstInvalid.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "center",
+                                });
+                            }
+                            return; // Stop execution
+                        }
+
+                        // If Valid -> Move Next
+                        formPages[currentStep].style.display = "none";
+                        currentStep++;
+                        formPages[currentStep].style.display = "block";
+
+                        if (currentStep < progressSteps.length) {
+                            progressSteps[currentStep].classList.add("active");
+                        }
+                        document
+                            .querySelector(".form-container")
+                            .scrollIntoView({ behavior: "smooth" });
+                    });
+                });
+
+                // --- PREVIOUS BUTTON CLICK ---
+                prevBtns.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        progressSteps[currentStep].classList.remove("active");
+                        formPages[currentStep].style.display = "none";
+                        currentStep--;
+                        formPages[currentStep].style.display = "block";
+                        document
+                            .querySelector(".form-container")
+                            .scrollIntoView({ behavior: "smooth" });
+                    });
+                });
+
+                // (Uniform Toggle Code goes here - kept short for brevity)
+                const seasonToggle = document.getElementById("season-toggle");
+                if (seasonToggle) {
+                    /* ... Your existing Uniform code ... */
+                }
+            });
+
+            // Function to toggle Subject Choices based on Grade
+            function toggleSubjectChoices() {
+                const gradeSelect = document.getElementById("grade-select");
+                const container = document.getElementById(
+                    "subject-choices-container",
+                );
+                const subjectSelects =
+                    container.querySelectorAll(".subject-select");
+
+                // The grades that trigger the subject choice
+                const seniorGrades = ["Graad 10", "Graad 11", "Graad 12"];
+                const selectedGrade = gradeSelect.value;
+
+                if (seniorGrades.includes(selectedGrade)) {
+                    // Show the container
+                    container.style.display = "block";
+
+                    // Make fields required so validation catches them
+                    subjectSelects.forEach((select) => {
+                        select.setAttribute("required", "true");
+                    });
+                } else {
+                    // Hide the container
+                    container.style.display = "none";
+
+                    // Remove requirement and clear values so validation ignores them
+                    subjectSelects.forEach((select) => {
+                        select.removeAttribute("required");
+                        select.value = "";
+                        select.classList.remove("input-error"); // Clean up red borders
+                    });
+                }
+            }
+        </script>
     </body>
     <!-- Google tag (gtag.js) -->
     <script

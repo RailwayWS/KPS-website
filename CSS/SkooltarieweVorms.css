@@ -140,7 +140,8 @@ h1 {
 .accordion-item:focus-within {
     transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 12px 28px -8px rgba(97, 97, 97, 0.25),
+    box-shadow:
+        0 12px 28px -8px rgba(97, 97, 97, 0.25),
         0 8px 16px -8px rgba(30, 41, 59, 0.25);
 }
 
@@ -153,7 +154,9 @@ h1 {
     justify-content: space-between;
     align-items: center;
     color: var(--text-dark);
-    transition: color 0.3s, background 0.3s;
+    transition:
+        color 0.3s,
+        background 0.3s;
 }
 
 .accordion-item-header.active {
@@ -792,4 +795,232 @@ input:checked + .slider:before {
     width: auto;
     object-fit: contain;
     transition: opacity 0.3s ease;
+}
+
+/* =========================================
+   CUSTOM VALIDATION POPUP (MODAL)
+   ========================================= */
+
+/* The Dark Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 30, 59, 0.6); /* Navy with opacity */
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+/* The White Box */
+.modal-box {
+    background: #fff;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.show .modal-box {
+    transform: translateY(0);
+}
+
+/* Icon */
+.modal-icon {
+    font-size: 3.5rem;
+    color: #ff4757; /* Soft Red for warning */
+    margin-bottom: 15px;
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Text */
+.modal-content h3 {
+    color: var(--secondary); /* Navy */
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: var(--text-gray);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Button */
+.modal-btn {
+    background: var(--secondary); /* Navy Button */
+    color: #fff;
+    width: 100%;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-btn:hover {
+    background: var(--primary); /* Jade on Hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 168, 107, 0.3);
+}
+
+/* Shake Animation for icon */
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+    75% {
+        transform: translateX(5px) rotate(5deg);
+    }
+}
+
+/* ===== Validation Modal ===== */
+#validation-modal.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: none; /* hidden by default */
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(2, 6, 23, 0.6);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+}
+
+#validation-modal.modal-overlay.show {
+    display: flex; /* becomes visible */
+}
+
+#validation-modal .modal-box {
+    width: min(520px, 100%);
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px 22px 18px;
+    border: 1px solid rgba(0, 37, 82, 0.12);
+    box-shadow: 0 24px 80px -40px rgba(0, 37, 82, 0.55);
+}
+
+#validation-modal .modal-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 12px;
+
+    color: var(--primary);
+}
+
+/* Optional: ensure all modal content is centered consistently */
+#validation-modal .modal-box {
+    text-align: center;
+}
+
+#validation-modal .modal-content h3 {
+    margin: 0 0 6px;
+    color: var(--secondary);
+}
+
+#validation-modal .modal-content p {
+    margin: 0 0 14px;
+    color: #334155;
+    line-height: 1.5;
+}
+
+#validation-modal .modal-btn {
+    width: 100%;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: var(--secondary);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+}
+
+#validation-modal .modal-btn:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+/* Optional: allow closing by clicking backdrop */
+#validation-modal.modal-overlay {
+    cursor: pointer;
+}
+#validation-modal .modal-box {
+    cursor: default;
+}
+
+/* =========================================
+   ERROR STATES (RED BORDERS)
+   ========================================= */
+
+/* 1. Standard Inputs & Selects */
+.field input.input-error,
+.field select.input-error {
+    border-color: #ff4757 !important; /* Bright Red */
+    background-color: #fff0f1 !important; /* Light Red tint */
+    box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
+    animation: shakeInput 0.3s ease-in-out;
+}
+
+/* 2. File Upload Wrapper (Since the input is invisible) */
+.file-upload.input-error {
+    border: 1px solid #ff4757 !important;
+    background-color: #fff0f1 !important;
+    animation: shakeInput 0.3s ease-in-out;
+}
+
+/* 3. Radio/Checkbox Group Containers */
+.mark-group.input-error,
+.radio-options.input-error {
+    border: 1px solid #ff4757;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(255, 71, 87, 0.05);
+    animation: shakeInput 0.3s ease-in-out;
+}
+
+/* 4. The Shake Animation */
+@keyframes shakeInput {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+/* 5. Force Modal Visibility */
+#validation-modal.modal-overlay.show {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
