@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="af">
     <head>
         <!--Metadata-->
@@ -34,6 +34,8 @@
         <link rel="stylesheet" href="../style.css" />
         <link rel="stylesheet" href="../CSS/akademie.css" />
         <script src="../script.js" defer></script>
+        <script src="../Components/navbar.js" defer></script>
+        <script src="../Components/footer.js" defer></script>
 
         <!--==================================FONTS==================================-->
         <link
@@ -43,31 +45,7 @@
     </head>
 
     <body>
-        <nav>
-            <div class="nav-container">
-                <a href="../index.html" class="brand-logo">
-                    <span style="color: var(--primary)">KPS</span>
-                </a>
-
-                <ul id="menu" class="links-list">
-                    <li><a href="Akademie.html">Akademie</a></li>
-                    <li><a href="GraadR.html">Graad R</a></li>
-                    <li>
-                        <a href="Sport-kultuur.html">Sport & Kultuur</a>
-                    </li>
-                    <li><a href="Personeel.html">Personeel</a></li>
-                    <li><a href="Koshuis.html">Koshuis</a></li>
-                    <li><a href="SkooltarieweVorms.html">Doen Aansoek</a></li>
-                </ul>
-
-                <div class="nav-actions">
-                    <a href="../index.html#contact-us" class="cta-button"
-                        >Kontak Ons</a
-                    >
-                    <i id="menu-icon" class="bx bx-menu"></i>
-                </div>
-            </div>
-        </nav>
+        <app-navbar base="../"></app-navbar>
 
         <main class="page-content">
             <section class="hero-modern">
@@ -364,108 +342,18 @@
             </div>
         </main>
 
-        <footer>
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h2>KPS</h2>
-                    <p>Lig is lewe. Christelike onderwys in Namibië.</p>
-                    <div class="socials">
-                        <a
-                            href="https://www.facebook.com/profile.php?id=100063934898322"
-                            ><i class="fab fa-facebook-f"></i
-                        ></a>
-                        <a
-                            href="https://www.instagram.com/kps_privaatskool?igsh=MTFzajJxMmNrOGFrYg=="
-                            ><i class="fab fa-instagram"></i
-                        ></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Skakels</h4>
-                    <a href="Nav/Akademie.html">Akademie</a>
-                    <a href="Nav/Sport-kultuur.html">Sport & Kultuur</a>
-                    <a href="Nav/Personeel.html">Personeel</a>
-                    <a href="Nav/Koshuis.html">Koshuis</a>
-                    <a href="Nav/SkooltarieweVorms.html">Doen Aansoek</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Ekstra</h4>
-                    <a href="Nav/Geskiedenis.html">Geskiedenis</a>
-                    <a href="Nav/Wapenmeester.html">Wapen en Leuse</a>
-                    <a href="Nav/MissieVisie.html">Nuus Items</a>
-                </div>
-                <div class="footer-bottom">
-                    <p>
-                        © 2025 Keetmanshoop Privaatskool. Developed by
-                        <a href="https://railwaywebsolutions.com/"
-                            >Railway Web Solutions</a
-                        >
-                    </p>
-                </div>
-            </div>
-        </footer>
+        <app-footer base="../"></app-footer>
+
+        <!-- Keep modal markup if you still want the gallery lightbox -->
         <div id="image-modal" class="modal-overlay">
-            <button class="modal-close-btn"><i class="bx bx-x"></i></button>
+            <button class="modal-close-btn" type="button" aria-label="Maak toe">
+                <i class="bx bx-x"></i>
+            </button>
             <div class="modal-content-wrapper">
                 <img id="modal-full-img" src="" alt="Full Screen View" />
                 <div id="modal-caption"></div>
             </div>
         </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const modal = document.getElementById("image-modal");
-                const fullImg = document.getElementById("modal-full-img");
-                const caption = document.getElementById("modal-caption");
-                const closeBtn = document.querySelector(".modal-close-btn");
-                const galleryCards = document.querySelectorAll(".gallery-card");
-
-                // 1. Open Modal on Card Click
-                galleryCards.forEach((card) => {
-                    card.addEventListener("click", () => {
-                        const imgSource = card.querySelector("img").src;
-                        // Get the text from the overlay-text div
-                        const textSource =
-                            card.querySelector(".overlay-text").textContent;
-
-                        fullImg.src = imgSource;
-                        caption.textContent = textSource;
-
-                        modal.classList.add("active");
-                        // Prevent scrolling on the body while modal is open
-                        document.body.style.overflow = "hidden";
-                    });
-                });
-
-                // 2. Close Modal Function
-                const closeModal = () => {
-                    modal.classList.remove("active");
-                    document.body.style.overflow = ""; // Restore scrolling
-                };
-
-                // 3. Event Listeners for Closing
-                closeBtn.addEventListener("click", closeModal);
-
-                // Close when clicking outside the image (on the overlay)
-                modal.addEventListener("click", (e) => {
-                    if (
-                        e.target === modal ||
-                        e.target.classList.contains("modal-content-wrapper")
-                    ) {
-                        closeModal();
-                    }
-                });
-
-                // Close on Escape key
-                document.addEventListener("keydown", (e) => {
-                    if (
-                        e.key === "Escape" &&
-                        modal.classList.contains("active")
-                    ) {
-                        closeModal();
-                    }
-                });
-            });
-        </script>
     </body>
     <!-- Google tag (gtag.js) -->
     <script

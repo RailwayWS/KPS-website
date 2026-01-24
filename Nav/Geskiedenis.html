@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="af">
     <head>
         <!--Metadata-->
@@ -34,7 +34,10 @@
         <link rel="stylesheet" href="../style.css" />
         <link rel="stylesheet" href="../CSS/geskiedenis.css" />
         <link rel="stylesheet" href="../CSS/akademie.css" />
+
         <script src="../script.js" defer></script>
+        <script src="../Components/navbar.js" defer></script>
+        <script src="../Components/footer.js" defer></script>
 
         <!--==================================FONTS==================================-->
         <link
@@ -44,44 +47,7 @@
     </head>
 
     <body>
-        <nav>
-            <div class="nav-container">
-                <a href="../index.html" class="brand-logo">
-                    <span style="color: var(--primary)">KPS</span>
-                </a>
-
-                <ul id="menu" class="links-list">
-                    <li><a href="Akademie.html">Akademie</a></li>
-                    <li><a href="GraadR.html">Graad R</a></li>
-                    <li>
-                        <a href="Sport-kultuur.html">Sport & Kultuur</a>
-                    </li>
-                    <li><a href="Personeel.html">Personeel</a></li>
-                    <li><a href="Koshuis.html">Koshuis</a></li>
-                    <li><a href="SkooltarieweVorms.html">Doen Aansoek</a></li>
-                </ul>
-
-                <div class="nav-actions">
-                    <a href="../index.html#contact-us" class="cta-button"
-                        >Kontak Ons</a
-                    >
-                    <i id="menu-icon" class="bx bx-menu"></i>
-                </div>
-            </div>
-        </nav>
-
-        <div class="overlay">
-            <a href="#" class="close">×</a>
-            <div class="overlay__content">
-                <a href="Akademie.html">Akademie</a>
-                <a href="GraadR.html">Graad R</a>
-                <a href="Sport-kultuur.html">Sport en Kultuur</a>
-                <a href="Personeel.html">Personeel</a>
-                <a href="Koshuis.html">Koshuis</a>
-                <a href="SkooltarieweVorms.html">Doen Aansoek</a>
-                <a href="../index.html#contact-us" class="cta">Kontak Ons</a>
-            </div>
-        </div>
+        <app-navbar base="../"></app-navbar>
 
         <main class="page-content">
             <section class="hero-modern">
@@ -90,8 +56,8 @@
                         <div class="glass-badge">Keetmanshoop Privaatskool</div>
                         <h1>Geskiedenis</h1>
                         <p>
-                            Leer meer oor die geskiedenis en groei van KPS — van
-                            ons beginjare tot vandag.
+                            ’n Reis deur tyd: Van die droom in 1995 tot die
+                            stewige fondament van vandag.
                         </p>
                         <div class="hero-btns">
                             <a href="#detail" class="btn-glow">
@@ -115,16 +81,25 @@
                 <div class="timeline-container">
                     <div class="timeline-item left">
                         <div class="timeline-marker">
-                            <div class="timeline-date">1996</div>
+                            <div class="timeline-date">1995</div>
                             <div class="timeline-dot"></div>
                         </div>
                         <div class="timeline-content">
+                            <img
+                                src="../Images/Carousel/elriperd.webp"
+                                alt="1995 Stigting"
+                                class="timeline-image"
+                            />
                             <div class="timeline-body">
-                                <h3>Die Begin</h3>
+                                <h3>Die Droom Begin</h3>
                                 <p>
-                                    Keetmanshoop Privaatskool open sy deure vir
-                                    die eerste keer. 'n Klein groepie toegewyde
-                                    ouers en onderwysers lê die fondasie.
+                                    Die geskiedenis begin met ’n groep graad
+                                    7-ouers wat die behoefte gehad het dat hulle
+                                    kinders in hulle huistaal en volgens
+                                    Christelike waardes moet skoolgaan. Onder
+                                    leiding van mnr. Dawie O’Callaghan vergader
+                                    die groep in die NG Kerkgebou en besluit om
+                                    in 1996 met 'n graad 8-klas te begin.
                                 </p>
                             </div>
                         </div>
@@ -132,21 +107,25 @@
 
                     <div class="timeline-item right">
                         <div class="timeline-marker">
-                            <div class="timeline-date">2005</div>
+                            <div class="timeline-date">Jan 1996</div>
                             <div class="timeline-dot"></div>
                         </div>
                         <div class="timeline-content">
                             <img
                                 src="../Images/Carousel/elriperd.webp"
-                                alt="Skoolgebou 2005"
+                                alt="Opening 1996"
                                 class="timeline-image"
                             />
                             <div class="timeline-body">
-                                <h3>Uitbreiding</h3>
+                                <h3>Die Eerste Skooldag</h3>
                                 <p>
-                                    Die skool groei aansienlik. Nuwe klaskamers
-                                    word aangebou en die sportgronde word
-                                    ontwikkel.
+                                    Op 16 Januarie open ds. Samuel Louw die
+                                    eerste akademiese skooljaar. Die skool
+                                    bestaan uit 19 Gr. 8-leerlinge (by mev.
+                                    Martie Esterhuyse) en ’n Gr. R-klas met 15
+                                    leerlinge (by tannie Heilie Greeff). Die
+                                    Noordhoek NG gemeente se katkisasieklassies
+                                    is gebruik as lokale.
                                 </p>
                             </div>
                         </div>
@@ -154,20 +133,24 @@
 
                     <div class="timeline-item left">
                         <div class="timeline-marker">
-                            <div class="timeline-date">2012</div>
+                            <div class="timeline-date">Feb 1996</div>
                             <div class="timeline-dot"></div>
                         </div>
                         <div class="timeline-content">
                             <img
-                                src="../Images/Carousel/draak.webp"
-                                alt="Rekenaarsentrum"
+                                src="../Images/Carousel/elriperd.webp"
+                                alt="Amptelike Opening"
                                 class="timeline-image"
                             />
                             <div class="timeline-body">
-                                <h3>Tegnologiese Era</h3>
+                                <h3>Amptelike Opening en Pret</h3>
                                 <p>
-                                    KPS implementeer rekenaarsentrums en begin
-                                    met die modernisering van die kurrikulum.
+                                    Op 29 Februarie word die skool amptelik as
+                                    geregistreerde privaatskool geopen deur ds.
+                                    Callie Opperman (van NAPSO). Daar was ook
+                                    baie pret: omdat daar geen seniors was nie,
+                                    het die onderwysers en ouers self die graad
+                                    8's "gedoop"!
                                 </p>
                             </div>
                         </div>
@@ -175,16 +158,122 @@
 
                     <div class="timeline-item right">
                         <div class="timeline-marker">
-                            <div class="timeline-date">2025</div>
+                            <div class="timeline-date">1997</div>
                             <div class="timeline-dot"></div>
                         </div>
                         <div class="timeline-content">
+                            <img
+                                src="../Images/Carousel/elriperd.webp"
+                                alt="Uitbreiding 1997"
+                                class="timeline-image"
+                            />
                             <div class="timeline-body">
-                                <h3>Vandag</h3>
+                                <h3>Vinnige Uitbreiding</h3>
                                 <p>
-                                    KPS staan sterk as 'n baken van lig en
-                                    uitnemendheid, gereed vir die volgende
-                                    hoofstuk.
+                                    Die skool brei uit om leerders van graad
+                                    1–10 te akkommodeer weens die groot
+                                    behoefte. Nuwe klasse is oorkant die straat
+                                    gebou terwyl die skool voortgegaan het
+                                    tussen sementmengers en sonder plafonne. Die
+                                    koshuis groei tot 36 leerlinge onder leiding
+                                    van matrone Heilie Greef, en mnr. en mev.
+                                    Erasmus.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-marker">
+                            <div class="timeline-date">1998</div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <img
+                                src="../Images/Carousel/elriperd.webp"
+                                alt="Koshuis 1998"
+                                class="timeline-image"
+                            />
+                            <div class="timeline-body">
+                                <h3>Koshuislewe</h3>
+                                <p>
+                                    Koshuisgetalle verdubbel. Spasie was min en
+                                    kinders moes op stapelbeddens slaap. Ten
+                                    spyte van die beknopte spasie en vele
+                                    huistakies, was die koshuislewe groot pret.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-marker">
+                            <div class="timeline-date">1999</div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <img
+                                src="../Images/Carousel/elriperd.webp"
+                                alt="Eerste Matrieks"
+                                class="timeline-image"
+                            />
+                            <div class="timeline-body">
+                                <h3>Eerste Leiers en Matrieks</h3>
+                                <p>
+                                    Die eerste leerlingraad doen diens (MG as
+                                    hoofseun, CF as hoofdogter). KPS hou sy
+                                    eerste matriekafskeid met die tema "Hemel".
+                                    Die eerste matrieks skryf die
+                                    IEB-eindeksamen in juffrou Patrys se
+                                    sitkamer.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-marker">
+                            <div class="timeline-date">2000</div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <img
+                                src="../Images/Carousel/elriperd.webp"
+                                alt="Eeuwending"
+                                class="timeline-image"
+                            />
+                            <div class="timeline-body">
+                                <h3>Die Eeuwending</h3>
+                                <p>
+                                    Die skool is nou gevestig. Die graad 8's van
+                                    1996 is in matriek. Hulle is die eerste
+                                    groep wat 'n volwaardige "40 days" hou.
+                                    Charmaine Blaauw word aangewys as KPS se
+                                    heel eerste graad 12 Dux-leerling.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-marker">
+                            <div class="timeline-date">Vandag</div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <img
+                                src="../Images/Carousel/elriperd.webp"
+                                alt="KPS Vandag"
+                                class="timeline-image"
+                            />
+                            <div class="timeline-body">
+                                <h3>30 Jaar Later</h3>
+                                <p>
+                                    Die huidige KPS-familie bedank hierdie groep
+                                    baanbrekers — leerlinge en ouers — vir die
+                                    stewige fondament wat hulle gelê het waarop
+                                    ons vandag, en vir die volgende 30 jaar, kan
+                                    voortbou.
                                 </p>
                             </div>
                         </div>
@@ -193,46 +282,7 @@
             </section>
         </main>
 
-        <footer>
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h2>KPS</h2>
-                    <p>Lig is lewe. Christelike onderwys in Namibië.</p>
-                    <div class="socials">
-                        <a
-                            href="https://www.facebook.com/profile.php?id=100063934898322"
-                            ><i class="fab fa-facebook-f"></i
-                        ></a>
-                        <a
-                            href="https://www.instagram.com/kps_privaatskool?igsh=MTFzajJxMmNrOGFrYg=="
-                            ><i class="fab fa-instagram"></i
-                        ></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Skakels</h4>
-                    <a href="Akademie.html">Akademie</a>
-                    <a href="Sport-kultuur.html">Sport & Kultuur</a>
-                    <a href="Personeel.html">Personeel</a>
-                    <a href="Koshuis.html">Koshuis</a>
-                    <a href="SkooltarieweVorms.html">Doen Aansoek</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Ekstra</h4>
-                    <a href="Geskiedenis.html">Geskiedenis</a>
-                    <a href="Wapenmeester.html">Wapen en Leuse</a>
-                    <a href="Nuus-items.html">Nuus Items</a>
-                </div>
-                <div class="footer-bottom">
-                    <p>
-                        © 2025 Keetmanshoop Privaatskool. Developed by
-                        <a href="https://railwaywebsolutions.com/"
-                            >Railway Web Solutions</a
-                        >
-                    </p>
-                </div>
-            </div>
-        </footer>
+        <app-footer base="../"></app-footer>
     </body>
 
     <!-- Google tag (gtag.js) -->

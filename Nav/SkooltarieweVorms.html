@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <!--Metadata-->
@@ -35,6 +35,8 @@
         <link rel="stylesheet" href="../CSS/SkooltarieweVorms.css" />
         <link rel="stylesheet" href="../CSS/akademie.css" />
         <script src="../script.js" defer></script>
+        <script src="../Components/navbar.js" defer></script>
+        <script src="../Components/footer.js" defer></script>
 
         <!--==================================FONTS==================================-->
         <link
@@ -44,44 +46,7 @@
     </head>
 
     <body>
-        <nav>
-            <div class="nav-container">
-                <a href="../index.html" class="brand-logo">
-                    <span style="color: var(--primary)">KPS</span>
-                </a>
-
-                <ul id="menu" class="links-list">
-                    <li><a href="Akademie.html">Akademie</a></li>
-                    <li><a href="GraadR.html">Graad R</a></li>
-                    <li>
-                        <a href="Sport-kultuur.html">Sport & Kultuur</a>
-                    </li>
-                    <li><a href="Personeel.html">Personeel</a></li>
-                    <li><a href="Koshuis.html">Koshuis</a></li>
-                    <li><a href="SkooltarieweVorms.html">Doen Aansoek</a></li>
-                </ul>
-
-                <div class="nav-actions">
-                    <a href="../index.html#contact-us" class="cta-button"
-                        >Kontak Ons</a
-                    >
-                    <i id="menu-icon" class="bx bx-menu"></i>
-                </div>
-            </div>
-        </nav>
-
-        <div class="overlay">
-            <a href="#" class="close">×</a>
-            <div class="overlay__content">
-                <a href="Akademie.html">Akademie</a>
-                <a href="GraadR.html">Graad R</a>
-                <a href="Sport-kultuur.html">Sport en Kultuur</a>
-                <a href="Personeel.html">Personeel</a>
-                <a href="Koshuis.html">Koshuis</a>
-                <a href="SkooltarieweVorms.html">Doen Aansoek</a>
-                <a href="../index.html#contact-us" class="cta">Kontak Ons</a>
-            </div>
-        </div>
+        <app-navbar base="../"></app-navbar>
 
         <section class="hero-modern">
             <div class="hero-container">
@@ -115,7 +80,7 @@
             <div class="form-container">
                 <div class="form-header-box">
                     <h2>Inskrywingsvorm</h2>
-                    <p>Enrollment Form</p>
+                    <p>KPS</p>
                 </div>
 
                 <div class="progress-bar">
@@ -127,7 +92,7 @@
                     <div class="step">
                         <div class="bullet"><span>2</span></div>
                         <div class="check"><i class="bx bx-check"></i></div>
-                        <p>Akademie</p>
+                        <p>Ouers</p>
                     </div>
                     <div class="step">
                         <div class="bullet"><span>3</span></div>
@@ -142,18 +107,29 @@
 
                         <div class="input-group">
                             <div class="field">
-                                <label>Van / Surname</label>
+                                <label>Van</label>
                                 <input type="text" required />
                             </div>
                             <div class="field">
-                                <label>Volle Naam / Full Names</label>
+                                <label>Volle Naam</label>
                                 <input type="text" required />
                             </div>
                         </div>
 
                         <div class="input-group">
                             <div class="field">
-                                <label>Geboortedatum / Date of Birth</label>
+                                <label>Woonadres</label>
+                                <input type="text" required />
+                            </div>
+                            <div class="field">
+                                <label>Selfoonnommer</label>
+                                <input type="text" required />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Geboortedatum</label>
                                 <input type="date" required />
                             </div>
                             <div class="field">
@@ -164,41 +140,11 @@
 
                         <div class="input-group">
                             <div class="field">
-                                <label>Burgerskap / Citizenship</label>
-                                <input type="text" />
-                            </div>
-                            <div class="field">
-                                <label>Huistaal / Home Language</label>
-                                <select>
-                                    <option>Afrikaans</option>
-                                    <option>English</option>
-                                    <option>German</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label>Kerkverband / Church Denomination</label>
-                            <input type="text" />
-                        </div>
-
-                        <div class="field-btns">
-                            <button type="button" class="btn-next">
-                                Volgende
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="form-page">
-                        <h3 class="step-title">
-                            Akademiese Inligting & Kontak
-                        </h3>
-
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Graad vir Inskrywing / Grade</label>
-                                <select>
+                                <label>Graad vir Inskrywing</label>
+                                <select required>
+                                    <option value="" selected disabled>
+                                        Kies...
+                                    </option>
                                     <option>Graad R</option>
                                     <option>Graad 1</option>
                                     <option>Graad 2</option>
@@ -215,28 +161,1262 @@
                                 </select>
                             </div>
                             <div class="field">
-                                <label>Vorige Skool / Previous School</label>
+                                <label>Huistaal</label>
+                                <select required>
+                                    <option value="" disabled selected>
+                                        Kies...
+                                    </option>
+                                    <option>Afrikaans</option>
+                                    <option>English</option>
+                                    <option>Ander</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Vorige Skool</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>Burgerskap / Nasionaliteit</label>
+                                <input type="text" required />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Kerkverband</label>
+                                <input type="text" required />
+                            </div>
+                        </div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+
+                        <div class="field">
+                            <label
+                                >Hoeveel ander kinders het u in KPS? (0 indien
+                                geen)</label
+                            >
+                            <input
+                                type="number"
+                                min="0"
+                                max="10"
+                                placeholder="0"
+                                oninput="generateKPSSiblingFields(this.value)"
+                            />
+                        </div>
+
+                        <div
+                            id="kps-siblings-wrapper"
+                            style="margin-top: 15px"
+                        ></div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+
+                        <div class="field">
+                            <label
+                                >Hoeveel kinders het u in ander skole? (0 indien
+                                geen)</label
+                            >
+                            <input
+                                type="number"
+                                min="0"
+                                max="10"
+                                placeholder="0"
+                                oninput="generateOtherSchoolFields(this.value)"
+                            />
+                        </div>
+
+                        <div
+                            id="other-schools-wrapper"
+                            style="margin-top: 15px"
+                        ></div>
+
+                        <div class="field-btns">
+                            <button type="button" class="btn-next">
+                                Volgende
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-page">
+                        <h3 class="step-title">Ouer 1 / Voog Inligting</h3>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Titel</label>
+                                <input
+                                    type="text"
+                                    placeholder="Mnr/Mev/Dr..."
+                                    required
+                                />
+                            </div>
+                            <div class="field">
+                                <label>Volle Name</label>
+                                <input type="text" required />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Van</label>
+                                <input type="text" required />
+                            </div>
+                            <div class="field">
+                                <label>ID Nommer</label>
+                                <input type="text" required />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="certified-id-upload"
+                                >Gewaarmerkte ID (pdf, png, jpeg)</label
+                            >
+                            <div class="file-upload">
+                                <input
+                                    id="certified-id-upload"
+                                    name="certified_id"
+                                    class="file-upload__input"
+                                    type="file"
+                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
+                                    required
+                                />
+                                <div class="file-upload__meta">
+                                    <span class="file-upload__title"
+                                        >Kies lêer</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="radio-group">
+                            <label>Huwelikstatus:</label>
+                            <div class="radio-options" style="flex-wrap: wrap">
+                                <label class="radio-container"
+                                    >Getroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="married"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Ongetroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="single"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Geskei
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="divorced"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Wewenaar/Weduwee
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="widowed"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Indien getroud:</label>
+                            <select>
+                                <option value="">N.V.T</option>
+                                <option>
+                                    Binne gemeenskap van goedere (COP)
+                                </option>
+                                <option>
+                                    Buite gemeenskap (Huweliksvoorwaardes /
+                                    Antenuptial)
+                                </option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Verwantskap met Leerder:</label>
+                            <select>
+                                <option>Wettige Ouer</option>
+                                <option>Voog</option>
+                                <option>Grootouer</option>
+                                <option>Stiefouer</option>
+                                <option>Borg</option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Selfoon Nommer</label>
+                                <input type="tel" required />
+                            </div>
+                            <div class="field">
+                                <label>E-pos</label>
+                                <input type="email" required />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Woonadres</label>
+                            <input type="text" />
+                        </div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+                        <h4
+                            style="color: var(--secondary); margin-bottom: 15px"
+                        >
+                            Werksinligting & Inkomste
+                        </h4>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Betrekking</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>Bruto Inkomste</label>
+                                <input type="text" placeholder="N$" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Naam van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>E-pos van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Werkgewer Tel.</label>
+                                <input type="tel" />
+                            </div>
+                            <div class="field">
+                                <label>Werkgewer Adres</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <h3 class="step-title">Ouer 2 / Voog Inligting</h3>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Titel</label>
+                                <input
+                                    type="text"
+                                    placeholder="Mnr/Mev/Dr..."
+                                    required
+                                />
+                            </div>
+                            <div class="field">
+                                <label>Volle Name</label>
+                                <input type="text" required />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Van</label>
+                                <input type="text" required />
+                            </div>
+                            <div class="field">
+                                <label>ID Nommer</label>
+                                <input type="text" required />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="certified-id-upload"
+                                >Gewaarmerkte ID (pdf, png, jpeg)</label
+                            >
+                            <div class="file-upload">
+                                <input
+                                    id="certified-id-upload"
+                                    name="certified_id"
+                                    class="file-upload__input"
+                                    type="file"
+                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
+                                    required
+                                />
+                                <div class="file-upload__meta">
+                                    <span class="file-upload__title"
+                                        >Kies lêer</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="radio-group">
+                            <label>Huwelikstatus:</label>
+                            <div class="radio-options" style="flex-wrap: wrap">
+                                <label class="radio-container"
+                                    >Getroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="married"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Ongetroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="single"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Geskei
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="divorced"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Wewenaar/Weduwee
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="widowed"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Indien getroud:</label>
+                            <select>
+                                <option value="">N.V.T</option>
+                                <option>Binne gemeenskap van goedere</option>
+                                <option>Buite gemeenskap</option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Verwantskap met Leerder:</label>
+                            <select>
+                                <option>Wettige Ouer</option>
+                                <option>Voog</option>
+                                <option>Grootouer</option>
+                                <option>Stiefouer</option>
+                                <option>Borg</option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Selfoon Nommer</label>
+                                <input type="tel" required />
+                            </div>
+                            <div class="field">
+                                <label>E-pos</label>
+                                <input type="email" required />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Woonadres</label>
+                            <input type="text" />
+                        </div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+                        <h4
+                            style="color: var(--secondary); margin-bottom: 15px"
+                        >
+                            Werksinligting & Inkomste
+                        </h4>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Betrekking</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>Bruto Inkomste</label>
+                                <input type="text" placeholder="N$" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Naam van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>E-pos van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Werkgewer Tel.</label>
+                                <input type="tel" />
+                            </div>
+                            <div class="field">
+                                <label>Werkgewer Adres</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <h3 class="step-title">
+                            Ouer 3 / Voog Inligting (Optioneel)
+                        </h3>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Titel</label>
+                                <input
+                                    type="text"
+                                    placeholder="Mnr/Mev/Dr..."
+                                />
+                            </div>
+                            <div class="field">
+                                <label>Volle Name</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Van</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>ID Nommer</label>
                                 <input type="text" />
                             </div>
                         </div>
 
                         <div class="field">
-                            <label>Woonadres / Residential Address</label>
-                            <input
-                                type="text"
-                                placeholder="Straat, Dorp, ens."
-                                required
-                            />
+                            <label for="certified-id-upload"
+                                >Gewaarmerkte ID (pdf, png, jpeg)</label
+                            >
+                            <div class="file-upload">
+                                <input
+                                    id="certified-id-upload"
+                                    name="certified_id"
+                                    class="file-upload__input"
+                                    type="file"
+                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
+                                />
+                                <div class="file-upload__meta">
+                                    <span class="file-upload__title"
+                                        >Kies lêer</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="radio-group">
+                            <label>Huwelikstatus:</label>
+                            <div class="radio-options" style="flex-wrap: wrap">
+                                <label class="radio-container"
+                                    >Getroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="married"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Ongetroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="single"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Geskei
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="divorced"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Wewenaar/Weduwee
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="widowed"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Indien getroud:</label>
+                            <select>
+                                <option value="">N.V.T</option>
+                                <option>Binne gemeenskap van goedere</option>
+                                <option>Buite gemeenskap</option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Verwantskap met Leerder:</label>
+                            <select>
+                                <option>Wettige Ouer</option>
+                                <option>Voog</option>
+                                <option>Grootouer</option>
+                                <option>Stiefouer</option>
+                                <option>Borg</option>
+                                <option>Ander</option>
+                            </select>
                         </div>
 
                         <div class="input-group">
                             <div class="field">
-                                <label>Tel (Huis) / Home Phone</label>
+                                <label>Selfoon Nommer</label>
+                                <input type="tel" required />
+                            </div>
+                            <div class="field">
+                                <label>E-pos</label>
+                                <input type="email" required />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Woonadres</label>
+                            <input type="text" />
+                        </div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+                        <h4
+                            style="color: var(--secondary); margin-bottom: 15px"
+                        >
+                            Werksinligting & Inkomste
+                        </h4>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Betrekking</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>Bruto Inkomste</label>
+                                <input type="text" placeholder="N$" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Naam van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>E-pos van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Werkgewer Tel.</label>
                                 <input type="tel" />
                             </div>
                             <div class="field">
-                                <label>Selfoon / Cellphone</label>
+                                <label>Werkgewer Adres</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <h3 class="step-title">
+                            Ouer 3 / Voog Inligting (Optioneel)
+                        </h3>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Titel</label>
+                                <input
+                                    type="text"
+                                    placeholder="Mnr/Mev/Dr..."
+                                />
+                            </div>
+                            <div class="field">
+                                <label>Volle Name</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Van</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>ID Nommer</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="certified-id-upload"
+                                >Gewaarmerkte ID (pdf, png, jpeg)</label
+                            >
+                            <div class="file-upload">
+                                <input
+                                    id="certified-id-upload"
+                                    name="certified_id"
+                                    class="file-upload__input"
+                                    type="file"
+                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
+                                />
+                                <div class="file-upload__meta">
+                                    <span class="file-upload__title"
+                                        >Kies lêer</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="radio-group">
+                            <label>Huwelikstatus:</label>
+                            <div class="radio-options" style="flex-wrap: wrap">
+                                <label class="radio-container"
+                                    >Getroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="married"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Ongetroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="single"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Geskei
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="divorced"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Wewenaar/Weduwee
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="widowed"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Indien getroud:</label>
+                            <select>
+                                <option value="">N.V.T</option>
+                                <option>Binne gemeenskap van goedere</option>
+                                <option>Buite gemeenskap</option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Verwantskap met Leerder:</label>
+                            <select>
+                                <option>Wettige Ouer</option>
+                                <option>Voog</option>
+                                <option>Grootouer</option>
+                                <option>Stiefouer</option>
+                                <option>Borg</option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Selfoon Nommer</label>
                                 <input type="tel" />
+                            </div>
+                            <div class="field">
+                                <label>E-pos</label>
+                                <input type="email" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Woonadres</label>
+                            <input type="text" />
+                        </div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+                        <h4
+                            style="color: var(--secondary); margin-bottom: 15px"
+                        >
+                            Werksinligting & Inkomste
+                        </h4>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Betrekking</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>Bruto Inkomste</label>
+                                <input type="text" placeholder="N$" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Naam van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>E-pos van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Werkgewer Tel.</label>
+                                <input type="tel" />
+                            </div>
+                            <div class="field">
+                                <label>Werkgewer Adres</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <h3 class="step-title">
+                            Ouer 3 / Voog Inligting (Optioneel)
+                        </h3>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Titel</label>
+                                <input
+                                    type="text"
+                                    placeholder="Mnr/Mev/Dr..."
+                                />
+                            </div>
+                            <div class="field">
+                                <label>Volle Name</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Van</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>ID Nommer</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="certified-id-upload"
+                                >Gewaarmerkte ID (pdf, png, jpeg)</label
+                            >
+                            <div class="file-upload">
+                                <input
+                                    id="certified-id-upload"
+                                    name="certified_id"
+                                    class="file-upload__input"
+                                    type="file"
+                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
+                                />
+                                <div class="file-upload__meta">
+                                    <span class="file-upload__title"
+                                        >Kies lêer</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="radio-group">
+                            <label>Huwelikstatus:</label>
+                            <div class="radio-options" style="flex-wrap: wrap">
+                                <label class="radio-container"
+                                    >Getroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="married"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Ongetroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="single"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Geskei
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="divorced"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Wewenaar/Weduwee
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="widowed"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Indien getroud:</label>
+                            <select>
+                                <option value="">N.V.T</option>
+                                <option>Binne gemeenskap van goedere</option>
+                                <option>Buite gemeenskap</option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Verwantskap met Leerder:</label>
+                            <select>
+                                <option>Wettige Ouer</option>
+                                <option>Voog</option>
+                                <option>Grootouer</option>
+                                <option>Stiefouer</option>
+                                <option>Borg</option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Selfoon Nommer</label>
+                                <input type="tel" />
+                            </div>
+                            <div class="field">
+                                <label>E-pos</label>
+                                <input type="email" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Woonadres</label>
+                            <input type="text" />
+                        </div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+                        <h4
+                            style="color: var(--secondary); margin-bottom: 15px"
+                        >
+                            Werksinligting & Inkomste
+                        </h4>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Betrekking</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>Bruto Inkomste</label>
+                                <input type="text" placeholder="N$" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Naam van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>E-pos van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Werkgewer Tel.</label>
+                                <input type="tel" />
+                            </div>
+                            <div class="field">
+                                <label>Werkgewer Adres</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <h3 class="step-title">
+                            Ouer 3 / Voog Inligting (Optioneel)
+                        </h3>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Titel</label>
+                                <input
+                                    type="text"
+                                    placeholder="Mnr/Mev/Dr..."
+                                />
+                            </div>
+                            <div class="field">
+                                <label>Volle Name</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Van</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>ID Nommer</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="certified-id-upload"
+                                >Gewaarmerkte ID (pdf, png, jpeg)</label
+                            >
+                            <div class="file-upload">
+                                <input
+                                    id="certified-id-upload"
+                                    name="certified_id"
+                                    class="file-upload__input"
+                                    type="file"
+                                    accept=".pdf,.jpg,.jpeg,.png,.webp"
+                                />
+                                <div class="file-upload__meta">
+                                    <span class="file-upload__title"
+                                        >Kies lêer</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="radio-group">
+                            <label>Huwelikstatus:</label>
+                            <div class="radio-options" style="flex-wrap: wrap">
+                                <label class="radio-container"
+                                    >Getroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="married"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Ongetroud
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="single"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Geskei
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="divorced"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container"
+                                    >Wewenaar/Weduwee
+                                    <input
+                                        type="radio"
+                                        name="marital_status"
+                                        value="widowed"
+                                    />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Indien getroud:</label>
+                            <select>
+                                <option value="">N.V.T</option>
+                                <option>Binne gemeenskap van goedere</option>
+                                <option>Buite gemeenskap</option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Verwantskap met Leerder:</label>
+                            <select>
+                                <option>Wettige Ouer</option>
+                                <option>Voog</option>
+                                <option>Grootouer</option>
+                                <option>Stiefouer</option>
+                                <option>Borg</option>
+                                <option>Ander</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Selfoon Nommer</label>
+                                <input type="tel" />
+                            </div>
+                            <div class="field">
+                                <label>E-pos</label>
+                                <input type="email" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Woonadres</label>
+                            <input type="text" />
+                        </div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+                        <h4
+                            style="color: var(--secondary); margin-bottom: 15px"
+                        >
+                            Werksinligting & Inkomste
+                        </h4>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Betrekking</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>Bruto Inkomste</label>
+                                <input type="text" placeholder="N$" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Naam van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>E-pos van Werkgewer</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Werkgewer Tel.</label>
+                                <input type="tel" />
+                            </div>
+                            <div class="field">
+                                <label>Werkgewer Adres</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+
+                        <div class="field">
+                            <label>Leerder woon by:</label>
+                            <div
+                                class="mark-group"
+                                role="group"
+                                aria-label="Leerder woon by"
+                            >
+                                <label class="mark-option">
+                                    <input
+                                        type="checkbox"
+                                        name="student_lives_with[]"
+                                        value="ouer1"
+                                        class="lives-with-option"
+                                    />
+                                    <span>Ouer 1</span>
+                                </label>
+                                <label class="mark-option">
+                                    <input
+                                        type="checkbox"
+                                        name="student_lives_with[]"
+                                        value="ouer2"
+                                        class="lives-with-option"
+                                    />
+                                    <span>Ouer 2</span>
+                                </label>
+                                <label class="mark-option">
+                                    <input
+                                        type="checkbox"
+                                        name="student_lives_with[]"
+                                        value="other"
+                                        class="lives-with-option"
+                                    />
+                                    <span>Ouer 3</span>
+                                </label>
+                            </div>
+                            <p class="field-hint" id="lives-with-hint">
+                                Kies 1 of 2 opsies.
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label>Korrespondensie na:</label>
+                            <div
+                                class="mark-group"
+                                role="radiogroup"
+                                aria-label="Korrespondensie na"
+                            >
+                                <label class="mark-option">
+                                    <input
+                                        type="radio"
+                                        name="correspondence_to"
+                                        value="ouer1"
+                                        required
+                                    />
+                                    <span>Ouer 1</span>
+                                </label>
+                                <label class="mark-option">
+                                    <input
+                                        type="radio"
+                                        name="correspondence_to"
+                                        value="ouer2"
+                                    />
+                                    <span>Ouer 2</span>
+                                </label>
+                                <label class="mark-option">
+                                    <input
+                                        type="radio"
+                                        name="correspondence_to"
+                                        value="Ouer3"
+                                    />
+                                    <span>Ouer 3</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Rekeninge na:</label>
+                            <div
+                                class="mark-group"
+                                role="radiogroup"
+                                aria-label="Rekeninge na"
+                            >
+                                <label class="mark-option">
+                                    <input
+                                        type="radio"
+                                        name="accounts_to"
+                                        value="ouer1"
+                                        required
+                                    />
+                                    <span>Ouer 1</span>
+                                </label>
+                                <label class="mark-option">
+                                    <input
+                                        type="radio"
+                                        name="accounts_to"
+                                        value="ouer2"
+                                    />
+                                    <span>Ouer 2</span>
+                                </label>
+                                <label class="mark-option">
+                                    <input
+                                        type="radio"
+                                        name="accounts_to"
+                                        value="ouer3"
+                                    />
+                                    <span>Ouer 3</span>
+                                </label>
                             </div>
                         </div>
 
@@ -254,18 +1434,13 @@
                         <h3 class="step-title">Medies & Noodgeval</h3>
 
                         <div class="field">
-                            <label
-                                >Gesondheidstoestand / Health Condition</label
-                            >
-                            <input
-                                type="text"
-                                placeholder="Allergieë, kroniese siektes, ens."
-                            />
+                            <label>Gesondheidstoestand</label>
+                            <input type="text" />
                         </div>
 
                         <div class="input-group">
                             <div class="field">
-                                <label>Mediese Fonds Naam / Medical Aid</label>
+                                <label>Mediese Fonds Naam</label>
                                 <input type="text" />
                             </div>
                             <div class="field">
@@ -275,7 +1450,7 @@
                         </div>
 
                         <div class="radio-group">
-                            <label>Tipe Fonds / Plan Type:</label>
+                            <label>Tipe Fonds:</label>
                             <div class="radio-options">
                                 <label class="radio-container"
                                     >Vol Medies
@@ -298,7 +1473,13 @@
                             </div>
                         </div>
 
-                        <div class="divider"></div>
+                        <div
+                            class="divider"
+                            style="
+                                margin: 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
                         <h4
                             style="color: var(--secondary); margin-bottom: 15px"
                         >
@@ -307,26 +1488,21 @@
 
                         <div class="input-group">
                             <div class="field">
-                                <label>Naam / Name</label>
+                                <label>Naam</label>
                                 <input type="text" required />
                             </div>
                             <div class="field">
-                                <label>Verwantskap / Relationship</label>
+                                <label>Verwantskap </label>
                                 <input
                                     type="text"
                                     placeholder="Bv. Ouma, Oom"
                                 />
                             </div>
                         </div>
-                        <div class="input-group">
-                            <div class="field">
-                                <label>Tel Nr.</label>
-                                <input type="tel" />
-                            </div>
-                            <div class="field">
-                                <label>Sel Nr.</label>
-                                <input type="tel" />
-                            </div>
+
+                        <div class="field">
+                            <label>Sel Nr.</label>
+                            <input type="tel" />
                         </div>
 
                         <div class="field-btns">
@@ -510,186 +1686,7 @@
             </div>
         </section>
 
-        <footer>
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h2>KPS</h2>
-                    <p>Lig is lewe. Christelike onderwys in Namibië.</p>
-                    <div class="socials">
-                        <a
-                            href="https://www.facebook.com/profile.php?id=100063934898322"
-                            ><i class="fab fa-facebook-f"></i
-                        ></a>
-                        <a
-                            href="https://www.instagram.com/kps_privaatskool?igsh=MTFzajJxMmNrOGFrYg=="
-                            ><i class="fab fa-instagram"></i
-                        ></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Skakels</h4>
-                    <a href="Nav/Akademie.html">Akademie</a>
-                    <a href="Nav/Sport-kultuur.html">Sport & Kultuur</a>
-                    <a href="Nav/Personeel.html">Personeel</a>
-                    <a href="Nav/Koshuis.html">Koshuis</a>
-                    <a href="Nav/SkooltarieweVorms.html">Doen Aansoek</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Ekstra</h4>
-                    <a href="Nav/Geskiedenis.html">Geskiedenis</a>
-                    <a href="Nav/Wapenmeester.html">Wapen en Leuse</a>
-                    <a href="Nav/MissieVisie.html">Nuus Items</a>
-                </div>
-                <div class="footer-bottom">
-                    <p>
-                        © 2025 Keetmanshoop Privaatskool. Developed by
-                        <a href="https://railwaywebsolutions.com/"
-                            >Railway Web Solutions</a
-                        >
-                    </p>
-                </div>
-            </div>
-        </footer>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const seasonToggle = document.getElementById("season-toggle");
-                const summerLabel = document.getElementById("summer-label");
-                const winterLabel = document.getElementById("winter-label");
-
-                // Images
-                const boysImg = document.getElementById("boys-img");
-                const girlsImg = document.getElementById("girls-img");
-
-                // Data Object (Update paths if filenames change)
-                const uniformData = {
-                    summer: {
-                        boysText: [
-                            "Grys Kortbroek",
-                            "Blou Skoolhemp",
-                            "Grys Sokkies",
-                            "Swart Skoolskoene",
-                        ],
-                        boysImage: "../Images/kleredrag/seunsSomer.png",
-                        girlsText: [
-                            "Blou Skoolromp",
-                            "Blou Skoolhemp",
-                            "Wit Sokkies",
-                            "Swart Skoolskoene",
-                        ],
-                        girlsImage: "../Images/kleredrag/meisieSomer.png",
-                    },
-                    winter: {
-                        boysText: [
-                            "Grys Langbroek",
-                            "Blou Skoolhemp",
-                            "Blazer & Das",
-                            "Grys Sokkies",
-                            "Swart Skoolskoene",
-                        ],
-                        boysImage: "../Images/kleredrag/seunsWinter.png",
-                        girlsText: [
-                            "Blou Skoolromp",
-                            "Blou Skoolhemp",
-                            "Blazer & Das",
-                            "Grys Sokkies",
-                            "Swart Skoolskoene",
-                        ],
-                        girlsImage: "../Images/kleredrag/meisieWinter.png",
-                    },
-                };
-
-                // Ensure the initial (summer) UI is always sourced from the data object.
-                // This keeps the HTML in sync if the uniformData values change later.
-                updateUniforms(uniformData.summer);
-
-                seasonToggle.addEventListener("change", function () {
-                    const isWinter = this.checked;
-
-                    if (isWinter) {
-                        winterLabel.classList.add("active");
-                        summerLabel.classList.remove("active");
-                        updateUniforms(uniformData.winter);
-                    } else {
-                        summerLabel.classList.add("active");
-                        winterLabel.classList.remove("active");
-                        updateUniforms(uniformData.summer);
-                    }
-                });
-
-                function updateUniforms(data) {
-                    // Fade out effect
-                    const cards = document.querySelectorAll(".uniform-card");
-                    cards.forEach((c) => (c.style.opacity = "0.5"));
-
-                    setTimeout(() => {
-                        // Update Lists
-                        document.getElementById("boys-list").innerHTML =
-                            data.boysText
-                                .map((item) => `<li>${item}</li>`)
-                                .join("");
-                        document.getElementById("girls-list").innerHTML =
-                            data.girlsText
-                                .map((item) => `<li>${item}</li>`)
-                                .join("");
-
-                        // Update Images
-                        boysImg.src = data.boysImage;
-                        girlsImg.src = data.girlsImage;
-
-                        // Fade in effect
-                        cards.forEach((c) => (c.style.opacity = "1"));
-                    }, 200);
-                }
-            });
-        </script>
-        <script>
-            // Elements
-            const slidePage = document.querySelector(".slide-page");
-            const nextBtns = document.querySelectorAll(".btn-next");
-            const prevBtns = document.querySelectorAll(".btn-prev");
-            const submitBtn = document.querySelector(".btn-submit");
-            const progressSteps = document.querySelectorAll(".step");
-            const formPages = document.querySelectorAll(".form-page");
-
-            let currentStep = 0;
-
-            // NEXT BUTTONS
-            nextBtns.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    // Simple validation (Optional: add strict validation here)
-                    // Move to next page
-                    formPages[currentStep].style.display = "none";
-                    currentStep++;
-                    formPages[currentStep].style.display = "block";
-
-                    // Update Progress Bar
-                    progressSteps[currentStep].classList.add("active");
-                });
-            });
-
-            // PREVIOUS BUTTONS
-            prevBtns.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    // Update Progress Bar (Remove active class from current)
-                    progressSteps[currentStep].classList.remove("active");
-
-                    // Move to prev page
-                    formPages[currentStep].style.display = "none";
-                    currentStep--;
-                    formPages[currentStep].style.display = "block";
-                });
-            });
-
-            // SUBMIT (Prevent default for demo)
-            submitBtn.addEventListener("click", (e) => {
-                // Remove this if you actually want to submit the form
-                // e.preventDefault();
-                // Example Animation for completion
-                // progressSteps[currentStep].classList.add("active");
-                // alert("Inskrywing Gestuur!");
-            });
-        </script>
+        <app-footer base="../"></app-footer>
     </body>
     <!-- Google tag (gtag.js) -->
     <script
