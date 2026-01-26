@@ -1106,19 +1106,25 @@
                     <div class="form-page">
                         <h3 class="step-title">Medies & Noodgeval</h3>
 
-                        <div class="field">
-                            <label>Gesondheidstoestand van leerder</label>
-                            <input type="text" required />
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Gesondheidstoestand van leerder</label>
+                                <input type="text" required />
+                            </div>
+                            <div class="field">
+                                <label>Naam van hooflid</label>
+                                <input type="text" />
+                            </div>
                         </div>
 
                         <div class="input-group">
                             <div class="field">
                                 <label>Mediese Fonds Naam</label>
-                                <input type="text" required />
+                                <input type="text" />
                             </div>
                             <div class="field">
                                 <label>Mediese Fonds Nr.</label>
-                                <input type="text" required />
+                                <input type="text" />
                             </div>
                         </div>
 
@@ -1131,7 +1137,6 @@
                                         type="radio"
                                         name="medical_type"
                                         value="full"
-                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -1141,7 +1146,6 @@
                                         type="radio"
                                         name="medical_type"
                                         value="hospital"
-                                        required
                                     />
                                     <span class="checkmark"></span>
                                 </label>
@@ -1155,6 +1159,60 @@
                                 border-bottom: 2px dashed #eee;
                             "
                         ></div>
+
+                        <h4
+                            style="color: var(--secondary); margin-bottom: 15px"
+                        >
+                            Mediese Inligting van Leerder
+                        </h4>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Huisdokter</label>
+                                <input type="text" required />
+                            </div>
+                            <div class="field">
+                                <label>Adres van dokter</label>
+                                <input type="text" required />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Telefoon nr. van dokter</label>
+                                <input type="text" required />
+                            </div>
+                            <div class="field">
+                                <label>Allergieë</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Kindersiektes</label>
+                                <input
+                                    type="text"
+                                    placeholder="masels, pampoentjies, ens"
+                                />
+                            </div>
+                            <div class="field">
+                                <label>Operasies (meld ook datums)</label>
+                                <input type="text" required />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="field">
+                                <label>Kroniese siektes</label>
+                                <input type="text" />
+                            </div>
+                            <div class="field">
+                                <label>Enige ander mediese inligting</label>
+                                <input type="text" />
+                            </div>
+                        </div>
+
                         <h4
                             style="color: var(--secondary); margin-bottom: 15px"
                         >
@@ -1470,6 +1528,132 @@
                         <div class="field">
                             <label>E-pos adres Ouer 2 (indien nodig)</label>
                             <input type="email" name="domicilium_email_2" />
+                        </div>
+
+                        <div
+                            class="divider"
+                            style="
+                                margin: 40px 0 20px 0;
+                                border-bottom: 2px dashed #eee;
+                            "
+                        ></div>
+
+                        <h4 style="color: var(--secondary); margin-bottom: 5px">
+                            Benodigde Dokumente
+                        </h4>
+                        <p
+                            style="
+                                font-size: 0.9rem;
+                                color: #666;
+                                margin-bottom: 25px;
+                            "
+                        >
+                            Die volgende dokumente moet die inskrywingsvorm
+                            vergesel.
+                            <br />
+                            (Nr. 2, 3, 4, 5 en 6 slegs by nuwe aansoeke of
+                            indien nog nie voorheen ingehandig nie)
+                        </p>
+
+                        <p>
+                            Hierdie dokumente moet ge&euml;-pos word na
+                            <a href="mailto:admin@kps.com.na" class="email-link"
+                                >admin@kps.com.na</a
+                            >
+                        </p>
+                        <br />
+
+                        <ol class="document-list">
+                            <li>
+                                <span
+                                    >Bewys van woonadres in ons voeder area
+                                    (munisipale rekening)</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >Die leerder se mees onlangse
+                                    skoolrapport/-verslag</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >Een onlangse ID-grootte foto van die
+                                    leerder (aangeheg)</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >'n Gewaarmerkte afskrif van die leerder se
+                                    geboortesertifikaat / ID</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >Afskrif van die kind se mediese kaart</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >Afskrifte van beide ouers/voogde se
+                                    ID-dokumente</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >Indien buitelanders: Afskrif van ouers se
+                                    werkspermit en kinders se studiepermit</span
+                                >
+                            </li>
+                            <li>
+                                <span
+                                    >Die vertrekkaart/verslag van die vorige
+                                    skool</span
+                                >
+                            </li>
+
+                            <li>
+                                <span>Bewys van Inkomste:</span>
+                                <ol>
+                                    <li>
+                                        <strong>Indien werksaam:</strong> 'n
+                                        Gewaarmerkte afskrif van mees onlangse
+                                        salarisstrokie van BEIDE ouers.
+                                    </li>
+                                    <li>
+                                        <strong>Indien werkloos:</strong> 'n
+                                        Brief van die Departement van Arbeid
+                                        (laaste datum van werk) asook beëdigde
+                                        verklaring.
+                                    </li>
+                                    <li>
+                                        <strong>Indien in eie diens:</strong>
+                                        Afskrif van die laaste geouditeerde
+                                        Inkomstestaat of brief vanaf die
+                                        Ontvanger.
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+
+                        <div class="field" style="margin-top: 30px">
+                            <div
+                                class="mark-group"
+                                style="grid-template-columns: 1fr"
+                            >
+                                <label class="mark-option">
+                                    <input
+                                        type="checkbox"
+                                        required
+                                        name="terms_accepted"
+                                    />
+                                    <span
+                                        >Ek/Ons aanvaar hiermee die bogenoemde
+                                        voorwaardes en verklaar dat alle
+                                        inligting korrek is.</span
+                                    >
+                                </label>
+                            </div>
                         </div>
 
                         <div class="field-btns">
