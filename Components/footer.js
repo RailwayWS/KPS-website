@@ -35,7 +35,6 @@ class SpecialFooter extends HTMLElement {
                         <h4>Ekstra</h4>
                         <a href="${base}Nav/Geskiedenis.html">Geskiedenis</a>
                         <a href="${base}Nav/Oor-ons.html">Oor Ons</a>
-                        <a href="${base}Nav/Wapenmeester.html">Wapen en Leuse</a>
                         <a href="${base}Nav/Nuus-items.html">Nuus Items</a>
                     </div>
 

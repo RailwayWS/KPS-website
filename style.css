@@ -29,6 +29,7 @@
 html {
     scroll-behavior: smooth;
     font-family: "Quicksand", sans-serif;
+    overscroll-behavior: none;
 }
 
 body {
@@ -36,6 +37,7 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    overscroll-behavior: none;
 }
 
 img {
@@ -825,7 +827,7 @@ footer {
     clip-path: none;
 
     padding: 100px 20px 20px; /* Increased top padding to account for the waves */
-    min-height: 80vh;
+    min-height: 85vh;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;

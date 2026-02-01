@@ -303,7 +303,8 @@ h2.section-subtitle {
 .accordion-item:focus-within {
     transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 12px 28px -8px rgba(97, 97, 97, 0.25),
+    box-shadow:
+        0 12px 28px -8px rgba(97, 97, 97, 0.25),
         0 8px 16px -8px rgba(30, 41, 59, 0.25);
 }
 
@@ -423,7 +424,9 @@ h2.section-subtitle {
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .gallery-card img {
@@ -527,7 +530,9 @@ h2.section-subtitle {
     color: var(--white);
     font-size: 3rem;
     cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
     z-index: 2001;
 }
 
@@ -572,4 +577,604 @@ h2.section-subtitle {
     font-weight: 600;
     letter-spacing: 1px;
     text-align: center;
+}
+
+/* =========================================
+   INTERACTIVE SUBJECT CARDS
+   ========================================= */
+
+.subject-cards-section {
+    padding: 60px 20px;
+    background-color: var(--bg-body);
+}
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.subject-card {
+    position: relative;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden; /* Ensures the wave stays inside */
+    height: 350px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Hover Effect on Container */
+.subject-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* --- The Content Layer --- */
+.card-content {
+    position: relative;
+    z-index: 2; /* Sits ON TOP of the wave */
+    padding: 30px;
+    transition: transform 0.4s ease;
+}
+
+/* Icon */
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: var(--secondary); /* Default dark color */
+    transition: color 0.4s ease;
+}
+
+/* Heading */
+.subject-card h3 {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    font-weight: 700;
+    transition: color 0.4s ease;
+}
+
+/* Paragraph (Hidden initially) */
+.card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 0; /* Invisible start */
+    transform: translateY(20px); /* Pushed down */
+    transition: all 0.4s ease;
+    max-height: 0; /* Collapse space */
+}
+
+/* Learn More Link (Visible initially) */
+.learn-more {
+    font-weight: 700;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.4s ease;
+}
+
+/* --- The Wave Background --- */
+.card-wave-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    /* The provided clip-path */
+    clip-path: polygon(
+        100% 100%,
+        0% 100%,
+        0% 65.66%,
+        2% 64.66%,
+        4% 63.54%,
+        6% 62.33%,
+        8% 61.05%,
+        10% 59.75%,
+        12% 58.45%,
+        14% 57.2%,
+        16% 56.01%,
+        18% 54.94%,
+        20% 54%,
+        22% 53.22%,
+        24% 52.62%,
+        26% 52.22%,
+        28% 52.02%,
+        30% 52.04%,
+        32% 52.26%,
+        34% 52.7%,
+        36% 53.33%,
+        38% 54.13%,
+        40% 55.1%,
+        42% 56.19%,
+        44% 57.38%,
+        46% 58.65%,
+        48% 59.95%,
+        50% 61.25%,
+        52% 62.52%,
+        54% 63.72%,
+        56% 64.82%,
+        58% 65.8%,
+        60% 66.62%,
+        62% 67.26%,
+        64% 67.71%,
+        66% 67.95%,
+        68% 67.99%,
+        70% 67.81%,
+        72% 67.42%,
+        74% 66.83%,
+        76% 66.07%,
+        78% 65.14%,
+        80% 64.07%,
+        82% 62.9%,
+        84% 61.65%,
+        86% 60.35%,
+        88% 59.05%,
+        90% 57.77%,
+        92% 56.55%,
+        94% 55.42%,
+        96% 54.41%,
+        98% 53.56%,
+        100% 52.87%
+    );
+
+    /* Important: We scale the wave up on hover to fill the card */
+    transform: scaleY(0.4); /* Start low */
+    transform-origin: bottom;
+    transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- Theme Colors (Gradients) --- */
+
+/* Jade Theme */
+.theme-jade .card-wave-bg {
+    background: linear-gradient(135deg, #00a86b 0%, #008f5d 100%);
+}
+.theme-jade .card-icon {
+    color: #00a86b;
+}
+
+/* Navy Theme */
+.theme-navy .card-wave-bg {
+    background: linear-gradient(135deg, #002552 0%, #0b3d80 100%);
+}
+.theme-navy .card-icon {
+    color: #002552;
+}
+
+/* Accent Theme (Orange/Red) */
+.theme-accent .card-wave-bg {
+    background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+}
+.theme-accent .card-icon {
+    color: #ff7e5f;
+}
+
+/* =========================================
+   SUBJECT CARD COLOUR THEMES
+   ========================================= */
+
+/* --- SPECIFIC REQUESTS --- */
+
+/* Bybel - Light Grey (Silver/Slate) */
+.theme-bybel .card-wave-bg {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+}
+.theme-bybel .card-icon {
+    color: #64748b;
+}
+
+/* Sosiale Studies / Omgewingsleer - Orange */
+.theme-sosiaal .card-wave-bg {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+.theme-sosiaal .card-icon {
+    color: #ea580c;
+}
+
+/* Wetenskap / Fisiese Wetenskappe - Blue */
+.theme-wetenskap .card-wave-bg {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+.theme-wetenskap .card-icon {
+    color: #2563eb;
+}
+
+/* --- OTHER SUBJECTS (UNIQUE COLOURS) --- */
+
+/* Afrikaans - Jade (School Colour) */
+.theme-afrikaans .card-wave-bg {
+    background: linear-gradient(135deg, #00a86b 0%, #008f5d 100%);
+}
+.theme-afrikaans .card-icon {
+    color: #00a86b;
+}
+
+/* Engels - Red (Language/Passion) */
+.theme-engels .card-wave-bg {
+    background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+}
+.theme-engels .card-icon {
+    color: #ef4444;
+}
+
+/* Aktiewe Burgery - Gold/Yellow */
+.theme-burgery .card-wave-bg {
+    background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+}
+.theme-burgery .card-icon {
+    color: #ca8a04;
+}
+
+/* Computer Studies - Purple (Tech) */
+.theme-rekenaars .card-wave-bg {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+}
+.theme-rekenaars .card-icon {
+    color: #7c3aed;
+}
+
+/* Lewenswetenskappe - Teal (Biology/Life) */
+.theme-lewenswet .card-wave-bg {
+    background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+}
+.theme-lewenswet .card-icon {
+    color: #0d9488;
+}
+
+/* IGO - Steel Blue/Grey (Engineering) */
+.theme-igo .card-wave-bg {
+    background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+}
+.theme-igo .card-icon {
+    color: #334155;
+}
+
+/* Verbruikerstudies - Pink/Rose */
+.theme-verbruiker .card-wave-bg {
+    background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+}
+.theme-verbruiker .card-icon {
+    color: #e11d48;
+}
+
+/* Rekeningkunde - Navy (School Colour) */
+.theme-rek .card-wave-bg {
+    background: linear-gradient(135deg, #002552 0%, #0b3d80 100%);
+}
+.theme-rek .card-icon {
+    color: #002552;
+}
+
+/* Geografie - Emerald Green (Earth) */
+.theme-geo .card-wave-bg {
+    background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+}
+.theme-geo .card-icon {
+    color: #16a34a;
+}
+
+/* Toerisme - Cyan/Sky (Travel) */
+.theme-toerisme .card-wave-bg {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+}
+.theme-toerisme .card-icon {
+    color: #0891b2;
+}
+
+/* Landbou - Brown/Amber (Soil/Agriculture) */
+.theme-landbou .card-wave-bg {
+    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+}
+.theme-landbou .card-icon {
+    color: #b45309;
+}
+
+/* Wiskunde - Indigo (Maths) */
+.theme-wiskunde .card-wave-bg {
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+}
+.theme-wiskunde .card-icon {
+    color: #4f46e5;
+}
+
+/* Kwantitatiewe Beredenering - Violet/Fuchsia */
+.theme-kwant .card-wave-bg {
+    background: linear-gradient(135deg, #d946ef 0%, #a21caf 100%);
+}
+.theme-kwant .card-icon {
+    color: #c026d3;
+}
+
+/* =========================================
+   HOVER STATES (The Animation)
+   ========================================= */
+
+/* 1. Wave Rises Up */
+.subject-card:hover .card-wave-bg {
+    transform: scaleY(3.5); /* Scale up to cover the whole card */
+}
+
+/* 2. Text turns White */
+.subject-card:hover h3,
+.subject-card:hover .card-icon {
+    color: #fff;
+}
+
+/* 3. Reveal Paragraph */
+.subject-card:hover .card-text {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px; /* Allow expansion */
+}
+
+/* 4. Hide "Learn More" (Optional, looks cleaner) */
+.subject-card:hover .learn-more {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* --- The Wave Background (Shared Styles) --- */
+.card-wave-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Front wave sits on top */
+
+    /* YOUR CUSTOM CLIP PATH */
+    clip-path: polygon(
+        100% 100%,
+        0% 100%,
+        0% 54.4%,
+        2% 53.27%,
+        4% 52.21%,
+        6% 51.25%,
+        8% 50.42%,
+        10% 49.76%,
+        12% 49.27%,
+        14% 48.98%,
+        16% 48.89%,
+        18% 49.01%,
+        20% 49.32%,
+        22% 49.83%,
+        24% 50.52%,
+        26% 51.36%,
+        28% 52.34%,
+        30% 53.41%,
+        32% 54.54%,
+        34% 55.71%,
+        36% 56.88%,
+        38% 58%,
+        40% 59.05%,
+        42% 59.99%,
+        44% 60.79%,
+        46% 61.43%,
+        48% 61.89%,
+        50% 62.16%,
+        52% 62.22%,
+        54% 62.07%,
+        56% 61.73%,
+        58% 61.19%,
+        60% 60.48%,
+        62% 59.62%,
+        64% 58.63%,
+        66% 57.54%,
+        68% 56.4%,
+        70% 55.23%,
+        72% 54.07%,
+        74% 52.95%,
+        76% 51.92%,
+        78% 51%,
+        80% 50.22%,
+        82% 49.6%,
+        84% 49.17%,
+        86% 48.93%,
+        88% 48.9%,
+        90% 49.08%,
+        92% 49.45%,
+        94% 50.01%,
+        96% 50.75%,
+        98% 51.63%,
+        100% 52.63%
+    );
+
+    /* Main Wave: Start low */
+    transform: scaleY(0.4);
+    transform-origin: bottom;
+    transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- The Lighter (Back) Wave --- */
+.card-wave-bg.lighter {
+    z-index: 0; /* Sits behind the main wave */
+    opacity: 0.3; /* Makes it lighter/transparent */
+
+    /* Starts slightly higher so it's visible behind the main one */
+    transform: scaleY(0.5) scaleX(1.3) translateX(40px);
+
+    /* Slightly slower transition for "liquid" lag effect */
+    transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- Theme Colors (Gradients) --- */
+/* Jade */
+.theme-jade .card-wave-bg {
+    background: linear-gradient(135deg, #00a86b 0%, #008f5d 100%);
+}
+.theme-jade .card-icon {
+    color: #00a86b;
+}
+
+/* Navy */
+.theme-navy .card-wave-bg {
+    background: linear-gradient(135deg, #002552 0%, #0b3d80 100%);
+}
+.theme-navy .card-icon {
+    color: #002552;
+}
+
+/* Accent */
+.theme-accent .card-wave-bg {
+    background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+}
+.theme-accent .card-icon {
+    color: #ff7e5f;
+}
+
+/* =========================================
+   HOVER STATES (Animation Logic)
+   ========================================= */
+
+/* 1. Main Wave Rises */
+.subject-card:hover .card-wave-bg {
+    transform: scaleY(3.5);
+}
+
+/* 2. Lighter Wave Rises Higher (to create layers) */
+.subject-card:hover .card-wave-bg.lighter {
+    transform: scaleY(4);
+}
+
+/* 3. Text turns White */
+.subject-card:hover h3,
+.subject-card:hover .card-icon {
+    color: #fff;
+}
+
+/* 4. Reveal Paragraph */
+.subject-card:hover .card-text {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px;
+}
+
+/* 5. Hide "Learn More" */
+.subject-card:hover .learn-more {
+    opacity: 0;
+    transform: translateY(20px);
+}
+/* =========================================
+   CAROUSEL LOGIC (Essential for switching)
+   ========================================= */
+
+/* 1. Hide ALL groups by default */
+.subject-group {
+    display: none;
+    animation: fadeEffect 0.5s ease; /* Smooth transition */
+}
+
+/* 2. Show ONLY the active group */
+.subject-group.active-group {
+    display: block;
+}
+
+/* 3. Navigation Header Styling */
+.carousel-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.group-indicator {
+    text-align: center;
+}
+
+.group-indicator h2 {
+    font-size: 2.2rem;
+    color: var(--secondary);
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+/* Dots Styling */
+.dots-container {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #cbd5e1;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background-color: var(--primary);
+    transform: scale(1.3);
+}
+
+/* Animation for switching */
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Arrows (Sleek & Minimalistic) --- */
+.nav-btn {
+    /* Dimensions & Layout */
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    aspect-ratio: 1; /* Ensures perfect circle */
+    border-radius: 50%;
+
+    /* Clean Styling */
+    border: none; /* Removed the gray border for a cleaner look */
+    background: #ffffff;
+    color: var(--secondary); /* Navy icon */
+
+    /* Centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem; /* Slightly smaller icon is more elegant */
+    cursor: pointer;
+
+    /* Modern Shadow (Soft & Diffuse) */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    /* Smooth Animation */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover State */
+.nav-btn:hover {
+    background: var(--primary); /* Jade background */
+    color: #ffffff; /* White icon */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 8px 20px rgba(0, 168, 107, 0.25); /* Colored glow */
+}
+
+/* Active/Click State */
+.nav-btn:active {
+    transform: translateY(0) scale(0.95); /* Press effect */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }

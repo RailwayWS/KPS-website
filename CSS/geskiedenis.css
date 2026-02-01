@@ -217,7 +217,7 @@
 /* NEW: The Image Style */
 .timeline-image {
     width: 100%;
-    height: 200px; /* Fixed height for consistency */
+    height: 300px; /* Fixed height for consistency */
     object-fit: cover; /* Ensures image covers area without stretching */
     display: block;
     border-bottom: 4px solid var(--primary); /* Optional: A yellow line separating img and text */
