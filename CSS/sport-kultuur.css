@@ -68,7 +68,9 @@ body {
     justify-content: center;
     align-items: center;
     padding: 30px;
-    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        box-shadow 0.3s ease;
     border-radius: inherit;
     box-shadow: inset 0 0 0 1px rgba(0, 37, 82, 0.1);
 }
@@ -385,4 +387,14 @@ body {
     #modal-title {
         font-size: 2rem;
     }
+}
+
+.modern-card:hover .card-content {
+    opacity: 0; /* Hides the icon/text on hover */
+    transform: translateY(-20px);
+}
+
+.modern-card:hover .card-reveal {
+    opacity: 1; /* Shows the image */
+    transform: translateY(0);
 }

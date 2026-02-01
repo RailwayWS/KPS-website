@@ -2088,7 +2088,101 @@
                 // (Uniform Toggle Code goes here - kept short for brevity)
                 const seasonToggle = document.getElementById("season-toggle");
                 if (seasonToggle) {
-                    /* ... Your existing Uniform code ... */
+                    /* =========================================
+   3. UNIFORM TOGGLE LOGIC (Summer/Winter)
+   ========================================= */
+                    const seasonToggle =
+                        document.getElementById("season-toggle");
+                    const summerLabel = document.getElementById("summer-label");
+                    const winterLabel = document.getElementById("winter-label");
+                    const boysImg = document.getElementById("boys-img");
+                    const girlsImg = document.getElementById("girls-img");
+                    const boysList = document.getElementById("boys-list");
+                    const girlsList = document.getElementById("girls-list");
+
+                    // Data for the uniforms
+                    const uniformData = {
+                        summer: {
+                            boysText: [
+                                "KPS Grys Kortbroek",
+                                "KPS Gholfhemp",
+                                "KPS Kouse",
+                                "Swart Skoolskoene",
+                            ],
+                            boysImage: "../Images/kleredrag/seunsSomer.png",
+                            girlsText: [
+                                "KPS Romp",
+                                "KPS Gholfhemp",
+                                "Wit Kouse",
+                                "Swart Skoolskoene",
+                            ],
+                            girlsImage: "../Images/kleredrag/meisieSomer.png",
+                        },
+                        winter: {
+                            boysText: [
+                                "Grys Langbroek",
+                                "Blou Skoolhemp",
+                                "Blazer & Das",
+                                "Grys Kouse",
+                                "Swart Skoolskoene",
+                            ],
+                            boysImage: "../Images/kleredrag/seunsWinter.png",
+                            girlsText: [
+                                "Blou Skoolromp",
+                                "Blou Skoolhemp",
+                                "Blazer & Das",
+                                "Grys Kouse",
+                                "Swart Skoolskoene",
+                            ],
+                            girlsImage: "../Images/kleredrag/meisieWinter.png",
+                        },
+                    };
+
+                    // Event Listener
+                    if (seasonToggle) {
+                        seasonToggle.addEventListener("change", function () {
+                            const isWinter = this.checked;
+                            const data = isWinter
+                                ? uniformData.winter
+                                : uniformData.summer;
+
+                            // 1. Update Labels (Bold text)
+                            if (isWinter) {
+                                winterLabel.classList.add("active");
+                                summerLabel.classList.remove("active");
+                            } else {
+                                summerLabel.classList.add("active");
+                                winterLabel.classList.remove("active");
+                            }
+
+                            // 2. Fade Out Images (Animation)
+                            if (boysImg) boysImg.style.opacity = 0;
+                            if (girlsImg) girlsImg.style.opacity = 0;
+
+                            // 3. Wait 200ms, Change Content, then Fade In
+                            setTimeout(() => {
+                                // Update Images
+                                if (boysImg) boysImg.src = data.boysImage;
+                                if (girlsImg) girlsImg.src = data.girlsImage;
+
+                                // Update Lists
+                                if (boysList) {
+                                    boysList.innerHTML = data.boysText
+                                        .map((item) => `<li>${item}</li>`)
+                                        .join("");
+                                }
+                                if (girlsList) {
+                                    girlsList.innerHTML = data.girlsText
+                                        .map((item) => `<li>${item}</li>`)
+                                        .join("");
+                                }
+
+                                // Fade In
+                                if (boysImg) boysImg.style.opacity = 1;
+                                if (girlsImg) girlsImg.style.opacity = 1;
+                            }, 200);
+                        });
+                    }
                 }
             });
 

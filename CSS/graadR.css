@@ -99,7 +99,8 @@ h1 {
     width: 100%;
     object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25),
+    box-shadow:
+        0 4px 8px 0 rgba(0, 0, 0, 0.25),
         0 6px 20px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -237,7 +238,9 @@ h1 {
 
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     height: 100%; /* Ensures all cards are same height */
 }
 
@@ -258,7 +261,9 @@ h1 {
     align-items: center;
     color: var(--primary);
     font-size: 1.8rem;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 .modern-text-card:hover .card-icon {

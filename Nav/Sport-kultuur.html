@@ -296,6 +296,72 @@
         </div>
 
         <app-footer base="../"></app-footer>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                /* =========================================
+           SPORT & CULTURE MODAL LOGIC
+           ========================================= */
+                const cards = document.querySelectorAll(".modern-card");
+                const modal = document.getElementById("sport-modal");
+                const modalImg = document.getElementById("modal-img");
+                const modalTitle = document.getElementById("modal-title");
+                const modalDesc = document.getElementById("modal-desc");
+                const closeBtn = document.querySelector(".modal-close");
+
+                // 1. Open Modal on Card Click
+                cards.forEach((card) => {
+                    card.addEventListener("click", () => {
+                        // Get data from the HTML attributes
+                        const title = card.getAttribute("data-title");
+                        const description =
+                            card.getAttribute("data-description");
+
+                        // Get the high-quality image from the hidden reveal section
+                        const imgSource =
+                            card.querySelector(".card-reveal img").src;
+
+                        // Populate the Modal
+                        modalTitle.textContent = title;
+                        modalDesc.textContent = description;
+                        modalImg.src = imgSource;
+
+                        // Show the Modal
+                        modal.classList.add("active");
+
+                        // Prevent background scrolling
+                        document.body.style.overflow = "hidden";
+                    });
+                });
+
+                // 2. Close Modal Functions
+                function closeModal() {
+                    modal.classList.remove("active");
+                    document.body.style.overflow = "auto"; // Restore scrolling
+                }
+
+                // Close on Button Click
+                if (closeBtn) {
+                    closeBtn.addEventListener("click", closeModal);
+                }
+
+                // Close on Background Click (Outside the box)
+                window.addEventListener("click", (e) => {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+
+                // Close on Escape Key
+                document.addEventListener("keydown", function (event) {
+                    if (
+                        event.key === "Escape" &&
+                        modal.classList.contains("active")
+                    ) {
+                        closeModal();
+                    }
+                });
+            });
+        </script>
     </body>
     <!-- Google tag (gtag.js) -->
     <script
