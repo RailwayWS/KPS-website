@@ -28,14 +28,14 @@ class SpecialFooter extends HTMLElement {
                         <a href="${base}Nav/Personeel.html">Personeel</a>
                         <a href="${base}Nav/Koshuis.html">Koshuis</a>
                         <a href="${base}Nav/SkooltarieweVorms.html">Doen Aansoek</a>
-                        <a href="${base}index.html#contact-us">Kontak Ons</a>
+                        
                     </div>
 
                     <div class="footer-links">
                         <h4>Ekstra</h4>
                         <a href="${base}Nav/Geskiedenis.html">Geskiedenis</a>
                         <a href="${base}Nav/Oor-ons.html">Oor Ons</a>
-                        <a href="${base}Nav/Nuus-items.html">Nuus Items</a>
+                        <a href="${base}index.html#contact-us">Kontak Ons</a>
                     </div>
 
                     <div class="footer-bottom">

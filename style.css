@@ -83,7 +83,8 @@ nav {
 .nav-container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 8px 25px;
+    padding: 8px 8px;
+    padding-left: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -535,9 +536,12 @@ nav {
 }
 
 .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    display: flex;
+    flex-direction: row;
     gap: 40px;
+    width: 65%;
+    align-items: center;
+    margin: 0 auto;
 }
 .content-card {
     background: var(--white);
@@ -549,6 +553,7 @@ nav {
     display: block;
     text-decoration: none;
     color: inherit;
+    width: 100%;
 }
 
 .content-card:focus-visible {
@@ -814,6 +819,48 @@ button:hover {
     background: var(--primary);
     transform: translateY(-2px);
     box-shadow: 0 10px 20px -10px rgba(0, 37, 82, 0.3);
+}
+
+/* ==============================
+   Form Textareas (global)
+   ============================== */
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: #fff;
+    padding: 12px 14px;
+    font: inherit;
+    color: inherit;
+    line-height: 1.45;
+    resize: vertical;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+textarea::placeholder {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+textarea:focus {
+    border-color: rgba(0, 87, 183, 0.45); /* tweak to match your brand */
+    box-shadow: 0 0 0 4px rgba(0, 87, 183, 0.12);
+}
+
+textarea:disabled {
+    background: #f3f4f6;
+    color: rgba(0, 0, 0, 0.55);
+    cursor: not-allowed;
+}
+
+/* Match your existing validation state */
+textarea.input-error {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
 }
 
 /* =========================================

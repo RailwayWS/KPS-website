@@ -738,6 +738,7 @@ input:checked + .slider:before {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
+    align-items: stretch;
 }
 
 .uniform-card {
@@ -748,6 +749,9 @@ input:checked + .slider:before {
     text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.03);
     transition: 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .uniform-card:hover {
@@ -786,7 +790,7 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: auto; /* pushes image section to the bottom */
     overflow: hidden;
 }
 
@@ -1071,4 +1075,40 @@ ol.document-list strong {
 .email-link:hover {
     color: var(--secondary); /* Navy */
     text-decoration: underline;
+}
+
+/* =========================================
+   DRESS CODE GRID (UPDATED FOR CENTERING)
+   ========================================= */
+
+.uniform-grid {
+    display: flex; /* Flexbox handles centering uneven numbers better than Grid */
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: center; /* THE KEY: This centers the orphan card */
+    gap: 40px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.uniform-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+
+    /* Flex Sizing */
+    flex: 1 1 300px; /* Grow, Shrink, Basis */
+    max-width: 400px; /* Prevents cards from becoming uncomfortably wide */
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.uniform-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }

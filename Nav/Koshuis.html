@@ -35,6 +35,7 @@
         <link rel="stylesheet" href="../CSS/koshuis.css" />
         <link rel="stylesheet" href="../CSS/akademie.css" />
         <link rel="stylesheet" href="../CSS/graadR.css" />
+        <link rel="stylesheet" href="../CSS/SkooltarieweVorms.css" />
         <script src="../script.js" defer></script>
         <script src="../Components/navbar.js" defer></script>
         <script src="../Components/footer.js" defer></script>
@@ -74,8 +75,8 @@
                     fasiliteite en huislike atmosfeer op die skoolterrein.
                 </p>
                 <div class="hero-btns">
-                    <a href="#fasiliteite" class="btn-glow">
-                        Ons Fasiliteite <i class="bx bx-down-arrow-alt"></i>
+                    <a href="#aansoek" class="btn-glow">
+                        Doen Aansoek <i class="bx bx-down-arrow-alt"></i>
                     </a>
                 </div>
             </div>
@@ -214,6 +215,802 @@
             <div id="modal-caption"></div>
         </div>
     </div>
+
+    <section class="form-section" id="aansoek">
+    <div class="form-container">
+        <div class="form-header-box">
+            <h2>Koshuis Inskrywingsvorm</h2>
+            <p>Arendsnes</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="step active">
+                <div class="bullet"><span>1</span></div>
+                <div class="check"><i class="bx bx-check"></i></div>
+                <p>Leerder</p>
+            </div>
+            <div class="step">
+                <div class="bullet"><span>2</span></div>
+                <div class="check"><i class="bx bx-check"></i></div>
+                <p>Medies</p>
+            </div>
+            <div class="step">
+                <div class="bullet"><span>3</span></div>
+                <div class="check"><i class="bx bx-check"></i></div>
+                <p>Ouers</p>
+            </div>
+            <div class="step">
+                <div class="bullet"><span>4</span></div>
+                <div class="check"><i class="bx bx-check"></i></div>
+                <p>Kontrak</p>
+            </div>
+        </div>
+
+        <form id="hostelApplicationForm" novalidate>
+            
+            <div class="form-page slide-page">
+                <h3 class="step-title">Inligting van Leerder</h3>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Van</label>
+                        <input type="text" name="learner_surname" required />
+                    </div>
+                    <div class="field">
+                        <label>Volle Name</label>
+                        <input type="text" name="learner_fullnames" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Noemnaam</label>
+                        <input type="text" name="learner_nickname" required />
+                    </div>
+                    <div class="field">
+                        <label>Identiteitsnommer</label>
+                        <input type="text" name="learner_id" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Geboortedatum</label>
+                        <input type="date" name="learner_dob" required />
+                    </div>
+                    <div class="field">
+                        <label>Hoeveelste kind in gesin?</label>
+                        <input type="number" name="child_position" min="1" placeholder="Bv. 2de" required />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Totale kindertal in gesin</label>
+                    <input type="number" name="total_children" min="1" required />
+                </div>
+
+                <div class="divider" style="margin: 20px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">Skool Inligting</h4>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Naam van huidige skool</label>
+                        <input type="text" name="current_school_name" required />
+                    </div>
+                    <div class="field">
+                        <label>Huidige graad</label>
+                        <input type="text" name="current_grade" placeholder="Bv. Graad 6" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Wanneer word toelating verlang?</label>
+                        <input type="date" name="admission_requested_date" required />
+                    </div>
+                    <div class="field">
+                        <label>Is toelating van leerder in die skool reeds goedgekeur?</label>
+                        <div class="radio-options">
+                            <label class="radio-container">Ja
+                                <input type="radio" name="school_admission_approved" value="yes" required />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-container">Nee
+                                <input type="radio" name="school_admission_approved" value="no" required />
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider" style="margin: 20px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">Nabyheid tot Ouer se Woning</h4>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Naaste skool aan ouer</label>
+                        <input type="text" name="nearest_school_to_parent" required />
+                    </div>
+                    <div class="field">
+                        <label>Afstand na naaste skool aan ouer (km)</label>
+                        <input type="number" name="distance_to_nearest_school_km" min="0" step="0.1" required />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Naaste koshuis aan ouer woning</label>
+                    <input type="text" name="nearest_hostel_to_parent" required />
+                </div>
+
+                <div class="divider" style="margin: 20px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">Bykomende Inligting</h4>
+
+                <div class="field">
+                    <label>Redes vir verlating van huidige skool</label>
+                    <textarea name="reasons_for_leaving_current_school" rows="3" required></textarea>
+                </div>
+
+                <div class="field">
+                    <label>Kerkverband</label>
+                    <input type="text" name="church_affiliation" placeholder="Bv. NG Kerk" />
+                </div>
+
+                <div class="divider" style="margin: 20px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">Kleuterskool Geskiedenis</h4>
+
+                <div class="radio-group">
+                    <label>Het die kind 'n kleuterskool bygewoon?</label>
+                    <div class="radio-options">
+                        <label class="radio-container">Ja
+                            <input type="radio" name="attended_preschool" value="yes" required />
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-container">Nee
+                            <input type="radio" name="attended_preschool" value="no" required />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Indien JA, naam van skool:</label>
+                    <input type="text" name="preschool_name" />
+                </div>
+
+                <div class="field-btns">
+                    <button type="button" class="btn-next">Volgende</button>
+                </div>
+            </div>
+
+            <div class="form-page">
+                <h3 class="step-title">Medies & Noodgeval</h3>
+
+                <div class="field">
+                    <label>Gesondheidstoestand van leerder</label>
+                    <textarea name="learner_health_status" rows="2" required></textarea>
+                </div>
+
+                <div class="divider" style="margin: 20px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">Mediese Fonds</h4>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Naam van hooflid</label>
+                        <input type="text" name="main_member" required />
+                    </div>
+                    <div class="field">
+                        <label>Mediese Fonds Naam</label>
+                        <input type="text" name="medical_aid_name" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Mediese Fonds Nr.</label>
+                        <input type="text" name="medical_aid_number" required />
+                    </div>
+                    <div class="field">
+                        <label>Tipe Fonds</label>
+                        <input type="text" name="medical_aid_type" required placeholder="Bv. Primêr / Sekondêr / Hospitaalplan" />
+                    </div>
+                </div>
+
+                <div class="divider" style="margin: 20px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">Mediese Inligting van Leerder</h4>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Huisdokter</label>
+                        <input type="text" name="doctor_name" required />
+                    </div>
+                    <div class="field">
+                        <label>Telefoon nr. van dokter</label>
+                        <input type="tel" name="doctor_tel" required />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Adres van dokter</label>
+                    <input type="text" name="doctor_address" required />
+                </div>
+
+                <div class="field">
+                    <label>Allergieë</label>
+                    <textarea name="allergies" rows="2" required></textarea>
+                </div>
+
+                <div class="field">
+                    <label>Kindersiektes</label>
+                    <input type="text" name="childhood_illnesses" required />
+                </div>
+
+                <div class="field">
+                    <label>Operasies (meld ook datums)</label>
+                    <textarea name="operations" rows="2" required></textarea>
+                </div>
+
+                <div class="field">
+                    <label>Kroniese siektes</label>
+                    <input type="text" name="chronic_illnesses" required />
+                </div>
+
+                <div class="field">
+                    <label>Enige ander mediese inligting</label>
+                    <textarea name="other_medical_info" rows="2" required></textarea>
+                </div>
+
+                <div class="divider" style="margin: 20px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">Noodgeval Kontakpersoon</h4>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Naam</label>
+                        <input type="text" name="emergency_name" required />
+                    </div>
+                    <div class="field">
+                        <label>Sel Nr.</label>
+                        <input type="tel" name="emergency_cell" required />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Verwantskap</label>
+                    <input type="text" name="emergency_relation" required />
+                </div>
+
+                <div class="field-btns">
+                    <button type="button" class="btn-prev">Terug</button>
+                    <button type="button" class="btn-next">Volgende</button>
+                </div>
+            </div>
+
+            <div class="form-page">
+                <h3 class="step-title">Inligting van Vader</h3>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Van</label>
+                        <input type="text" name="father_surname" required />
+                    </div>
+                    <div class="field">
+                        <label>Volle Name</label>
+                        <input type="text" name="father_names" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Noemnaam</label>
+                        <input type="text" name="father_nickname" required />
+                    </div>
+                    <div class="field">
+                        <label>Selfoonnommer</label>
+                        <input type="tel" name="father_cell" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>ID Nommer</label>
+                        <input type="text" name="father_id_number" required />
+                    </div>
+                    <div class="field">
+                        <label>Beroep</label>
+                        <input type="text" name="father_occupation" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Fisiese Adres (Nie Posadres)</label>
+                    <input type="text" name="father_physical_address" required />
+                </div>
+
+                <div class="field">
+                    <label>Posadres</label>
+                    <input type="text" name="father_postal_address" required />
+                </div>
+
+                <div class="divider" style="margin: 30px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">Werksinligting &amp; Inkomste</h4>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Betrekking</label>
+                        <input type="text" name="father_employment_position" required />
+                    </div>
+                    <div class="field">
+                        <label>Bruto Inkomste</label>
+                        <input type="text" name="father_gross_income" required placeholder="Bv. N$ 25 000 p/m" />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Naam van Werkgewer</label>
+                        <input type="text" name="father_employer_name" required />
+                    </div>
+                    <div class="field">
+                        <label>E-pos van Werkgewer</label>
+                        <input type="email" name="father_employer_email" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Werkgewer Tel.</label>
+                        <input type="tel" name="father_employer_tel" required />
+                    </div>
+                    <div class="field">
+                        <label>Werkgewer Adres</label>
+                        <input type="text" name="father_employer_address" required />
+                    </div>
+                </div>
+
+                <div class="divider" style="margin: 30px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <h3 class="step-title">Inligting van Moeder</h3>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Van</label>
+                        <input type="text" name="mother_surname" required />
+                    </div>
+                    <div class="field">
+                        <label>Volle Name</label>
+                        <input type="text" name="mother_names" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Noemnaam</label>
+                        <input type="text" name="mother_nickname" required />
+                    </div>
+                    <div class="field">
+                        <label>Selfoonnommer</label>
+                        <input type="tel" name="mother_cell" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>ID Nommer</label>
+                        <input type="text" name="mother_id_number" required />
+                    </div>
+                    <div class="field">
+                        <label>Beroep</label>
+                        <input type="text" name="mother_occupation" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Fisiese Adres (Nie Posadres)</label>
+                    <input type="text" name="mother_physical_address" required />
+                </div>
+
+                <div class="field">
+                    <label>Posadres</label>
+                    <input type="text" name="mother_postal_address" required />
+                </div>
+
+                <div class="divider" style="margin: 30px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">Werksinligting &amp; Inkomste</h4>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Betrekking</label>
+                        <input type="text" name="mother_employment_position" required />
+                    </div>
+                    <div class="field">
+                        <label>Bruto Inkomste</label>
+                        <input type="text" name="mother_gross_income" required placeholder="Bv. N$ 25 000 p/m" />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Naam van Werkgewer</label>
+                        <input type="text" name="mother_employer_name" required />
+                    </div>
+                    <div class="field">
+                        <label>E-pos van Werkgewer</label>
+                        <input type="email" name="mother_employer_email" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label>Werkgewer Tel.</label>
+                        <input type="tel" name="mother_employer_tel" required />
+                    </div>
+                    <div class="field">
+                        <label>Werkgewer Adres</label>
+                        <input type="text" name="mother_employer_address" required />
+                    </div>
+                </div>
+
+                <div class="divider" style="margin: 30px 0; border-bottom: 2px dashed #eee;"></div>
+
+                <div class="field-btns">
+                    <button type="button" class="btn-prev">Terug</button>
+                    <button type="button" class="btn-next">Volgende</button>
+                </div>
+            </div>
+
+            <div class="form-page">
+                <h3 class="step-title">Verbintenis & Voorwaardes</h3>
+
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">
+                    Lees asseblief die volgende bepalings noukeurig deur. Deur hierdie vorm in te dien, onderneem u die volgende:
+                </p>
+
+                <div class="terms-scroll-box" style="height: 300px; overflow-y: auto; background: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 20px; font-size: 0.85rem; line-height: 1.6; padding-left: 30px;">
+                    <p>
+                        Ek/ons, die ondergetekende ouer(s)/voog(de) van bogemelde kind, verklaar hiermee dat die
+                        inligting, soos verstrek, na die beste van my wete korrek is, en onderneem die volgende:
+                    </p>
+
+                    <ol class="terms-ol">
+                        <li>
+                            Ek sal minstens ‘n termyn vooruit skriftelik kennis gee indien ek van voorneme is om my
+                            kind weg te neem, behalwe in gevalle waar die komitee korter kennisgewing skriftelik
+                            aanvaar het en, indien ek nie hieraan voldoen nie, aanvaar ek aanspreeklikheid vir die volle
+                            losiesgelde van die kind tot aan die einde van die skooltermyn ten opsigte waarvan kennis
+                            gegee moes word.
+                        </li>
+
+                        <li>
+                            Ek sal die betaalbare losiesgelde, soos van tyd tot tyd vasgestel, maandeliks vooruit betaal
+                            teen die 7de van die betrokke maand. Indien die losiesgelde nie teen die 7de van die betrokke
+                            maand betaal is nie sal 'n brief op die eerste skooldag daarna aan u kind oorhandig word waarin
+                            hy/sy verwittig word dat die losiesgelde agterstallig is en dat hy/sy nie verder die koshuis kan
+                            bewoon (soos hieronder uiteengesit) totdat die rekening betaal is nie. Die rekening sal ook
+                            oorhandig word aan die koshuis se prokureurs vir invordering van die skulde. As die ouer dus
+                            nie die skoolgeld kan bybring nie is die onus op die ouer om voor die 7de van die betrokke
+                            maand met die skool skriftelik in kennis te stel van sy/haar onvermoë en 'n skriftelike
+                            ooreenkoms te bereik oor die betaling van die skoolfooie. Die skool sal nie die ouers kontak vir
+                            reëlings nie.
+                        </li>
+
+                        <li>
+                            Indien die skool/koshuis enige kostes moet aangaan vir die invordering van skuld verskuldig in
+                            terme van hierdie dokument, onderneem die partye wat hierdie aansoekvorm onderteken om op
+                            aanvraag alle regs- en ander kostes deur die skool/koshuis aangegaan om agterstallige
+                            skoolfonds in te vorder te betaal op ‘n prokureur-eie-kliënt skaal, tesame met
+                            invorderingskommissie teen ‘n koers van 10% (plus BTW) vir elke betaling deur sodanige partye
+                            gemaak, asook enige seëlregte wat betaalbaar mag wees.
+                        </li>
+
+                        <li>
+                            Indien enige betaling verskuldig in terme van hierdie dokument nie betyds betaal word nie mag
+                            die skool die balans van die agterstallige skuld, rente en kostes wat verskuldig is in terme
+                            hiervan as onmiddellik betaalbaar beskou en mag ‘n dagvaarding uitgereik word in enige
+                            bevoegde Hof sonder enige verdere kennisgewing aan u.
+                        </li>
+
+                        <li>
+                            Enige kapitale bedrae uitstaande in terme hiervan sal rente dra teen ‘n koers van 20% per jaar
+                            gereken vanaf datum van die betrokke faktuur.
+                        </li>
+
+                        <li>
+                            Beide ouers, of enige persone wat hierdie aansoek onderteken, sal gesamentlik en afsonderlik
+                            aanspreeklik gehou word vir die betaling van skoolfonds.
+                        </li>
+
+                        <li>
+                            Die partye wat hierdie ooreenkoms onderteken doen hiermee uitdruklik afstand van die voordele
+                            van non causa debiti, errore calculi, die hersiening van rekeninge en geen waarde ontvang nie.
+                        </li>
+
+                        <li>
+                            Ons stem hiermee toe tot die jurisdiksie van die Landdroshof in terme van Artikel 45 van die
+                            “Magistrate’s Court Act 32 of 1944” vir die invordering van enige bedrag verskuldig in terme
+                            hiervan.
+                        </li>
+
+                        <li>
+                            Enige kapitale skuld sal onmiddellik betaalbaar en opeisbaar raak indien ek/ons insolvent
+                            verklaar word of ‘n daad van insolvensie pleeg.
+                        </li>
+
+                        <li>
+                            Alle betalings deur die skool/koshuis, of deur die skool/koshuis se prokureurs, ontvang, sal eers
+                            toegeken word tot kostes, BTW, invorderingskommissie en rente, waarnaas dit toegeken sal word
+                            as ‘n kapitale betaling, ongeag enige toekenning gemaak of oënskynlik deur die skool/koshuis
+                            gemaak.
+                        </li>
+
+                        <li>
+                            Enige sertifikaat of uiteensetting wat uitgereik word onder die handtekening van die Skool se
+                            gemagtigde verteenwoordiger / agent sal aanvaar word as ‘n prima facie bewys van ons
+                            verskuldigheid en sal dien as voldoende bewys vir die Skool om summiere vonnis of ‘n voorlopige
+                            vonnis teen ons te verkry in ‘n bevoegde Hof vir die bedrag uiteengesit in die sertifikaat. Ons
+                            aanvaar hiermee die onus om te bewys dat sodanige bedrag nie korrek is nie.
+                        </li>
+
+                        <li>
+                            Ons sal geensins geregtig wees om vir watter rede ookal enige gelde betaalbaar in terme
+                            hiervan te weerhou of betaling daarvan uit te stel nie.
+                        </li>
+
+                        <li>
+                            Ons gee hiermee toestemming dat alle fakture, rekeninge en kennisgewings elektronies aan ons
+                            versend kan word na die onderstaande genomineerde adres. Indien ons nie ‘n e-pos adres het
+                            nie, sal ons die skool skriftelik daarvan in kennis stel sodat harde-kopieë van gemelde dokumente
+                            aan ons versend kan word.
+                        </li>
+
+                        <li>
+                            Ek sal alle breekskade deur my kind veroorsaak binne een maand aan die koshuis te betaal.
+                        </li>
+
+                        <li>
+                            My kind sal hom/haar aan die huishoudelike reëls en gedragskode van die koshuis onderwerp.
+                        </li>
+
+                        <li>
+                            Kragtens die reëls insake koshuise sal ‘n kosganger wie se losiesgelde vir ‘n bepaalde maand nie
+                            aan die einde van die maand betaal is nie, vanaf die begin van die daaropvolgende maand nie tot
+                            die koshuis toegelaat word nie en nie weer opgeneem word voordat die agterstallige losiesgeld
+                            betaal is nie; (Losiesgelde is oor 12 maande betaalbaar, vanaf Januarie tot en met Desember.)
+                        </li>
+
+                        <li>
+                            Ek/Ons sertifiseer hiermee dat ek/ons wetlike toesig en/of voogdyskap het ten opsigte van die
+                            bogenoemde leerder.
+                        </li>
+
+                        <li>
+                            Ek/Ons onderneem om te hou by die skoolreëls en gedragskode en die verskeie veranderinge in
+                            die reëls en gedragskode wat van tyd tot tyd gemaak word.
+                        </li>
+
+                        <li>
+                            Ek/Ons (beide ouers) onderneem om by die bepalings van die koshuis/skool se Grondwet, reëls en
+                            kodes te hou en ek/ons sal in die geval van 'n oortreding van ‘n reël, berus by die
+                            strafmaatreëls soos op besluit deur die tugkomitee.
+                        </li>
+
+                        <li>
+                            Ek/Ons verstaan dat rook en die gebruik/misbruik van enige dwelm of alkoholiese drank ŉ
+                            oortreding is van die kritiese koshuisreëls en sal onder geen omstandighede geduld word nie.
+                        </li>
+
+                        <li>
+                            Ek/Ons en ons kind vrywaar KPS koshuis van enige verantwoordelikheid, vir enige gebeurtenis
+                            indien my/ons seun/dogter sonder toestemming die koshuisterrein verlaat het gedurende die dag
+                            of nag.
+                        </li>
+
+                        <li>
+                            Ek/Ons en ons kind vrywaar KPS koshuis van enige mediese kostes t.o.v. ons kind (hierin
+                            behoorlik deur ons bygestaan) wat behandeling ontvang by ‘n dokter, hospital, kliniek of apteek.
+                            Ons vrywaar ook die KPS Koshuis, sy werknemers, verteenwoordigers, agente en vrywilligers van
+                            enige eise voortspruitend uit enige beserings of dood wat mag ontstaan gedurende ons kind se
+                            verblyf in die Koshuis, met die uitsluitsel van beserings of dood veroorsaak deur die growe
+                            nalatigheid van ‘n werknemer, verteenwoordiger, agent of vrywilliger.
+                        </li>
+
+                        <li>
+                            Die Skool en/or Koshuis sal nie aanspreeklik wees vir enige verlies of beskadiging van
+                            persoonlike besittings van loseerders nie, hoe dit ook al veroorsaak word.
+                        </li>
+
+                        <li>
+                            Ouers word ten sterkste aangeraai om die besittings van hul kinders teen brand, diefstal, ens.
+                            te verseker.
+                        </li>
+
+                        <li>
+                            Die superintendent tree op in loco parentis vir alle leerders in die koshuis en word gemagtig om
+                            as sodanig op te tree as my gevolmagtigde in alle nood-, mediese en ander gevalle.
+                        </li>
+
+                        <li>
+                            Ek/Ons aanvaar verantwoordelikheid vir die immunisering van my/ons kind teen enige
+                            aansteeklike siektes en normale infeksies en sal bewys daarvan lewer indien dit versoek word.
+                        </li>
+
+                        <li>
+                            Die ondertekenaar hiervan kies hiermee die domicilium citandi et executandi soos hieronder
+                            aangetoon. In die geval van ŉ adresverandering, sal ek/ons die koshuis skriftelik daarvan in
+                            kennis stel.
+                        </li>
+
+                        <li>
+                            Hierdie verbintenis in sy geheel is van krag vanaf die dag wat dit onderteken is deur die
+                            ouer/voog/leerling tot op die dag wat die kind die koshuis verlaat. Let egter daarop dat indien ŉ
+                            leerling heraansoek doen aan die einde van ŉ jaar/ beplan om terug te keer na KPS Koshuis,
+                            hierdie ooreenkoms bindend is oor die Desember vakansie. Leerlinge val dus tydens vakansietye
+                            ook onder hierdie kontrak en die koshuis se reëls en regulasies.
+                        </li>
+
+                        <li>
+                            Die ouer/voog verklaar dat hy/sy die wettige ouer/voog van die kind is en geregtig is om hierdie
+                            dokument te teken en is hiertoe gebind as ouer/voog en in sy/haar persoonlike hoedanigheid.
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- ADD THIS: Dokumente lys (5 items) -->
+                <div class="field" style="margin-top: 10px;">
+                    <h4 style="color: var(--secondary); margin-bottom: 10px;">Dokumente om in te handig / e-pos</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 12px;">
+                        Die volgende dokumente moet by die skool ingehandig word of per e-pos gestuur word:
+                    </p>
+
+                    <ol style="margin: 0; padding-left: 22px; line-height: 1.7; font-size: 0.9rem; color: #444;">
+                        <li>Een onlangse ID-grootte foto van die leerder.</li>
+                        <li>’n Gewaarmerkte afskrif van die leerder se geboortesertifikaat/ID-dokument.</li>
+                        <li>Afskrif van die kind se mediese kaart.</li>
+                        <li>Afskrifte van beide ouers/voogde se ID-dokumente.</li>
+                        <li>Indien buitelanders: afskrif van ouers se werkspermit en kinders se studiepermit.</li>
+                    </ol>
+                </div>
+
+                <div class="field">
+                    <label>Domicilium citandi et executandi (Fisiese Adres)</label>
+                    <input type="text" name="domicilium_address" required placeholder="Straatadres vir lewering van kennisgewings" />
+                </div>
+
+                <div class="field">
+                    <label>E-pos vir kennisgewings</label>
+                    <input type="email" name="domicilium_email" required />
+                </div>
+
+                <div class="field" style="margin-top: 20px;">
+                    <div class="mark-group" style="grid-template-columns: 1fr;">
+                        <label class="mark-option">
+                            <input type="checkbox" name="terms_accepted" required />
+                            <span>Ek/Ons verklaar dat ons die wettige ouers/voogde is, dat die inligting korrek is, en ons aanvaar die bogenoemde voorwaardes.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field-btns">
+                    <button type="button" class="btn-prev">Terug</button>
+                    <button type="submit" class="btn-submit">Dien In</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>
+
+<div id="validation-modal" class="modal-overlay">
+    <div class="modal-box">
+        <div class="modal-icon">
+            <i class="bx bx-error-circle"></i>
+        </div>
+        <div class="modal-content">
+            <h3>Oeps</h3>
+            <p>Maak asseblief seker dat alle verpligte velde ingevul is voordat u voortgaan.</p>
+        </div>
+        <button type="button" class="modal-btn" onclick="closeValidationModal()">Ek verstaan</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        // --- Modal Logic ---
+        function showValidationModal() {
+            const modal = document.getElementById("validation-modal");
+            if (modal) modal.classList.add("show");
+            else alert("Vul asseblief alle velde in.");
+        }
+
+        window.closeValidationModal = function() {
+            const modal = document.getElementById("validation-modal");
+            if (modal) modal.classList.remove("show");
+        };
+
+        // --- Multi-Step Form Logic ---
+        const nextBtns = document.querySelectorAll(".btn-next");
+        const prevBtns = document.querySelectorAll(".btn-prev");
+        const progressSteps = document.querySelectorAll(".step");
+        const formPages = document.querySelectorAll(".form-page");
+        let currentStep = 0;
+
+        // Next Button Click
+        nextBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const currentPage = formPages[currentStep];
+                
+                // Remove old error states
+                currentPage.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
+
+                let allValid = true;
+                let firstInvalid = null;
+
+                // Validate Text/Date/Number Inputs
+                const inputs = currentPage.querySelectorAll("input[required], textarea[required], select[required]");
+                inputs.forEach(input => {
+                    if (input.type === "radio" || input.type === "checkbox") return;
+                    if (!input.value || input.value.trim() === "") {
+                        allValid = false;
+                        input.classList.add("input-error");
+                        if (!firstInvalid) firstInvalid = input;
+                    }
+                });
+
+                // Validate Radio Groups
+                const radioInputs = Array.from(currentPage.querySelectorAll("input[type='radio'][required]"));
+                const radioNames = [...new Set(radioInputs.map(input => input.name))];
+                
+                radioNames.forEach(name => {
+                    const checked = currentPage.querySelector(`input[name="${name}"]:checked`);
+                    if (!checked) {
+                        allValid = false;
+                        const group = currentPage.querySelector(`input[name="${name}"]`).closest(".radio-group");
+                        if (group) {
+                            group.classList.add("input-error"); // You might need CSS for .radio-group.input-error
+                            if (!firstInvalid) firstInvalid = group;
+                        }
+                    }
+                });
+
+                if (!allValid) {
+                    showValidationModal();
+                    if (firstInvalid) firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+                    return;
+                }
+
+                // Proceed
+                formPages[currentStep].style.display = "none";
+                currentStep++;
+                formPages[currentStep].style.display = "block";
+                
+                if (currentStep < progressSteps.length) {
+                    progressSteps[currentStep].classList.add("active");
+                }
+                
+                document.querySelector(".form-container").scrollIntoView({ behavior: "smooth" });
+            });
+        });
+
+        // Previous Button Click
+        prevBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                progressSteps[currentStep].classList.remove("active");
+                formPages[currentStep].style.display = "none";
+                currentStep--;
+                formPages[currentStep].style.display = "block";
+                document.querySelector(".form-container").scrollIntoView({ behavior: "smooth" });
+            });
+        });
+    });
+</script>
 
     <app-footer base="../"></app-footer>
 

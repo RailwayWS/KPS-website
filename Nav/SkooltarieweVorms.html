@@ -59,8 +59,8 @@
                         Ontdek hoe ons leerders voorberei vir die toekoms.
                     </p>
                     <div class="hero-btns">
-                        <a href="#detail" class="btn-glow">
-                            Lees Meer <i class="bx bx-down-arrow-alt"></i>
+                        <a href="#tariewe" class="btn-glow">
+                            Tariewe <i class="bx bx-down-arrow-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -1719,7 +1719,7 @@
             </a>
         </div>
 
-        <div class="accordion">
+        <div class="accordion" id="tariewe">
             <div class="accordion-item">
                 <div class="accordion-item-header">Skooltariewe</div>
                 <div class="accordion-item-body">
@@ -1834,6 +1834,29 @@
                         />
                     </div>
                 </div>
+
+                <div
+                    class="uniform-card"
+                    id="tracksuit-card"
+                    style="
+                        display: none;
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    "
+                >
+                    <div class="uniform-icon">
+                        <i class="bx bx-body"></i>
+                    </div>
+                    <h3>Sweetpak</h3>
+
+                    <div class="uniform-image-container">
+                        <img
+                            src="../Images/kleredrag/winter.png"
+                            alt="KPS Sweetpak"
+                            class="uniform-img-preview"
+                        />
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1863,7 +1886,7 @@
 
         <script>
             /* =========================================
-       1. GLOBAL FUNCTIONS & VALIDATION
+       1. GLOBAL FUNCTIONS & DYNAMIC FIELDS
        ========================================= */
 
             // Generate fields for children in KPS
@@ -1872,7 +1895,8 @@
                     "kps-siblings-wrapper",
                 );
                 container.innerHTML = "";
-                if (number > 10) number = 10;
+                if (number > 10) number = 10; // Limit to 10
+
                 for (let i = 1; i <= number; i++) {
                     const html = `
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee;">
@@ -1898,6 +1922,7 @@
                 );
                 container.innerHTML = "";
                 if (number > 10) number = 10;
+
                 for (let i = 1; i <= number; i++) {
                     const html = `
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee;">
@@ -1910,281 +1935,6 @@
                     container.insertAdjacentHTML("beforeend", html);
                 }
             }
-
-            // --- MODAL LOGIC ---
-            function showValidationModal() {
-                const modal = document.getElementById("validation-modal");
-                if (modal) {
-                    modal.classList.add("show");
-                    // Optional: Log to console to verify it triggered
-                    console.log("Modal Triggered");
-                } else {
-                    alert("Please fill in all required fields (Red borders).");
-                }
-            }
-
-            function closeValidationModal() {
-                const modal = document.getElementById("validation-modal");
-                if (modal) modal.classList.remove("show");
-            }
-
-            /* =========================================
-       2. DOM EVENTS
-       ========================================= */
-            document.addEventListener("DOMContentLoaded", () => {
-                // Modal Close on Background Click
-                const validationModal =
-                    document.getElementById("validation-modal");
-                if (validationModal) {
-                    validationModal.addEventListener("click", (e) => {
-                        if (e.target === validationModal)
-                            closeValidationModal();
-                    });
-                }
-
-                const nextBtns = document.querySelectorAll(".btn-next");
-                const prevBtns = document.querySelectorAll(".btn-prev");
-                const progressSteps = document.querySelectorAll(".step");
-                const formPages = document.querySelectorAll(".form-page");
-                let currentStep = 0;
-
-                // --- NEXT BUTTON CLICK ---
-                nextBtns.forEach((btn) => {
-                    btn.addEventListener("click", () => {
-                        const currentPage = formPages[currentStep];
-
-                        // Remove all existing error classes first
-                        currentPage
-                            .querySelectorAll(".input-error")
-                            .forEach((el) =>
-                                el.classList.remove("input-error"),
-                            );
-
-                        let allValid = true;
-                        let firstInvalid = null;
-
-                        // 1. VALIDATE TEXT, SELECT, DATE
-                        const inputs = currentPage.querySelectorAll(
-                            "input[required], select[required]",
-                        );
-
-                        inputs.forEach((input) => {
-                            const isRadio = input.type === "radio";
-                            const isCheckbox = input.type === "checkbox";
-                            const isFile = input.type === "file";
-
-                            // Skip Radios/Checkboxes here (handled separately below)
-                            if (isRadio || isCheckbox) return;
-
-                            if (!input.value || input.value.trim() === "") {
-                                allValid = false;
-
-                                // If it is a File Input, highlight the PARENT wrapper (.file-upload)
-                                if (isFile) {
-                                    input.parentElement.classList.add(
-                                        "input-error",
-                                    );
-                                    if (!firstInvalid)
-                                        firstInvalid = input.parentElement;
-                                } else {
-                                    // Standard Input
-                                    input.classList.add("input-error");
-                                    if (!firstInvalid) firstInvalid = input;
-                                }
-                            }
-                        });
-
-                        // 2. VALIDATE RADIO GROUPS
-                        // Find all unique names of required radios on this page
-                        const radioInputs = Array.from(
-                            currentPage.querySelectorAll(
-                                "input[type='radio'][required]",
-                            ),
-                        );
-                        const radioNames = [
-                            ...new Set(radioInputs.map((input) => input.name)),
-                        ];
-
-                        radioNames.forEach((name) => {
-                            const checked = currentPage.querySelector(
-                                `input[name="${name}"]:checked`,
-                            );
-                            if (!checked) {
-                                allValid = false;
-                                // Find the container to turn red (mark-group or radio-options)
-                                const group = currentPage
-                                    .querySelector(`input[name="${name}"]`)
-                                    .closest(".mark-group, .radio-options");
-                                if (group) {
-                                    group.classList.add("input-error");
-                                    if (!firstInvalid) firstInvalid = group;
-                                }
-                            }
-                        });
-
-                        // 3. VALIDATE "LEERDER WOON BY" CHECKBOX (Specific Logic)
-                        const livesWithOptions =
-                            currentPage.querySelectorAll(".lives-with-option");
-                        if (livesWithOptions.length > 0) {
-                            const checkedCount = Array.from(
-                                livesWithOptions,
-                            ).filter((cb) => cb.checked).length;
-                            const container =
-                                livesWithOptions[0].closest(".mark-group");
-                            const hint =
-                                document.getElementById("lives-with-hint");
-
-                            // Must pick 1 or 2
-                            if (checkedCount < 1 || checkedCount > 2) {
-                                allValid = false;
-                                if (container)
-                                    container.classList.add("input-error");
-                                if (hint) hint.style.color = "#ff4757";
-                                if (!firstInvalid) firstInvalid = container;
-                            } else {
-                                if (hint) hint.style.color = "var(--text-gray)";
-                            }
-                        }
-
-                        // --- RESULT ---
-                        if (!allValid) {
-                            showValidationModal();
-                            if (firstInvalid) {
-                                firstInvalid.scrollIntoView({
-                                    behavior: "smooth",
-                                    block: "center",
-                                });
-                            }
-                            return; // Stop execution
-                        }
-
-                        // If Valid -> Move Next
-                        formPages[currentStep].style.display = "none";
-                        currentStep++;
-                        formPages[currentStep].style.display = "block";
-
-                        if (currentStep < progressSteps.length) {
-                            progressSteps[currentStep].classList.add("active");
-                        }
-                        document
-                            .querySelector(".form-container")
-                            .scrollIntoView({ behavior: "smooth" });
-                    });
-                });
-
-                // --- PREVIOUS BUTTON CLICK ---
-                prevBtns.forEach((btn) => {
-                    btn.addEventListener("click", () => {
-                        progressSteps[currentStep].classList.remove("active");
-                        formPages[currentStep].style.display = "none";
-                        currentStep--;
-                        formPages[currentStep].style.display = "block";
-                        document
-                            .querySelector(".form-container")
-                            .scrollIntoView({ behavior: "smooth" });
-                    });
-                });
-
-                // (Uniform Toggle Code goes here - kept short for brevity)
-                const seasonToggle = document.getElementById("season-toggle");
-                if (seasonToggle) {
-                    /* =========================================
-   3. UNIFORM TOGGLE LOGIC (Summer/Winter)
-   ========================================= */
-                    const seasonToggle =
-                        document.getElementById("season-toggle");
-                    const summerLabel = document.getElementById("summer-label");
-                    const winterLabel = document.getElementById("winter-label");
-                    const boysImg = document.getElementById("boys-img");
-                    const girlsImg = document.getElementById("girls-img");
-                    const boysList = document.getElementById("boys-list");
-                    const girlsList = document.getElementById("girls-list");
-
-                    // Data for the uniforms
-                    const uniformData = {
-                        summer: {
-                            boysText: [
-                                "KPS Grys Kortbroek",
-                                "KPS Gholfhemp",
-                                "KPS Kouse",
-                                "Swart Skoolskoene",
-                            ],
-                            boysImage: "../Images/kleredrag/seunsSomer.png",
-                            girlsText: [
-                                "KPS Romp",
-                                "KPS Gholfhemp",
-                                "Wit Kouse",
-                                "Swart Skoolskoene",
-                            ],
-                            girlsImage: "../Images/kleredrag/meisieSomer.png",
-                        },
-                        winter: {
-                            boysText: [
-                                "Grys Langbroek",
-                                "Blou Skoolhemp",
-                                "Blazer & Das",
-                                "Grys Kouse",
-                                "Swart Skoolskoene",
-                            ],
-                            boysImage: "../Images/kleredrag/seunsWinter.png",
-                            girlsText: [
-                                "Blou Skoolromp",
-                                "Blou Skoolhemp",
-                                "Blazer & Das",
-                                "Grys Kouse",
-                                "Swart Skoolskoene",
-                            ],
-                            girlsImage: "../Images/kleredrag/meisieWinter.png",
-                        },
-                    };
-
-                    // Event Listener
-                    if (seasonToggle) {
-                        seasonToggle.addEventListener("change", function () {
-                            const isWinter = this.checked;
-                            const data = isWinter
-                                ? uniformData.winter
-                                : uniformData.summer;
-
-                            // 1. Update Labels (Bold text)
-                            if (isWinter) {
-                                winterLabel.classList.add("active");
-                                summerLabel.classList.remove("active");
-                            } else {
-                                summerLabel.classList.add("active");
-                                winterLabel.classList.remove("active");
-                            }
-
-                            // 2. Fade Out Images (Animation)
-                            if (boysImg) boysImg.style.opacity = 0;
-                            if (girlsImg) girlsImg.style.opacity = 0;
-
-                            // 3. Wait 200ms, Change Content, then Fade In
-                            setTimeout(() => {
-                                // Update Images
-                                if (boysImg) boysImg.src = data.boysImage;
-                                if (girlsImg) girlsImg.src = data.girlsImage;
-
-                                // Update Lists
-                                if (boysList) {
-                                    boysList.innerHTML = data.boysText
-                                        .map((item) => `<li>${item}</li>`)
-                                        .join("");
-                                }
-                                if (girlsList) {
-                                    girlsList.innerHTML = data.girlsText
-                                        .map((item) => `<li>${item}</li>`)
-                                        .join("");
-                                }
-
-                                // Fade In
-                                if (boysImg) boysImg.style.opacity = 1;
-                                if (girlsImg) girlsImg.style.opacity = 1;
-                            }, 200);
-                        });
-                    }
-                }
-            });
 
             // Function to toggle Subject Choices based on Grade
             function toggleSubjectChoices() {
@@ -2202,23 +1952,309 @@
                 if (seniorGrades.includes(selectedGrade)) {
                     // Show the container
                     container.style.display = "block";
-
-                    // Make fields required so validation catches them
+                    // Make fields required
                     subjectSelects.forEach((select) => {
                         select.setAttribute("required", "true");
                     });
                 } else {
                     // Hide the container
                     container.style.display = "none";
-
-                    // Remove requirement and clear values so validation ignores them
+                    // Remove requirement and clear values
                     subjectSelects.forEach((select) => {
                         select.removeAttribute("required");
                         select.value = "";
-                        select.classList.remove("input-error"); // Clean up red borders
+                        select.classList.remove("input-error");
                     });
                 }
             }
+
+            /* =========================================
+       2. MODAL LOGIC (Validation)
+       ========================================= */
+            function showValidationModal() {
+                const modal = document.getElementById("validation-modal");
+                if (modal) {
+                    modal.classList.add("show");
+                } else {
+                    alert("Please fill in all required fields.");
+                }
+            }
+
+            function closeValidationModal() {
+                const modal = document.getElementById("validation-modal");
+                if (modal) modal.classList.remove("show");
+            }
+
+            /* =========================================
+       3. DOM LOAD & EVENT LISTENERS
+       ========================================= */
+            document.addEventListener("DOMContentLoaded", () => {
+                // --- Modal Close on Background Click ---
+                const validationModal =
+                    document.getElementById("validation-modal");
+                if (validationModal) {
+                    validationModal.addEventListener("click", (e) => {
+                        if (e.target === validationModal)
+                            closeValidationModal();
+                    });
+                }
+
+                // --- Form Navigation Logic ---
+                const nextBtns = document.querySelectorAll(".btn-next");
+                const prevBtns = document.querySelectorAll(".btn-prev");
+                const progressSteps = document.querySelectorAll(".step");
+                const formPages = document.querySelectorAll(".form-page");
+                let currentStep = 0;
+
+                // Next Button
+                nextBtns.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        const currentPage = formPages[currentStep];
+
+                        // Clear previous errors
+                        currentPage
+                            .querySelectorAll(".input-error")
+                            .forEach((el) =>
+                                el.classList.remove("input-error"),
+                            );
+
+                        let allValid = true;
+                        let firstInvalid = null;
+
+                        // 1. Validate Text/Select/Date
+                        const inputs = currentPage.querySelectorAll(
+                            "input[required], select[required]",
+                        );
+                        inputs.forEach((input) => {
+                            if (
+                                input.type === "radio" ||
+                                input.type === "checkbox"
+                            )
+                                return;
+
+                            if (!input.value || input.value.trim() === "") {
+                                allValid = false;
+                                input.classList.add("input-error");
+                                if (!firstInvalid) firstInvalid = input;
+                            }
+                        });
+
+                        // 2. Validate Radio Groups
+                        const radioInputs = Array.from(
+                            currentPage.querySelectorAll(
+                                "input[type='radio'][required]",
+                            ),
+                        );
+                        const radioNames = [
+                            ...new Set(radioInputs.map((input) => input.name)),
+                        ];
+
+                        radioNames.forEach((name) => {
+                            const checked = currentPage.querySelector(
+                                `input[name="${name}"]:checked`,
+                            );
+                            if (!checked) {
+                                allValid = false;
+                                const group = currentPage
+                                    .querySelector(`input[name="${name}"]`)
+                                    .closest(".mark-group, .radio-options");
+                                if (group) {
+                                    group.classList.add("input-error");
+                                    if (!firstInvalid) firstInvalid = group;
+                                }
+                            }
+                        });
+
+                        // 3. Validate Checkbox Groups
+                        const livesWithOptions =
+                            currentPage.querySelectorAll(".lives-with-option");
+                        if (livesWithOptions.length > 0) {
+                            const checkedCount = Array.from(
+                                livesWithOptions,
+                            ).filter((cb) => cb.checked).length;
+                            const container =
+                                livesWithOptions[0].closest(".mark-group");
+                            const hint =
+                                document.getElementById("lives-with-hint");
+
+                            if (checkedCount < 1 || checkedCount > 2) {
+                                allValid = false;
+                                if (container)
+                                    container.classList.add("input-error");
+                                if (hint) hint.style.color = "#ff4757";
+                                if (!firstInvalid) firstInvalid = container;
+                            } else {
+                                if (hint) hint.style.color = "var(--text-gray)";
+                            }
+                        }
+
+                        // Check Validation Result
+                        if (!allValid) {
+                            showValidationModal();
+                            if (firstInvalid) {
+                                firstInvalid.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "center",
+                                });
+                            }
+                            return;
+                        }
+
+                        // Proceed to Next Step
+                        formPages[currentStep].style.display = "none";
+                        currentStep++;
+                        formPages[currentStep].style.display = "block";
+
+                        if (currentStep < progressSteps.length) {
+                            progressSteps[currentStep].classList.add("active");
+                        }
+                        document
+                            .querySelector(".form-container")
+                            .scrollIntoView({ behavior: "smooth" });
+                    });
+                });
+
+                // Previous Button
+                prevBtns.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        progressSteps[currentStep].classList.remove("active");
+                        formPages[currentStep].style.display = "none";
+                        currentStep--;
+                        formPages[currentStep].style.display = "block";
+                        document
+                            .querySelector(".form-container")
+                            .scrollIntoView({ behavior: "smooth" });
+                    });
+                });
+
+                /* =========================================
+           4. UNIFORM TOGGLE LOGIC (Summer/Winter)
+           ========================================= */
+                const seasonToggle = document.getElementById("season-toggle");
+                const summerLabel = document.getElementById("summer-label");
+                const winterLabel = document.getElementById("winter-label");
+
+                // Select the actual CARD elements
+                const boysCard = document.querySelector(
+                    ".uniform-card:nth-child(1)",
+                );
+                const girlsCard = document.querySelector(
+                    ".uniform-card:nth-child(2)",
+                );
+                const tracksuitCard = document.getElementById("tracksuit-card");
+
+                // Image elements inside the cards
+                const boysImg = document.getElementById("boys-img");
+                const girlsImg = document.getElementById("girls-img");
+                const boysList = document.getElementById("boys-list");
+                const girlsList = document.getElementById("girls-list");
+
+                // Data for the uniforms
+                const uniformData = {
+                    summer: {
+                        boysText: [
+                            "KPS Grys Kortbroek",
+                            "KPS Gholfhemp",
+                            "KPS Kouse",
+                            "Swart Skoolskoene",
+                        ],
+                        boysImage: "../Images/kleredrag/seunsSomer.png",
+                        girlsText: [
+                            "KPS Romp",
+                            "KPS Gholfhemp",
+                            "Wit Kouse",
+                            "Swart Skoolskoene",
+                        ],
+                        girlsImage: "../Images/kleredrag/meisieSomer.png",
+                    },
+                    winter: {
+                        boysText: [
+                            "Grys Langbroek",
+                            "Blou Skoolhemp",
+                            "Blazer & Das",
+                            "Grys Kouse",
+                            "Swart Skoolskoene",
+                        ],
+                        boysImage: "../Images/kleredrag/seunsWinter.png",
+                        girlsText: [
+                            "Blou Skoolromp",
+                            "Blou Skoolhemp",
+                            "Blazer & Das",
+                            "Grys Kouse",
+                            "Swart Skoolskoene",
+                        ],
+                        girlsImage: "../Images/kleredrag/meisieWinter.png",
+                    },
+                };
+
+                if (seasonToggle) {
+                    seasonToggle.addEventListener("change", function () {
+                        const isWinter = this.checked;
+                        const data = isWinter
+                            ? uniformData.winter
+                            : uniformData.summer;
+
+                        if (isWinter) {
+                            // WINTER STATE
+                            winterLabel.classList.add("active");
+                            summerLabel.classList.remove("active");
+
+                            // 1. Ensure Boys & Girls Cards are VISIBLE
+                            if (boysCard) boysCard.style.display = "flex";
+                            if (girlsCard) girlsCard.style.display = "flex";
+
+                            // 2. Show Tracksuit Card
+                            if (tracksuitCard) {
+                                tracksuitCard.style.display = "flex";
+                                setTimeout(() => {
+                                    tracksuitCard.style.opacity = "1";
+                                }, 10);
+                            }
+                        } else {
+                            // SUMMER STATE
+                            summerLabel.classList.add("active");
+                            winterLabel.classList.remove("active");
+
+                            // 1. Ensure Boys & Girls Cards are VISIBLE
+                            if (boysCard) boysCard.style.display = "flex";
+                            if (girlsCard) girlsCard.style.display = "flex";
+
+                            // 2. Hide Tracksuit Card
+                            if (tracksuitCard) {
+                                tracksuitCard.style.opacity = "0";
+                                setTimeout(() => {
+                                    tracksuitCard.style.display = "none";
+                                }, 300); // Wait for fade out
+                            }
+                        }
+
+                        // 3. Update Images and Text (Fade Effect)
+                        if (boysImg) boysImg.style.opacity = 0;
+                        if (girlsImg) girlsImg.style.opacity = 0;
+
+                        setTimeout(() => {
+                            // Update content
+                            if (boysImg) boysImg.src = data.boysImage;
+                            if (girlsImg) girlsImg.src = data.girlsImage;
+
+                            if (boysList) {
+                                boysList.innerHTML = data.boysText
+                                    .map((item) => `<li>${item}</li>`)
+                                    .join("");
+                            }
+                            if (girlsList) {
+                                girlsList.innerHTML = data.girlsText
+                                    .map((item) => `<li>${item}</li>`)
+                                    .join("");
+                            }
+
+                            // Fade In
+                            if (boysImg) boysImg.style.opacity = 1;
+                            if (girlsImg) girlsImg.style.opacity = 1;
+                        }, 200);
+                    });
+                }
+            });
         </script>
     </body>
     <!-- Google tag (gtag.js) -->

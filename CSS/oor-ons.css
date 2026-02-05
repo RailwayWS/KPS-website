@@ -37,3 +37,1363 @@
 .panel ul {
     padding-left: 18px;
 }
+
+/* =========================================
+   VISIE & MISSIE STYLING
+   ========================================= */
+
+.vision-mission-section {
+    padding: 80px 20px;
+    background-color: var(--bg-body);
+    font-family: "Quicksand", sans-serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- Headers --- */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sub-title {
+    display: block;
+    color: var(--primary); /* Jade */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--secondary); /* Navy */
+    margin: 0;
+}
+
+/* =========================================
+   1. VISION CARD (The List)
+   ========================================= */
+.vision-container {
+    margin-bottom: 100px; /* Space between Visie and Missie */
+}
+
+.vision-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 15px 40px -10px rgba(0, 37, 82, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative top border */
+.vision-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.vision-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 20px;
+}
+
+.vision-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 1.05rem;
+    color: #4b5563; /* Soft Grey */
+    line-height: 1.6;
+}
+
+.vision-list li i {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-top: 3px; /* Align icon with text */
+    flex-shrink: 0;
+}
+
+/* =========================================
+   2. MISSION GRID (The 4 Pillars)
+   ========================================= */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(300px, 1fr)
+    ); /* Responsive */
+    gap: 30px;
+}
+
+.mission-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.mission-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px rgba(0, 168, 107, 0.15); /* Jade shadow glow */
+    border-color: rgba(0, 168, 107, 0.2);
+}
+
+/* Icon Box */
+.card-icon-box {
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 37, 82, 0.05); /* Very light Navy */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px auto;
+    color: var(--secondary); /* Navy Icon */
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.mission-card:hover .card-icon-box {
+    background: var(--primary); /* Jade Background */
+    color: #ffffff; /* White Icon */
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Text Styling */
+.mission-card h3 {
+    font-size: 1.4rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.mission-card p {
+    font-size: 1rem;
+    color: #6b7280; /* Neutral Gray */
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .vision-card {
+        padding: 30px 20px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   MODERN VISION SECTION (Sleek List)
+   ========================================= */
+
+.vision-container {
+    max-width: 900px; /* Kept slightly narrower for readability */
+    margin: 0 auto 100px;
+}
+
+/* Header Adjustments */
+.lead-text {
+    font-size: 1.1rem;
+    color: #6b7280; /* Neutral gray */
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* The List Container */
+.vision-modern-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Consistent spacing between items */
+}
+
+/* Individual Card Items */
+.vision-item {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04); /* Very subtle border */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); /* Minimal shadow */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effects */
+.vision-item:hover {
+    transform: translateX(10px); /* Slide slightly right */
+    box-shadow: 0 10px 15px -3px rgba(0, 37, 82, 0.08); /* Navy shadow */
+    border-color: rgba(0, 168, 107, 0.3); /* Jade Border tint */
+}
+
+/* The Left Color Bar (Accent) */
+.vision-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--primary); /* Jade */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.vision-item:hover::before {
+    opacity: 1;
+}
+
+/* Icon Box */
+.v-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 168, 107, 0.1); /* Light Jade */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-right: 25px;
+    transition: all 0.3s ease;
+}
+
+.vision-item:hover .v-icon {
+    background: var(--primary);
+    color: #fff;
+    transform: rotate(-10deg);
+}
+
+/* Text Area */
+.v-text {
+    flex-grow: 1;
+}
+
+.v-text .highlight {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: var(--secondary); /* Navy */
+    margin-bottom: 4px;
+}
+
+.v-text p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #374151; /* Dark gray for readability */
+    line-height: 1.5;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    .vision-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .v-icon {
+        margin-bottom: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .vision-item:hover {
+        transform: translateY(-5px); /* Move up instead of right on mobile */
+    }
+}
+
+/* =========================================
+   1. CREST SECTION (Clean Overlap)
+   ========================================= */
+.crest-section {
+    padding: 100px 20px;
+    background-color: transparent;
+    overflow: visible; /* Allows shadow to breathe */
+}
+
+.crest-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* The Image Side */
+.crest-visual {
+    width: 45%;
+    position: relative;
+    z-index: 2; /* Image sits slightly above text box for depth */
+    display: flex;
+    justify-content: center;
+}
+
+.crest-img-large {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    /* Clean drop shadow */
+    filter: drop-shadow(15px 15px 25px rgba(0, 37, 82, 0.15));
+    transition: transform 0.4s ease;
+}
+
+.crest-img-large:hover {
+    transform: scale(1.02);
+}
+
+.crest-content {
+    width: 60%;
+    background: #ffffff;
+    padding: 60px 50px 60px 80px; /* Extra padding left for overlap */
+    border-radius: 24px;
+    box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.08);
+    z-index: 1;
+    margin-left: -80px; /* Pulls text box under the image */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.crest-content h2 {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.bible-verse {
+    font-family: serif;
+    font-style: italic;
+    color: var(--primary);
+    font-size: 1.1rem;
+    border-left: 3px solid var(--primary);
+    margin-top: 20px;
+    line-height: 1.6;
+    background: rgba(0, 168, 107, 0.03);
+    padding: 15px 20px;
+    border-radius: 0 10px 10px 0;
+}
+
+/* =========================================
+   2. COLOR CARDS (Redesigned)
+   ========================================= */
+.motto-colors-section {
+    padding: 100px 20px;
+    background: #f8f9fa; /* Light grey base to make White card pop */
+}
+
+.motto-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.motto-header h2 {
+    font-size: 2.2rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.highlight-text {
+    color: var(--primary); /* Jade */
+    font-style: italic;
+}
+
+/* Grid Layout */
+.colors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Card Styling */
+.color-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    border-radius: 20px;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.color-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Bubble */
+.color-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+}
+
+.color-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.color-info p {
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* -- Color Themes -- */
+.bg-blue {
+    background: var(--secondary); /* Navy */
+    color: #ffffff;
+}
+.bg-blue .color-icon {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.bg-jade {
+    background: var(--primary); /* Jade */
+    color: #ffffff;
+}
+.bg-jade .color-icon {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.bg-white {
+    background: #ffffff;
+    color: var(--secondary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.bg-white .color-icon {
+    color: var(--primary);
+    background: rgba(0, 37, 82, 0.05);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 900px) {
+    .crest-container {
+        flex-direction: column;
+    }
+
+    .crest-visual {
+        width: 100%;
+        margin-bottom: -40px;
+    }
+
+    .crest-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 60px 30px 40px;
+        text-align: center;
+    }
+
+    .bible-verse {
+        text-align: left;
+    }
+
+    .crest-img-large {
+        max-width: 250px;
+    }
+}
+/* =========================================
+   3. ANTHEM SECTION (Card Style)
+   ========================================= */
+.anthem-section {
+    padding: 100px 20px;
+    background-color: transparent; /* No full background */
+    display: flex;
+    justify-content: center;
+}
+
+.anthem-container {
+    background: #ffffff; /* The Card Background */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    border-radius: 24px; /* Modern rounded corners */
+
+    /* Sleek Drop Shadow to create the "Card" effect */
+    box-shadow: 0 15px 40px -10px rgba(0, 37, 82, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Slight lift on hover for interaction */
+.anthem-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px -10px rgba(0, 37, 82, 0.12);
+}
+
+.anthem-icon {
+    font-size: 3rem;
+    color: var(--primary); /* Jade */
+    margin-bottom: 25px;
+}
+
+.anthem-section h2 {
+    font-family: "Quicksand", sans-serif;
+    color: var(--secondary); /* Navy */
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Small underline decoration for the title */
+.anthem-section h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.anthem-lyrics p {
+    font-family: "Times New Roman", Times, serif; /* Serif for tradition */
+    font-size: 1.15rem;
+    color: #4b5563; /* Soft dark grey */
+    line-height: 1.9;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.anthem-outro {
+    font-weight: 700;
+    color: var(--primary) !important;
+    margin-top: 40px;
+    font-style: normal !important;
+    font-family: "Quicksand", sans-serif !important;
+    text-transform: uppercase;
+    font-size: 0.9rem !important;
+    letter-spacing: 2px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 30px;
+}
+
+/* =========================================
+   2. COLOR CIRCLES (Bowling Ball Layout)
+   ========================================= */
+.motto-colors-section {
+    padding: 100px 20px;
+    background: #f8f9fa; /* Light grey base */
+}
+
+.motto-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.motto-header h2 {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.highlight-text {
+    color: var(--primary); /* Jade */
+    font-family: serif;
+    font-style: italic;
+}
+
+/* --- The Bowling Grid Structure --- */
+.bowling-grid {
+    display: grid;
+    /* Create 2 columns */
+    grid-template-columns: 1fr 1fr;
+    /* Limit width so circles stay close */
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 30px; /* Space between circles */
+    justify-items: center; /* Center items in their cells */
+}
+
+/* --- The Circle Styling --- */
+.color-circle {
+    width: 260px; /* Fixed size for perfect circles */
+    height: 260px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect: Scale Up */
+.color-circle:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+/* --- Typography Inside Circles --- */
+.circle-content i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: block;
+    opacity: 0.9;
+}
+
+.circle-content h3 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.circle-content span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    display: block;
+}
+
+/* --- Specific Item Placement (The Triangle) --- */
+
+/* The 3rd child (White circle) spans 2 columns and centers itself */
+.color-circle:nth-child(3) {
+    grid-column: span 2;
+    margin-top: -40px; /* Negative margin pulls it up into the "V" shape */
+}
+
+/* --- Color Themes --- */
+
+/* Blue Circle */
+.circle-blue {
+    background: var(--secondary);
+    color: #fff;
+    /* Subtle gradient for depth */
+    background: radial-gradient(circle at 30% 30%, #003366, #001a33);
+}
+
+/* Jade Circle */
+.circle-jade {
+    background: var(--primary);
+    color: #fff;
+    background: radial-gradient(circle at 30% 30%, #00c47f, #008f5d);
+}
+
+/* White Circle */
+.circle-white {
+    background: #ffffff;
+    color: var(--secondary);
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border to define edges */
+}
+.circle-white i {
+    color: var(--primary); /* Jade Icon */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .identity-container {
+        flex-direction: column;
+    }
+
+    .identity-col {
+        width: 100%;
+    }
+
+    .motto-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .bowling-grid {
+        /* Stack vertically on small screens */
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .color-circle {
+        width: 220px; /* Slightly smaller on mobile */
+        height: 220px;
+    }
+
+    /* Reset the 3rd child positioning for mobile stack */
+    .color-circle:nth-child(3) {
+        grid-column: auto;
+        margin-top: 0;
+    }
+}
+
+/* =========================================================
+   IDENTITY SPLIT SECTION (keep layout next to each other)
+   - Remove skew/diagonal background
+   ========================================================= */
+.identity-split-section {
+    padding: 100px 20px;
+    background-color: transparent; /* matches your older sections */
+    background-image: none; /* remove the skew/diagonal background */
+}
+
+.identity-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+/* --- LEFT COLUMN: CREST (Visual) --- */
+.identity-col {
+    flex: 1;
+}
+
+.crest-wrapper {
+    text-align: center;
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px -15px rgba(0, 37, 82, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+.crest-img-hero {
+    width: 100%;
+    max-width: 220px;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+    transition: transform 0.4s ease;
+}
+
+.crest-wrapper:hover .crest-img-hero {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.crest-context h2 {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.crest-context p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Verse colours back to the older look (primary + left border) */
+.compact-verse {
+    font-family: serif;
+    font-style: italic;
+    color: var(--primary);
+    font-size: 1.1rem;
+    border-left: 3px solid var(--primary);
+    margin-top: 20px;
+    line-height: 1.6;
+    background: rgba(0, 168, 107, 0.03);
+    padding: 15px 20px;
+    border-radius: 0 10px 10px 0;
+}
+
+.compact-verse span {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: "Quicksand", sans-serif;
+    font-style: normal;
+    text-align: right;
+    color: var(--primary);
+}
+
+/* --- RIGHT COLUMN: MOTTO & COLORS (Info) --- */
+.motto-block {
+    margin-bottom: 40px;
+}
+
+.motto-title {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin: 0 0 15px 0;
+    line-height: 1.1;
+}
+
+.motto-desc {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    border-left: 4px solid var(--primary);
+    padding-left: 20px;
+}
+
+/* IMPORTANT: Use the existing circles (bowling-grid + color-circle) */
+.bowling-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 600px;
+    gap: 30px;
+    justify-items: center;
+}
+
+.color-circle {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.color-circle:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.circle-content i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: block;
+    opacity: 0.9;
+}
+
+.circle-content h3 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.circle-content span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    display: block;
+}
+
+/* 3rd circle centers under first two */
+.color-circle:nth-child(3) {
+    grid-column: span 2;
+    margin-top: -40px;
+}
+
+/* Circle Themes */
+.circle-blue {
+    color: #fff;
+    background: radial-gradient(circle at 30% 30%, #003366, #001a33);
+}
+
+.circle-jade {
+    color: #fff;
+    background: radial-gradient(circle at 30% 30%, #00c47f, #008f5d);
+}
+
+.circle-white {
+    background: #ffffff;
+    color: var(--secondary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.circle-white i {
+    color: var(--primary);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .identity-container {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .identity-col {
+        width: 100%;
+    }
+
+    .motto-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .bowling-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .color-circle {
+        width: 220px;
+        height: 220px;
+    }
+
+    .color-circle:nth-child(3) {
+        grid-column: auto;
+        margin-top: 0;
+    }
+}
+
+/* =========================================================
+   REMOVE/disable the strip layout so it doesn't affect the page
+   (since you want the circles instead)
+   ========================================================= */
+.color-strips,
+.color-strip,
+.strip-marker,
+.strip-content,
+.strip-blue,
+.strip-jade,
+.strip-white {
+    display: none !important;
+}
+
+/* Make the two meta tags jade */
+.identity-split-section .meta-tag {
+    color: var(--primary) !important;
+}
+
+/* If you also want the small sub-title class (used elsewhere) jade */
+.identity-split-section .sub-title {
+    color: var(--primary) !important;
+}
+
+.bowling-grid,
+.color-circle {
+    display: grid;
+}
+
+/* (Safety) make sure circles are not accidentally overridden */
+.color-circle {
+    display: flex !important;
+}
+/* =========================================
+   MODERN IDENTITY SECTION
+   ========================================= */
+
+:root {
+    --card-bg: #ffffff;
+    --border-light: rgba(0, 0, 0, 0.04);
+    --shadow-soft: 0 20px 40px -10px rgba(0, 37, 82, 0.06);
+    --shadow-hover: 0 25px 50px -12px rgba(0, 168, 107, 0.15);
+}
+
+.identity-modern-section {
+    padding: 100px 20px;
+    background-color: #fcfcfc;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.identity-grid {
+    display: grid;
+    /* 1fr for the image card, 1.2fr for the text side */
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* --- LEFT: CREST CARD --- */
+.identity-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+}
+
+.identity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Badge */
+.modern-badge {
+    display: inline-block;
+    background: rgba(0, 168, 107, 0.1); /* Jade tint */
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border-radius: 50px;
+    width: fit-content;
+}
+
+/* Image Wrapper */
+.crest-visual-wrapper {
+    margin: 30px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.crest-img-main {
+    width: 100px;
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.1));
+}
+
+/* Subtle glow behind crest */
+.backdrop-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(
+        circle,
+        rgba(0, 37, 82, 0.05) 0%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.crest-details h3 {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.crest-details p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Verse Styling */
+.modern-verse {
+    margin-top: 25px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 16px;
+    border-left: 4px solid var(--primary);
+    text-align: left;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 1.2rem;
+    color: var(--primary);
+    opacity: 0.5;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.modern-verse p {
+    font-family: serif; /* Classy touch */
+    font-style: italic;
+    color: #444;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.verse-ref {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+/* --- RIGHT: MOTTO & VALUES --- */
+
+.sub-label {
+    display: block;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.display-motto {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: var(--secondary); /* Navy */
+    margin: 0 0 20px 0;
+    font-weight: 800;
+}
+
+/* Gradient text for "Lewe" */
+.text-highlight {
+    background: linear-gradient(120deg, var(--primary), #00d48a);
+
+    -webkit-text-fill-color: transparent;
+}
+
+.motto-lead {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+/* --- THE VALUE NODES (The list) --- */
+.values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.value-node {
+    display: flex;
+    align-items: center;
+    padding: 18px 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+.value-node:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 168, 107, 0.2);
+}
+
+.node-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.node-text h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.1rem;
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.node-text span {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Node Themes */
+.theme-blue .node-icon {
+    background: rgba(0, 37, 82, 0.1);
+    color: var(--secondary);
+}
+
+.theme-jade .node-icon {
+    background: rgba(0, 168, 107, 0.1);
+    color: var(--primary);
+}
+
+.theme-white .node-icon {
+    background: #f0f0f0;
+    color: #666;
+    border: 1px solid #e0e0e0;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
+    .identity-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .identity-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .display-motto {
+        font-size: 2.8rem;
+    }
+
+    .identity-content {
+        text-align: left; /* Keep left alignment for readability on mobile */
+    }
+}
+
+/* =========================================
+   Identity headings: make "Ons Wapen" and "Lig is Lewe" the same size
+   ========================================= */
+.identity-modern-section .display-motto {
+    font-size: 2.4rem; /* pick one size for both headings */
+    line-height: 1.15;
+}
+
+/* Optional: keep it responsive */
+@media (max-width: 900px) {
+    .identity-modern-section .display-motto {
+        font-size: 2rem;
+    }
+}
+
+/* =========================================
+   FIX: "Ons Wapen" modern-badge should be BELOW the image (crest card only)
+   - The HTML has: .card-header (badge) BEFORE the image wrapper.
+   - Use flex order to visually move it under the image without changing content.
+   ========================================= */
+
+.identity-modern-section .identity-card.crest-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Image first */
+.identity-modern-section .identity-card.crest-card .crest-visual-wrapper {
+    order: 1;
+}
+
+/* Badge below image */
+.identity-modern-section .identity-card.crest-card .card-header {
+    order: 2;
+    margin-top: 10px;
+    margin-bottom: 18px;
+}
+
+/* Text after badge */
+.identity-modern-section .identity-card.crest-card .crest-details {
+    order: 3;
+}
+
+/* Keep spacing nice (optional) */
+.identity-modern-section .identity-card.crest-card .modern-badge {
+    margin: 0;
+}
+
+/* =========================================
+   MAKE "ONS WAPEN" + "ONS LEUSE" CARDS EQUAL HEIGHT
+   (identity-modern-section -> identity-grid -> identity-card)
+   ========================================= */
+
+/* Ensure the grid stretches items to the same row height */
+.identity-modern-section .identity-grid {
+    align-items: stretch; /* overrides earlier 'center' */
+}
+
+/* Make both cards fill the same height */
+.identity-modern-section .identity-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Keep the right card content using full height nicely */
+.identity-modern-section .identity-card .identity-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Optional: if you want the values list to sit lower and keep spacing consistent */
+.identity-modern-section .identity-card .values-list {
+    margin-top: auto;
+}
+
+/* =========================================
+   MISSIE SECTION: Force 2x2 Grid
+   ========================================= */
+
+.info-grid-section {
+    display: grid;
+    /* This creates exactly 2 columns of equal width */
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+
+    /* Centers the grid and keeps it aligned with other content */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* On smaller screens (tablets/phones), stack them 1 per row */
+@media (max-width: 768px) {
+    .info-grid-section {
+        grid-template-columns: 1fr;
+    }
+}

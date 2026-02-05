@@ -290,3 +290,121 @@ h1 {
     color: var(--primary);
     font-weight: 700;
 }
+
+/* Container styling to center content and add spacing */
+.grade-rr-section {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, #ffffff, #f9fafb);
+}
+
+.rr-container {
+    background: #ffffff;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Soft modern shadow */
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* The "New" Badge Styling */
+.new-badge-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.new-badge {
+    background: linear-gradient(
+        135deg,
+        #ff6b6b 0%,
+        #ff8e53 100%
+    ); /* Warm attention-grabbing gradient */
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Typography Styling */
+.rr-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-family: "Quicksand", sans-serif;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.rr-content p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+}
+
+/* Feature Icons Row */
+.rr-features {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.feature-item i {
+    font-size: 2rem;
+    color: #4a90e2; /* Matches a sleek blue theme, change to KPS brand color if needed */
+    background: rgba(74, 144, 226, 0.1);
+    padding: 15px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover i {
+    transform: translateY(-5px);
+}
+
+.feature-item span {
+    font-weight: 600;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .rr-container {
+        padding: 2rem;
+    }
+
+    .rr-content h2 {
+        font-size: 2rem;
+    }
+
+    .rr-features {
+        gap: 2rem;
+    }
+}
