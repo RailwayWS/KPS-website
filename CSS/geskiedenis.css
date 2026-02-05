@@ -87,60 +87,65 @@
     text-align: right;
 }
 
-/* THE CONTENT CARD (Navy Bubbles) */
+/* THE CONTENT CARD (White & Clean) */
 .timeline-content {
-    padding: 25px 30px;
-    background-color: var(--secondary); /* Navy */
-    color: var(--white);
-    border-radius: var(--radius-lg);
+    background-color: var(--white);
+    border-radius: 20px; /* Softer corners */
     position: relative;
-    box-shadow: var(--shadow-soft);
-    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px -10px rgba(0, 37, 82, 0.1); /* Sophisticated shadow */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden; /* Clips image */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+
+    /* ensure we don't keep old padding from earlier rules */
+    padding: 0;
 }
 
+/* Hover Effect: Lift & Sharpen Shadow */
 .timeline-content:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -12px rgba(0, 168, 107, 0.2); /* Jade glow on hover */
 }
 
-/* The Speech Bubble Triangle */
+/* Remove the "Speech Bubble" Triangle */
 .timeline-content::after {
-    content: " ";
-    position: absolute;
-    top: 24px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    z-index: 1;
+    display: none;
 }
 
-/* Triangle for Left Items */
-.timeline-item.left .timeline-content::after {
-    right: -10px;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent var(--secondary);
+/* IMAGE STYLING */
+.timeline-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    border-bottom: 4px solid var(--primary); /* keep your existing separator */
 }
 
-/* Triangle for Right Items */
-.timeline-item.right .timeline-content::after {
-    left: -10px;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent var(--secondary) transparent transparent;
+/* Zoom Image on Hover */
+.timeline-content:hover .timeline-image {
+    transform: scale(1.05);
 }
 
-/* Typography inside card */
-.timeline-content h3 {
+/* TEXT WRAPPER */
+.timeline-body {
+    padding: 30px;
+    text-align: left !important; /* Force left align text even on left cards */
+}
+
+.timeline-body h3 {
     margin-top: 0;
-    color: var(--primary); /* Primary heading */
-    font-size: 1.4rem;
-    margin-bottom: 10px;
+    color: var(--secondary); /* Navy Heading */
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
-.timeline-content p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+.timeline-body p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #64748b; /* Slate Grey for readability */
     margin: 0;
-    opacity: 0.9;
 }
 
 /* =========================================
@@ -196,34 +201,4 @@
         border-width: 10px 10px 10px 0;
         border-color: transparent var(--secondary) transparent transparent;
     }
-}
-
-/* UPDATED: The Content Card Wrapper */
-.timeline-content {
-    background-color: var(--secondary); /* Navy */
-    color: var(--white);
-    border-radius: var(--radius-lg);
-    position: relative;
-    box-shadow: var(--shadow-soft);
-    transition: transform 0.3s ease;
-
-    /* NEW: This ensures the image corners are clipped to the border radius */
-    overflow: hidden;
-
-    /* NEW: Remove padding here so image touches edges */
-    padding: 0;
-}
-
-/* NEW: The Image Style */
-.timeline-image {
-    width: 100%;
-    height: 300px; /* Fixed height for consistency */
-    object-fit: cover; /* Ensures image covers area without stretching */
-    display: block;
-    border-bottom: 4px solid var(--primary); /* Optional: A yellow line separating img and text */
-}
-
-/* NEW: The Text Wrapper */
-.timeline-body {
-    padding: 25px 30px; /* The padding moves here */
 }

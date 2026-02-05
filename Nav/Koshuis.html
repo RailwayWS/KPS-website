@@ -268,7 +268,7 @@
                         <input type="text" name="learner_nickname" required />
                     </div>
                     <div class="field">
-                        <label>Identiteitsnommer</label>
+                        <label>ID nommer / Paspoort nommer</label>
                         <input type="text" name="learner_id" required />
                     </div>
                 </div>
@@ -331,17 +331,17 @@
                 <div class="input-group">
                     <div class="field">
                         <label>Naaste skool aan ouer</label>
-                        <input type="text" name="nearest_school_to_parent" required />
+                        <input type="text" name="nearest_school_to_parent" />
                     </div>
                     <div class="field">
                         <label>Afstand na naaste skool aan ouer (km)</label>
-                        <input type="number" name="distance_to_nearest_school_km" min="0" step="0.1" required />
+                        <input type="number" name="distance_to_nearest_school_km" min="0" step="0.1" />
                     </div>
                 </div>
 
                 <div class="field">
                     <label>Naaste koshuis aan ouer woning</label>
-                    <input type="text" name="nearest_hostel_to_parent" required />
+                    <input type="text" name="nearest_hostel_to_parent" />
                 </div>
 
                 <div class="divider" style="margin: 20px 0; border-bottom: 2px dashed #eee;"></div>
@@ -350,7 +350,7 @@
 
                 <div class="field">
                     <label>Redes vir verlating van huidige skool</label>
-                    <textarea name="reasons_for_leaving_current_school" rows="3" required></textarea>
+                    <textarea name="reasons_for_leaving_current_school" rows="3"></textarea>
                 </div>
 
                 <div class="field">
@@ -401,22 +401,22 @@
                 <div class="input-group">
                     <div class="field">
                         <label>Naam van hooflid</label>
-                        <input type="text" name="main_member" required />
+                        <input type="text" name="main_member" />
                     </div>
                     <div class="field">
                         <label>Mediese Fonds Naam</label>
-                        <input type="text" name="medical_aid_name" required />
+                        <input type="text" name="medical_aid_name" />
                     </div>
                 </div>
 
                 <div class="input-group">
                     <div class="field">
                         <label>Mediese Fonds Nr.</label>
-                        <input type="text" name="medical_aid_number" required />
+                        <input type="text" name="medical_aid_number" />
                     </div>
                     <div class="field">
                         <label>Tipe Fonds</label>
-                        <input type="text" name="medical_aid_type" required placeholder="Bv. Primêr / Sekondêr / Hospitaalplan" />
+                        <input type="text" name="medical_aid_type" placeholder="Bv. Primêr / Sekondêr / Hospitaalplan" />
                     </div>
                 </div>
 
@@ -442,27 +442,27 @@
 
                 <div class="field">
                     <label>Allergieë</label>
-                    <textarea name="allergies" rows="2" required></textarea>
+                    <textarea name="allergies" rows="2"></textarea>
                 </div>
 
                 <div class="field">
                     <label>Kindersiektes</label>
-                    <input type="text" name="childhood_illnesses" required />
+                    <input type="text" name="childhood_illnesses" />
                 </div>
 
                 <div class="field">
                     <label>Operasies (meld ook datums)</label>
-                    <textarea name="operations" rows="2" required></textarea>
+                    <textarea name="operations" rows="2"></textarea>
                 </div>
 
                 <div class="field">
                     <label>Kroniese siektes</label>
-                    <input type="text" name="chronic_illnesses" required />
+                    <input type="text" name="chronic_illnesses" />
                 </div>
 
                 <div class="field">
                     <label>Enige ander mediese inligting</label>
-                    <textarea name="other_medical_info" rows="2" required></textarea>
+                    <textarea name="other_medical_info" rows="2"></textarea>
                 </div>
 
                 <div class="divider" style="margin: 20px 0; border-bottom: 2px dashed #eee;"></div>
@@ -492,7 +492,7 @@
             </div>
 
             <div class="form-page">
-                <h3 class="step-title">Inligting van Vader</h3>
+                <h3 class="step-title">Ouer 1</h3>
 
                 <div class="input-group">
                     <div class="field">
@@ -523,12 +523,12 @@
                     </div>
                     <div class="field">
                         <label>Beroep</label>
-                        <input type="text" name="father_occupation" />
+                        <input type="text" name="father_occupation" required/>
                     </div>
                 </div>
 
                 <div class="field">
-                    <label>Fisiese Adres (Nie Posadres)</label>
+                    <label>Fisiese Adres</label>
                     <input type="text" name="father_physical_address" required />
                 </div>
 
@@ -576,7 +576,7 @@
 
                 <div class="divider" style="margin: 30px 0; border-bottom: 2px dashed #eee;"></div>
 
-                <h3 class="step-title">Inligting van Moeder</h3>
+                <h3 class="step-title">Ouer 2</h3>
 
                 <div class="input-group">
                     <div class="field">
@@ -612,7 +612,7 @@
                 </div>
 
                 <div class="field">
-                    <label>Fisiese Adres (Nie Posadres)</label>
+                    <label>Fisiese Adres</label>
                     <input type="text" name="mother_physical_address" required />
                 </div>
 
@@ -628,33 +628,33 @@
                 <div class="input-group">
                     <div class="field">
                         <label>Betrekking</label>
-                        <input type="text" name="mother_employment_position" required />
+                        <input type="text" name="mother_employment_position"  />
                     </div>
                     <div class="field">
                         <label>Bruto Inkomste</label>
-                        <input type="text" name="mother_gross_income" required placeholder="Bv. N$ 25 000 p/m" />
+                        <input type="text" name="mother_gross_income"  placeholder="Bv. N$ 25 000 p/m" />
                     </div>
                 </div>
 
                 <div class="input-group">
                     <div class="field">
                         <label>Naam van Werkgewer</label>
-                        <input type="text" name="mother_employer_name" required />
+                        <input type="text" name="mother_employer_name"  />
                     </div>
                     <div class="field">
                         <label>E-pos van Werkgewer</label>
-                        <input type="email" name="mother_employer_email" required />
+                        <input type="email" name="mother_employer_email"  />
                     </div>
                 </div>
 
                 <div class="input-group">
                     <div class="field">
                         <label>Werkgewer Tel.</label>
-                        <input type="tel" name="mother_employer_tel" required />
+                        <input type="tel" name="mother_employer_tel"  />
                     </div>
                     <div class="field">
                         <label>Werkgewer Adres</label>
-                        <input type="text" name="mother_employer_address" required />
+                        <input type="text" name="mother_employer_address"  />
                     </div>
                 </div>
 
