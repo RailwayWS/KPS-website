@@ -563,15 +563,28 @@ h2.section-subtitle {
     position: absolute;
     top: 30px;
     right: 30px;
+
+    /* --- FORCE SQUARE SHAPE --- */
+    width: 60px;
+    height: 60px;
+
+    /* --- CENTER THE ICON --- */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* --- STYLING --- */
     background: transparent;
     border: none;
-    color: var(--white);
+    color: #ffffff; /* Changed to hex code to be safe */
     font-size: 3rem;
+    line-height: 1; /* Removes extra vertical space from font */
     cursor: pointer;
+    z-index: 2001;
+
     transition:
         transform 0.3s ease,
         color 0.3s ease;
-    z-index: 2001;
 }
 
 .modal-close-btn:hover {

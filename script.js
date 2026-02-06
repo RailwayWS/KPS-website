@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
        ACCORDION TOGGLE (Akademie page)
        ========================================= */
     const accordionItems = document.querySelectorAll(
-        ".accordion .accordion-item"
+        ".accordion .accordion-item",
     );
 
     if (accordionItems.length) {
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 accordionItems.forEach((other) => {
                     if (other === item) return;
                     const oHeader = other.querySelector(
-                        ".accordion-item-header"
+                        ".accordion-item-header",
                     );
                     const oBody = other.querySelector(".accordion-item-body");
                     if (!oHeader || !oBody) return;
@@ -106,23 +106,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =========================================
-       IMAGE MODAL (Akademie / GraadR galleries)
-       Reuses existing akademie.css modal styles
+       IMAGE MODAL (Akademie / GraadR / Koshuis galleries)
+       Reuses existing modal styles
        ========================================= */
     const modal = document.getElementById("image-modal");
     const fullImg = document.getElementById("modal-full-img");
     const caption = document.getElementById("modal-caption");
     const closeBtn = document.querySelector(".modal-close-btn");
-    const galleryCards = document.querySelectorAll(".gallery-card");
 
-    if (modal && fullImg && caption && closeBtn && galleryCards.length) {
+    // Support both naming styles:
+    // - .gallery-card (Akademie / GraadR)
+    // - .container .box (Koshuis)
+    const galleryCards = document.querySelectorAll(
+        ".gallery-card, .container .box",
+    );
+
+    if (modal && fullImg && closeBtn && galleryCards.length) {
         const openModal = (card) => {
             const imgEl = card.querySelector("img");
-            const textEl = card.querySelector(".overlay-text");
+            const textEl =
+                card.querySelector(".overlay-text") ||
+                card.querySelector(".naam"); // Koshuis box label
+
             if (!imgEl) return;
 
             fullImg.src = imgEl.currentSrc || imgEl.src;
-            caption.textContent = textEl ? textEl.textContent : imgEl.alt || "";
+
+            if (caption) {
+                caption.textContent = textEl
+                    ? textEl.textContent
+                    : imgEl.alt || "";
+            }
 
             modal.classList.add("active");
             document.body.style.overflow = "hidden";
@@ -132,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.classList.remove("active");
             document.body.style.overflow = "";
             fullImg.src = "";
-            caption.textContent = "";
+            if (caption) caption.textContent = "";
         };
 
         galleryCards.forEach((card) => {
@@ -141,14 +155,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         closeBtn.addEventListener("click", closeModal);
 
-        // Close when clicking outside the image (on the overlay)
         modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
+            if (e.target === modal) closeModal();
         });
 
-        // Close on Escape key
         document.addEventListener("keydown", (e) => {
             if (e.key === "Escape" && modal.classList.contains("active")) {
                 closeModal();
@@ -192,20 +202,32 @@ let slideInterval = setInterval(() => {
 }, 5000);
 
 /* =========================================
-   MOBILE MENU (Existing Code)
+   MOBILE MENU (Fixed for Web Component navbar)
+   Uses event delegation so it works even when navbar HTML is injected later.
    ========================================= */
-const menuIcon = document.getElementById("menu-icon");
-const mobileMenu = document.getElementById("mobile__menu");
-const closeBtn = document.querySelector(".close");
 
-if (menuIcon) {
-    menuIcon.addEventListener("click", () => {
-        mobileMenu.style.height = "100%";
-    });
-}
+document.addEventListener("click", (e) => {
+    const menuIcon = e.target.closest("#menu-icon");
+    const closeLink = e.target.closest("#mobile__menu .close");
 
-if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-        mobileMenu.style.height = "0%";
-    });
-}
+    // Open
+    if (menuIcon) {
+        const mobileMenu = document.getElementById("mobile__menu");
+        if (mobileMenu) mobileMenu.style.height = "100%";
+        return;
+    }
+
+    // Close
+    if (closeLink) {
+        e.preventDefault();
+        const mobileMenu = document.getElementById("mobile__menu");
+        if (mobileMenu) mobileMenu.style.height = "0%";
+    }
+});
+
+// Close on ESC (optional but nice)
+document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const mobileMenu = document.getElementById("mobile__menu");
+    if (mobileMenu) mobileMenu.style.height = "0%";
+});
