@@ -107,16 +107,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================================
        IMAGE MODAL (Akademie / GraadR / Koshuis galleries)
-       Reuses existing modal styles
        ========================================= */
     const modal = document.getElementById("image-modal");
     const fullImg = document.getElementById("modal-full-img");
     const caption = document.getElementById("modal-caption");
     const closeBtn = document.querySelector(".modal-close-btn");
 
-    // Support both naming styles:
-    // - .gallery-card (Akademie / GraadR)
-    // - .container .box (Koshuis)
     const galleryCards = document.querySelectorAll(
         ".gallery-card, .container .box",
     );
@@ -126,17 +122,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const imgEl = card.querySelector("img");
             const textEl =
                 card.querySelector(".overlay-text") ||
-                card.querySelector(".naam"); // Koshuis box label
-
+                card.querySelector(".naam");
             if (!imgEl) return;
 
             fullImg.src = imgEl.currentSrc || imgEl.src;
-
-            if (caption) {
+            if (caption)
                 caption.textContent = textEl
                     ? textEl.textContent
                     : imgEl.alt || "";
-            }
 
             modal.classList.add("active");
             document.body.style.overflow = "hidden";
@@ -160,9 +153,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && modal.classList.contains("active")) {
+            if (e.key === "Escape" && modal.classList.contains("active"))
                 closeModal();
-            }
         });
     }
 });
@@ -206,28 +198,29 @@ let slideInterval = setInterval(() => {
    Uses event delegation so it works even when navbar HTML is injected later.
    ========================================= */
 
+/* Mobile nav open/close */
 document.addEventListener("click", (e) => {
-    const menuIcon = e.target.closest("#menu-icon");
-    const closeLink = e.target.closest("#mobile__menu .close");
+    const icon = e.target.closest("#menu-icon");
+    if (!icon) return;
 
-    // Open
-    if (menuIcon) {
-        const mobileMenu = document.getElementById("mobile__menu");
-        if (mobileMenu) mobileMenu.style.height = "100%";
-        return;
-    }
+    const nav = icon.closest("nav");
+    if (!nav) return;
 
-    // Close
-    if (closeLink) {
-        e.preventDefault();
-        const mobileMenu = document.getElementById("mobile__menu");
-        if (mobileMenu) mobileMenu.style.height = "0%";
-    }
+    nav.classList.toggle("active");
 });
 
-// Close on ESC (optional but nice)
+/* Close nav when a mobile link is clicked */
+document.addEventListener("click", (e) => {
+    const mobileLink = e.target.closest("nav .nav-mobile-panel a");
+    if (!mobileLink) return;
+
+    const nav = mobileLink.closest("nav");
+    if (nav) nav.classList.remove("active");
+});
+
+/* Optional: Escape closes menu */
 document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
-    const mobileMenu = document.getElementById("mobile__menu");
-    if (mobileMenu) mobileMenu.style.height = "0%";
+    const nav = document.querySelector("nav.active");
+    if (nav) nav.classList.remove("active");
 });

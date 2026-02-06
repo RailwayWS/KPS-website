@@ -1,14 +1,22 @@
 // 1. Create a class that extends HTMLElement
 class SpecialNavbar extends HTMLElement {
     connectedCallback() {
-        const base = this.getAttribute("base") ?? ""; // "" on index, "../" on /Nav pages
+        const base = this.getAttribute("base") ?? "";
 
         this.innerHTML = `
             <nav>
                 <div class="nav-container">
-                    <a href="${base}index.html" class="brand-logo" aria-label="Keetmanshoop Privaatskool Home">
-                        <span style="color: var(--primary)">KPS</span>
-                    </a>
+                    <!-- TOP ROW (logo left, hamburger right on mobile) -->
+                    <div class="nav-actions">
+                        <!-- Replace logo image with jade "KPS" text link -->
+                        <a href="${base}index.html" class="brand-logo" aria-label="Gaan na tuisblad">
+                            <span class="brand-kps">KPS</span>
+                        </a>
+
+                        
+
+                        <i id="menu-icon" class="bx bx-menu" aria-label="Open menu" role="button" tabindex="0"></i>
+                    </div>
 
                     <ul id="menu" class="links-list">
                         <li><a href="${base}Nav/Akademie.html">Akademie</a></li>
@@ -19,25 +27,19 @@ class SpecialNavbar extends HTMLElement {
                         <li><a href="${base}Nav/SkooltarieweVorms.html">Doen Aansoek</a></li>
                     </ul>
 
-                    <div class="nav-actions">
+                    <a href="${base}index.html#contact-us" class="cta-button">Kontak Ons</a>
+
+                    <div class="nav-mobile-panel" aria-label="Mobile menu">
+                        <a class="mobile-link" href="${base}Nav/Akademie.html">Akademie</a>
+                        <a class="mobile-link" href="${base}Nav/GraadR.html">Graad R</a>
+                        <a class="mobile-link" href="${base}Nav/Sport-kultuur.html">Sport & Kultuur</a>
+                        <a class="mobile-link" href="${base}Nav/Personeel.html">Personeel</a>
+                        <a class="mobile-link" href="${base}Nav/Koshuis.html">Koshuis</a>
+                        <a class="mobile-link" href="${base}Nav/SkooltarieweVorms.html">Doen Aansoek</a>
                         <a href="${base}index.html#contact-us" class="cta-button">Kontak Ons</a>
-                        <i id="menu-icon" class="bx bx-menu" aria-label="Open menu" role="button" tabindex="0"></i>
                     </div>
                 </div>
             </nav>
-
-            <div id="mobile__menu" class="overlay">
-                <a href="#" class="close" aria-label="Close menu">&times;</a>
-                <div class="overlay__content">
-                    <a href="${base}Nav/Akademie.html">Akademie</a>
-                    <a href="${base}Nav/GraadR.html">Graad R</a>
-                    <a href="${base}Nav/Sport-kultuur.html">Sport & Kultuur</a>
-                    <a href="${base}Nav/Personeel.html">Personeel</a>
-                    <a href="${base}Nav/Koshuis.html">Koshuis</a>
-                    <a href="${base}Nav/SkooltarieweVorms.html">Doen Aansoek</a>
-                    <a href="${base}index.html#contact-us" class="cta-button mobile-cta">Kontak Ons</a>
-                </div>
-            </div>
         `;
     }
 }

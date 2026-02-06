@@ -1,23 +1,36 @@
 /* =========================================
-   VARIABLES & SETUP
+   1. VARIABLES & CONFIGURATION
    ========================================= */
 :root {
-    --primary: #00a86b; /* Jade */
-    --primary-light: #e6f7f0; /* Very light jade */
-    --secondary: #002552; /* Navy */
+    /* --- Color Palette --- */
+    /* Primary: Jade Green */
+    --primary: #00a86b;
+    --primary-light: #e6f7f0;
+    --primary-glow: #00a86b; /* Used for glowing effects */
+
+    /* Secondary: Deep Navy/Royal Blue */
+    --secondary: #0b1e3b;
+
+    /* Neutrals & Accents */
     --text-dark: #1a1a2e; /* Almost Black */
     --text-gray: #6b6b84; /* Soft Gray */
+    --text-muted: rgba(255, 255, 255, 0.8);
     --white: #ffffff;
     --bg-body: #f8f9fc; /* Clean Off-White */
     --accent-yellow: #fecb00; /* Highlights */
 
+    /* --- Dimensions & Radius --- */
     --radius-lg: 24px;
     --radius-sm: 12px;
 
+    /* --- Shadows --- */
     --shadow-soft: 0 10px 40px -10px rgba(0, 37, 82, 0.08);
     --shadow-hover: 0 20px 50px -10px rgba(0, 37, 82, 0.15);
 }
 
+/* =========================================
+   2. GLOBAL RESETS & TYPOGRAPHY
+   ========================================= */
 *,
 *::before,
 *::after {
@@ -51,7 +64,7 @@ a {
     transition: 0.3s ease;
 }
 
-/* Background Blob */
+/* Background Blob Utility */
 .blob-bg {
     position: absolute;
     top: -10%;
@@ -68,7 +81,56 @@ a {
 }
 
 /* =========================================
-   NAVIGATION (Fixed Capsule + Dynamic Theme)
+   3. ANIMATIONS (KEYFRAMES)
+   ========================================= */
+/* Entrance animation for text/images sliding up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse animation for the background glow */
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 168, 107, 0.1);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(0, 168, 107, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 168, 107, 0);
+    }
+}
+
+/* Loading Spinner */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Image float animation (referenced in media queries) */
+@keyframes floatImage {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* =========================================
+   4. NAVIGATION
    ========================================= */
 nav {
     position: fixed;
@@ -78,6 +140,8 @@ nav {
     z-index: 1000;
     padding: 0 20px;
     pointer-events: none;
+    overflow: hidden;
+    transition: height 0.35s ease;
 }
 
 .nav-container {
@@ -107,22 +171,12 @@ nav {
 
 .brand-logo {
     display: flex;
+    color: var(--primary) !important;
     align-items: center;
     gap: 12px;
     font-weight: 800;
     font-size: 1.3rem;
     color: inherit;
-}
-
-.logo-circle {
-    width: 45px;
-    height: 45px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
 }
 
 .nav-logo {
@@ -149,13 +203,7 @@ nav {
     opacity: 1;
 }
 
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Button Dynamic Styles */
+/* Nav Button Styles */
 .cta-button {
     padding: 10px 24px;
     border-radius: 50px;
@@ -165,7 +213,6 @@ nav {
     gap: 8px;
     font-size: 0.9rem;
     transition: 0.3s ease;
-
     /* Default (Light Nav): Button is Navy */
     background: var(--secondary);
     color: var(--white);
@@ -190,45 +237,149 @@ nav {
     cursor: pointer;
 }
 
-/* =========================================
-   ANIMATIONS & VARIABLES
-   ========================================= */
-:root {
-    /* UPDATED COLORS: Jade & Blue */
-    --primary: #00a86b; /* Jade Green */
-    --primary-glow: #00a86b; /* Color used for the glowing effect */
-    --secondary: #0b1e3b; /* Deep Royal/Navy Blue */
-    --white: #ffffff;
-    --text-muted: rgba(255, 255, 255, 0.8);
+/* Hidden mobile panel by default (Desktop) */
+.nav-mobile-panel {
+    display: none;
 }
 
-/* Entrance animation for text/images sliding up */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+/* =========================================
+   UNIFIED MOBILE/TABLET NAVIGATION (< 1024px)
+   ========================================= */
+@media (max-width: 1024px) {
+    .nav-actions {
+        width: 100%; /* This is the magic line */
+        display: flex;
+        justify-content: space-between; /* Pushes Logo Left, Icon Right */
+        align-items: center;
     }
-    to {
+
+    /* 2. Ensure siblings don't interfere */
+    .nav-container > .links-list,
+    .nav-container > .cta-button {
+        display: none;
+    }
+
+    /* 3. Reset the container so it doesn't force row behavior */
+    .nav-container {
+        display: flex;
+        flex-direction: column; /* Stack the header and the mobile menu */
+        align-items: flex-start; /* Important: Align wrapper to start */
+    }
+
+    /* 1. Hide Desktop Elements */
+    .links-list,
+    .nav-container > .cta-button {
+        display: none;
+    }
+
+    /* 2. Show Hamburger Icon */
+    #menu-icon {
+        display: block;
+    }
+
+    /* 5. Logic for Opening/Closing */
+    nav {
+        height: auto;
+        max-height: 80px; /* Collapsed height */
+        transition: max-height 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+        overflow: hidden;
+    }
+
+    nav.active {
+        max-height: 100vh; /* Expanded height */
+    }
+
+    /* When open, stack the "Top Bar" and the "Links" vertically */
+    nav.active .nav-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+        padding-bottom: 16px;
+    }
+
+    /* 6. Mobile Panel Animation */
+    .nav-mobile-panel {
+        display: block;
+        max-height: 0;
+        opacity: 0;
+        width: 100%; /* Ensure links take full width */
+        transform: translateY(-6px);
+        transition:
+            max-height 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+            opacity 0.25s ease,
+            transform 0.35s ease;
+        overflow: hidden;
+    }
+
+    nav.active .nav-mobile-panel {
+        max-height: 70vh;
         opacity: 1;
         transform: translateY(0);
+        margin-top: 20px; /* Spacing between header and links */
     }
-}
 
-/* Pulse animation for the background glow */
-@keyframes pulse-glow {
-    0% {
-        box-shadow: 0 0 0 0 rgba(0, 168, 107, 0.1);
+    /* 7. Link Styling */
+    .mobile-link {
+        display: block;
+        padding: 14px 0;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: inherit;
+        opacity: 0; /* Hidden initially for stagger effect */
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
-    70% {
-        box-shadow: 0 0 0 20px rgba(0, 168, 107, 0);
+
+    /* Show CTA inside the panel */
+    nav.active .nav-mobile-panel .cta-button {
+        display: inline-flex;
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+        opacity: 0;
     }
-    100% {
-        box-shadow: 0 0 0 0 rgba(0, 168, 107, 0);
+
+    /* Staggered Entrance Animations */
+    nav.active .nav-mobile-panel .mobile-link,
+    nav.active .nav-mobile-panel .cta-button {
+        animation: slideIn 0.4s forwards;
+    }
+
+    /* Create a helper keyframe for the stagger if not strictly using transitions */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .mobile-link:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    .mobile-link:nth-child(2) {
+        animation-delay: 0.15s;
+    }
+    .mobile-link:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+    .mobile-link:nth-child(4) {
+        animation-delay: 0.25s;
+    }
+    .mobile-link:nth-child(5) {
+        animation-delay: 0.3s;
+    }
+    .cta-button {
+        animation-delay: 0.4s;
     }
 }
 
 /* =========================================
-   HERO SECTION 
+   5. HERO SECTION
    ========================================= */
 .hero-section {
     max-width: 100%;
@@ -250,7 +401,7 @@ nav {
     );
     color: var(--white);
 
-    /* MAINTAINED: The circular clip */
+    /* The circular clip */
     clip-path: ellipse(150% 100% at 50% 0%);
 
     position: relative;
@@ -276,7 +427,6 @@ nav {
 
 .hero-text {
     z-index: 2;
-    /* Animation Entry */
     animation: fadeInUp 1s ease-out forwards;
 }
 
@@ -299,7 +449,6 @@ nav {
     color: var(--text-muted);
     margin-bottom: 40px;
     line-height: 1.7;
-    /* Jade border accent */
     border-left: 3px solid var(--primary);
     padding-left: 20px;
     max-width: 90%;
@@ -308,15 +457,12 @@ nav {
 .hero-verse strong {
     display: block;
     margin-top: 10px;
-    color: var(--primary); /* Jade color for the bible reference */
+    color: var(--primary);
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* =========================================
-   BUTTONS
-   ========================================= */
 .hero-btns {
     display: flex;
     gap: 20px;
@@ -367,9 +513,7 @@ nav {
     transform: translateY(-5px);
 }
 
-/* =========================================
-   IMAGE AREA 
-   ========================================= */
+/* Hero Images */
 .hero-image-wrapper {
     position: relative;
     width: 100%;
@@ -406,35 +550,8 @@ nav {
     animation: pulse-glow 3s infinite;
 }
 
-/* Responsive */
-@media (max-width: 968px) {
-    .hero-section {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding-top: 120px;
-        clip-path: ellipse(180% 100% at 50% 0%);
-    }
-
-    .hero-verse {
-        margin: 0 auto 40px auto;
-        border-left: none;
-        border-top: 3px solid var(--primary);
-        padding-left: 0;
-        padding-top: 20px;
-    }
-
-    .hero-btns {
-        justify-content: center;
-    }
-
-    .hero-image-wrapper {
-        order: -1;
-        margin-bottom: 30px;
-    }
-}
-
 /* =========================================
-   FEATURES STRIP
+   6. FEATURES SECTION
    ========================================= */
 .features-section {
     max-width: 1300px;
@@ -511,7 +628,7 @@ nav {
 }
 
 /* =========================================
-   INFO SECTION
+   7. INFO & CONTENT SECTION
    ========================================= */
 .info-section {
     max-width: 1300px;
@@ -621,7 +738,7 @@ nav {
 }
 
 /* =========================================
-   QUOTES SECTION
+   8. QUOTES & REVIEWS SECTION
    ========================================= */
 .quotes-section-dark {
     background-color: var(--secondary);
@@ -697,7 +814,7 @@ nav {
 }
 
 /* =========================================
-   CONTACT SECTION (Light Layout)
+   9. CONTACT SECTION
    ========================================= */
 .contact-split-section {
     background-color: var(--white);
@@ -771,6 +888,9 @@ nav {
     justify-content: center;
 }
 
+/* =========================================
+   10. FORMS & INPUTS
+   ========================================= */
 .input-row {
     margin-bottom: 20px;
 }
@@ -821,9 +941,7 @@ button:hover {
     box-shadow: 0 10px 20px -10px rgba(0, 37, 82, 0.3);
 }
 
-/* ==============================
-   Form Textareas (global)
-   ============================== */
+/* Form Textareas (Global) */
 textarea {
     width: 100%;
     box-sizing: border-box;
@@ -847,7 +965,7 @@ textarea::placeholder {
 }
 
 textarea:focus {
-    border-color: rgba(0, 87, 183, 0.45); /* tweak to match your brand */
+    border-color: rgba(0, 87, 183, 0.45);
     box-shadow: 0 0 0 4px rgba(0, 87, 183, 0.12);
 }
 
@@ -857,14 +975,13 @@ textarea:disabled {
     cursor: not-allowed;
 }
 
-/* Match your existing validation state */
 textarea.input-error {
     border-color: #dc2626;
     box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
 }
 
 /* =========================================
-   FOOTER (Updated)
+   11. FOOTER SECTION
    ========================================= */
 footer {
     position: relative;
@@ -882,15 +999,13 @@ footer {
 }
 
 /* 1. THE NAVY WAVE (Top Visible Layer) */
-/* We move the original gradient and clip-path here */
 footer::before {
     content: "";
     position: absolute;
-    inset: 0; /* Fills the whole footer area */
+    inset: 0;
     background: radial-gradient(circle at 70% 50%, #1e293b, var(--secondary));
-    z-index: 1; /* Sits on top of the Jade wave */
+    z-index: 1;
 
-    /* YOUR ORIGINAL NAVY PATH */
     clip-path: polygon(
         100% 100%,
         0% 100%,
@@ -949,15 +1064,13 @@ footer::before {
 }
 
 /* 2. THE JADE WAVE (Bottom Layer - Peeking out) */
-/* We move the new path here */
 footer::after {
     content: "";
     position: absolute;
-    inset: 0; /* Fills the whole footer area */
+    inset: 0;
     background: radial-gradient(circle at 70% 50%, #00a86b, var(--primary));
-    z-index: 0; /* Sits behind the Navy wave */
+    z-index: 0;
 
-    /* YOUR NEW JADE PATH */
     clip-path: polygon(
         100% 100%,
         0% 100%,
@@ -1016,12 +1129,10 @@ footer::after {
 }
 
 /* 3. FOOTER CONTENT (Text) */
-/* We must ensure this sits on top of the background layers */
 .footer-content {
     position: relative;
     z-index: 2; /* Highest priority */
 
-    /* (Keep your existing grid styles below) */
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     column-gap: 180px;
@@ -1086,8 +1197,42 @@ footer::after {
 }
 
 /* =========================================
-   MEDIA QUERIES
+   12. PRELOADER & UTILITIES
    ========================================= */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: transform 1s ease;
+}
+#preloader.slide-up {
+    transform: translateY(-100%);
+}
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 5px solid white;
+    border-bottom-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Overlay is no longer used */
+.overlay {
+    display: none !important;
+}
+
+/* =========================================
+   13. GENERAL MEDIA QUERIES
+   ========================================= */
+/* Tablet / Smaller Desktop */
 @media (max-width: 1024px) {
     .nav-container {
         border-radius: 20px;
@@ -1110,23 +1255,24 @@ footer::after {
         justify-content: center;
     }
 
-    /* Reset image position for tablet/mobile so it's not cut off */
-    .hero-visual {
-        justify-content: center;
+    .hero-verse {
+        margin: 0 auto 40px auto;
+        border-left: none;
+        border-top: 3px solid var(--primary);
+        padding-left: 0;
+        padding-top: 20px;
     }
+
     .hero-image-wrapper {
+        order: -1;
+        margin-bottom: 30px;
         transform: translateX(0);
         max-width: 400px;
     }
-    /* Reset animation */
-    @keyframes floatImage {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-15px);
-        }
+
+    /* Reset image position for tablet/mobile so it's not cut off */
+    .hero-visual {
+        justify-content: center;
     }
 
     .contact-container {
@@ -1160,6 +1306,7 @@ footer::after {
     }
 }
 
+/* Mobile Screens */
 @media (max-width: 600px) {
     .nav-container {
         width: 95%;
@@ -1177,71 +1324,4 @@ footer::after {
     .form-header h2 {
         font-size: 2rem;
     }
-}
-
-/* =========================================
-   PRELOADER & OVERLAY
-   ========================================= */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--secondary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: transform 1s ease;
-}
-#preloader.slide-up {
-    transform: translateY(-100%);
-}
-.loader {
-    width: 60px;
-    height: 60px;
-    border: 5px solid white;
-    border-bottom-color: var(--primary);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-.overlay {
-    height: 0;
-    width: 100%;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    background-color: var(--secondary);
-    overflow-x: hidden;
-    transition: 0.5s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.overlay__content {
-    position: relative;
-    width: 100%;
-    text-align: center;
-}
-.overlay a {
-    padding: 20px;
-    font-size: 24px;
-    color: white;
-    display: block;
-}
-.overlay .close {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
 }
