@@ -18,7 +18,7 @@ body {
 
 h1.section-title {
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
     margin: 80px 0 40px 0;
     color: var(--secondary);
     font-weight: 700;
@@ -293,25 +293,76 @@ h2.section-subtitle {
     }
     .hero-container {
         grid-template-columns: 1fr;
-        text-align: center;
-        padding-top: 40px;
+        justify-items: center; /* centers both text + visual column */
+        gap: 28px;
     }
 
+    /* Center hero text content on small screens */
     .hero-content {
-        padding: 30px 20px;
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .glass-badge {
+        display: inline-block; /* ensures it centers nicely with text-align */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 60ch; /* readable line length */
+    }
+
+    .btn-glow {
+        margin-left: auto;
+        margin-right: auto; /* centers the button */
+    }
+
+    /* Force the visual block into normal flow and centered */
+    .hero-visual {
+        position: relative; /* NOT absolute */
+        justify-self: center; /* override justify-self:end from desktop */
+        align-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 10px;
+        order: -1; /* crest above text */
+    }
+
+    /* Center the crest itself */
+    .floating-crest {
+        display: block;
+        margin: 0 auto;
+        max-width: min(220px, 70vw);
+        width: 100%;
+        height: auto;
+    }
+
+    /* Keep the glow centered behind the crest */
+    .glow-effect {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Extra safety for very small phones */
+@media (max-width: 480px) {
+    .hero-modern {
+        padding: 110px 16px 90px;
     }
 
     .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-visual {
-        order: -1; /* Puts image on top on mobile */
-        margin-bottom: 20px;
+        font-size: 2.2rem;
     }
 
     .floating-crest {
-        max-width: 200px;
+        max-width: min(190px, 70vw);
     }
 }
 
@@ -324,6 +375,7 @@ h2.section-subtitle {
     display: flex;
     flex-direction: column;
     gap: 15px; /* Spacing between items */
+    padding: 0 20px;
 }
 
 .accordion-item {
@@ -515,7 +567,7 @@ h2.section-subtitle {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .accordion-item-header {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     .gallery-container {
         grid-template-columns: 1fr; /* Stack images on mobile */
@@ -1062,6 +1114,7 @@ h2.section-subtitle {
 
     /* Slightly slower transition for "liquid" lag effect */
     transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: none;
 }
 
 /* --- Theme Colors (Gradients) --- */
@@ -1150,7 +1203,7 @@ h2.section-subtitle {
 }
 
 .group-indicator h2 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: var(--secondary);
     margin: 0 0 10px 0;
     font-weight: 700;
@@ -1228,4 +1281,10 @@ h2.section-subtitle {
 .nav-btn:active {
     transform: translateY(0) scale(0.95); /* Press effect */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 900px) {
+    .subject-list {
+        grid-template-columns: 1fr; /* collapse from 2 columns to 1 */
+    }
 }

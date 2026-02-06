@@ -203,7 +203,7 @@ h1 {
 
 .list {
     padding: 0.25rem 0;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #333;
 }
 
@@ -1111,4 +1111,28 @@ ol.document-list strong {
 .uniform-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* ...existing code... */
+
+/* =========================================
+   RESPONSIVE BUTTONS (Next/Prev/Submit)
+   ========================================= */
+
+/* Tablet + smaller: let buttons wrap nicely */
+@media (max-width: 768px) {
+    .field-btns {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    /* Make each button full-width on small screens */
+    .field-btns button,
+    .btn-prev,
+    .btn-next,
+    .btn-submit {
+        width: 45%;
+        padding: 10px;
+    }
 }

@@ -148,22 +148,29 @@
 }
 
 /* =========================================
-   RESPONSIVE DESIGN (MOBILE)
+   RESPONSIVE DESIGN (MOBILE & TABLET)
    ========================================= */
 @media screen and (max-width: 768px) {
-    /* Move line to the left */
+    /* 1. Move the vertical line closer to the left edge */
     .timeline-container::after {
-        left: 31px;
+        left: 20px; /* Was 31px */
     }
 
-    /* Make items full width */
+    /* 2. Give the card more width by reducing left padding */
     .timeline-item {
         width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
+        padding-left: 50px; /* Reduced from 70px to give image more space */
+        padding-right: 10px; /* Reduced right padding */
+        margin-bottom: 30px;
     }
 
-    /* Reset positioning for Right items to behave like Left items */
+    /* 3. FIX FOR SQUISHED IMAGES */
+    .timeline-image {
+        /* Reduce height on mobile so it maintains a nice landscape ratio */
+        height: 200px;
+    }
+
+    /* Reset positioning for Right items */
     .timeline-item.right {
         left: 0;
     }
@@ -174,14 +181,14 @@
         text-align: left;
     }
 
-    /* Move dots to the left line */
+    /* 4. Re-align the Dots to the new line position */
     .timeline-dot,
     .timeline-item.right .timeline-dot {
-        left: 19px; /* Centers on the line at 31px */
+        left: 8px; /* (Line Left 20px) - (Dot Center 12px) = 8px */
         right: auto;
     }
 
-    /* Move Date above the card or next to dot */
+    /* 5. Date Styling adjustments */
     .timeline-date {
         position: relative;
         top: -5px;
@@ -190,14 +197,15 @@
         margin-bottom: 5px;
         display: block;
         text-align: left !important;
+        font-size: 1rem;
     }
 
-    /* Adjust Triangles to always point left */
+    /* 6. Fix the "Speech Bubble" triangle (Optional: or hide it) */
     .timeline-item.left .timeline-content::after,
     .timeline-item.right .timeline-content::after {
         right: auto;
         left: -10px;
         border-width: 10px 10px 10px 0;
-        border-color: transparent var(--secondary) transparent transparent;
+        border-color: transparent #1a283b transparent transparent; /* Match card bg */
     }
 }
