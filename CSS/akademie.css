@@ -242,7 +242,7 @@ h2.section-subtitle {
     max-width: 80%;
     height: auto;
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
-    animation: float 6s ease-in-out infinite;
+    animation: none !important;
 
     /* Prevent the crest from shrinking weirdly */
     display: block;
