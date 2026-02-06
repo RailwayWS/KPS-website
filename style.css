@@ -140,7 +140,7 @@ nav {
     z-index: 1000;
     padding: 0 20px;
     pointer-events: none;
-    overflow: hidden;
+
     transition: height 0.35s ease;
 }
 
@@ -152,7 +152,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 50px;
     pointer-events: auto;
     transition: all 0.4s ease;
 
@@ -466,8 +466,6 @@ nav {
 .hero-btns {
     display: flex;
     gap: 20px;
-    animation: fadeInUp 1s ease-out 0.3s forwards;
-    opacity: 0;
 }
 
 .btn-primary {
@@ -1303,6 +1301,10 @@ footer::after {
 
     button {
         width: 100%; /* Full width buttons on mobile are easier to tap */
+    }
+
+    .nav-container {
+        border-radius: 20px;
     }
 
     /* Hide both link columns + footer-bottom text; keep brand + socials */
